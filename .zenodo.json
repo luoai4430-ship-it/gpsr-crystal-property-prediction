@@ -1,0 +1,11 @@
+{
+  "title": "GPSR: code and compact replication evidence",
+  "upload_type": "software",
+  "description": "Code and audited summaries for bounded semantic residual learning in crystal property prediction.",
+  "creators": [
+    {"name": "Zang, Huaijuan"},
+    {"name": "Peng, Yunfan"}
+  ],
+  "license": "Apache-2.0",
+  "keywords": ["crystal property prediction", "graph neural network", "MatBERT", "bounded residual learning"]
+}

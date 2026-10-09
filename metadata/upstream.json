@@ -1,0 +1,14 @@
+{
+  "sftgnn_commit": "4b5ac55c4f4e9ec88f1854e93fc4db4b2147178d",
+  "cartnet_commit": "1c794049db48badfe71f7030b58ea50665ba9fd5",
+  "matbert_checkpoint_name": "matbert-base-cased",
+  "release_date": "2026-10-09",
+  "excluded": [
+    "raw datasets",
+    "processed graph caches",
+    "language-model weights",
+    "training checkpoints",
+    "third-party source trees",
+    "regenerable runtime logs"
+  ]
+}

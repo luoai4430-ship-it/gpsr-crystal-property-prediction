@@ -1,0 +1,17 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "GPSR",
+  "version": "1.0.0",
+  "dateCreated": "2026-10-09",
+  "description": "Graph-preserving bounded semantic residual learning for crystal property prediction.",
+  "codeRepository": "https://github.com/luoai4430-ship-it/gpsr-crystal-property-prediction",
+  "license": "https://spdx.org/licenses/Apache-2.0",
+  "programmingLanguage": "Python",
+  "runtimePlatform": "Python 3.10, PyTorch 2.2.2, CUDA 12.1",
+  "author": [
+    {"@type": "Person", "givenName": "Huaijuan", "familyName": "Zang"},
+    {"@type": "Person", "givenName": "Yunfan", "familyName": "Peng"}
+  ],
+  "keywords": ["materials informatics", "crystal graph neural network", "MatBERT", "bounded residual learning"]
+}

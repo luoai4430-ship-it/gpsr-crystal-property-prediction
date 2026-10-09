@@ -1,0 +1,131 @@
+{
+  "official_alignn_commit": "f2366daa3413d28a825b46e34d001b5549b05a40",
+  "alignn_layers": 4,
+  "gcn_layers": 4,
+  "hidden_features": 256,
+  "neighbor_strategy": "k-nearest",
+  "cutoff_angstrom": 8.0,
+  "max_neighbors": 12,
+  "atom_features": "cgcnn",
+  "edge_features": "RBF distance, 80 bins",
+  "angle_features": "bond-angle cosine RBF, 40 bins",
+  "pooling": "global average",
+  "injection_after_alignn_block": 1,
+  "projector": "Linear(768,256)-GELU-Linear(256,256)",
+  "node_gate": "Linear(512,256)-GELU-Linear(256,256)-Sigmoid",
+  "alpha_initial_mean": 0.0010000000474974513,
+  "tau": 0.1,
+  "graph_recovery_max_abs_error": 0.0,
+  "seed": 42,
+  "split_seed": 123,
+  "batch_size": 32,
+  "epochs": 60,
+  "optimizer": "AdamW(lr=1e-3, weight_decay=1e-4)",
+  "scheduler": "OneCycleLR(max_lr=1e-3,pct_start=0.3)",
+  "checkpoint_rule": "lowest validation MAE",
+  "tasks": [
+    {
+      "task": "Jarvis-Bandgap_MBJ",
+      "total": 18172,
+      "split_sizes": [
+        14537,
+        1817,
+        1818
+      ],
+      "text_dim": 768,
+      "nonzero_text": 18172,
+      "train_id_exact_match": true,
+      "train_first_id": "JVASP-11762",
+      "train_last_id": "JVASP-12820",
+      "valid_id_exact_match": true,
+      "valid_first_id": "JVASP-17413",
+      "valid_last_id": "JVASP-65785",
+      "test_id_exact_match": true,
+      "test_first_id": "JVASP-10869",
+      "test_last_id": "JVASP-65765"
+    },
+    {
+      "task": "Jarvis-FormationEnergy",
+      "total": 55723,
+      "split_sizes": [
+        44578,
+        5572,
+        5573
+      ],
+      "text_dim": 768,
+      "nonzero_text": 55723,
+      "train_id_exact_match": true,
+      "train_first_id": "JVASP-21450",
+      "train_last_id": "JVASP-28366",
+      "valid_id_exact_match": true,
+      "valid_first_id": "JVASP-1375",
+      "valid_last_id": "JVASP-71297",
+      "test_id_exact_match": true,
+      "test_first_id": "JVASP-5650",
+      "test_last_id": "JVASP-90134"
+    },
+    {
+      "task": "Jarvis-BulkModulusKv",
+      "total": 19680,
+      "split_sizes": [
+        15744,
+        1968,
+        1968
+      ],
+      "text_dim": 768,
+      "nonzero_text": 19680,
+      "train_id_exact_match": true,
+      "train_first_id": "JVASP-25633",
+      "train_last_id": "JVASP-85998",
+      "valid_id_exact_match": true,
+      "valid_first_id": "JVASP-38419",
+      "valid_last_id": "JVASP-3249",
+      "test_id_exact_match": true,
+      "test_first_id": "JVASP-93829",
+      "test_last_id": "JVASP-14964"
+    },
+    {
+      "task": "MP-Bandgap",
+      "total": 65516,
+      "split_sizes": [
+        60000,
+        5000,
+        516
+      ],
+      "text_dim": 768,
+      "nonzero_text": 65516,
+      "train_id_exact_match": true,
+      "train_first_id": "17972",
+      "train_last_id": "25868",
+      "valid_id_exact_match": true,
+      "valid_first_id": "69133",
+      "valid_last_id": "64182",
+      "test_id_exact_match": true,
+      "test_first_id": "50999",
+      "test_last_id": "3608"
+    },
+    {
+      "task": "MP-FormationEnergy",
+      "total": 65516,
+      "split_sizes": [
+        60000,
+        5000,
+        516
+      ],
+      "text_dim": 768,
+      "nonzero_text": 65516,
+      "train_id_exact_match": true,
+      "train_first_id": "17972",
+      "train_last_id": "25868",
+      "valid_id_exact_match": true,
+      "valid_first_id": "69133",
+      "valid_last_id": "64182",
+      "test_id_exact_match": true,
+      "test_first_id": "50999",
+      "test_last_id": "3608"
+    }
+  ],
+  "all_required_split_checks_pass": true,
+  "all_text_complete": true,
+  "pass": true
+}

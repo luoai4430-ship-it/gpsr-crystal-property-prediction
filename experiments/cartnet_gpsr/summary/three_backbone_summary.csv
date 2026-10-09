@@ -1,0 +1,4 @@
+backbone,macro_gnmae,mean_gain_percent,improved_evaluations
+SFTGNN,0.9664,3.36,28/30
+ALIGNN,0.9703,2.97,26/30
+CartNet,1.005040655971947,-0.5040655971946917,6/10

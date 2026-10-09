@@ -1,0 +1,181 @@
+{
+  "official_repo": "https://github.com/imatge-upc/CartNet",
+  "official_commit": "1c794049db48badfe71f7030b58ea50665ba9fd5",
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "torch": "2.2.2+cu121",
+  "torch_geometric": "2.5.2",
+  "cuda": "12.1",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "official_config": {
+    "cutoff": 5.0,
+    "neighbors": "all within radius",
+    "hidden_dim": 256,
+    "interaction_layers": 4,
+    "optimizer": "Adam",
+    "lr": 0.001,
+    "scheduler": "OneCycleLR",
+    "epochs": 500,
+    "batch_size": 64,
+    "checkpoint": "minimum validation MAE; test once"
+  },
+  "gpsr": {
+    "injection_module": "CartNet.layers[0] output",
+    "text_dim": 768,
+    "projector": "Linear-GELU-Linear",
+    "node_gate": "Linear-GELU-Linear-Sigmoid",
+    "alpha_init": 0.001,
+    "tau": 0.1
+  },
+  "tasks": {
+    "Jarvis-Bandgap_MBJ": {
+      "total": 18172,
+      "split_sizes": [
+        14537,
+        1817,
+        1818
+      ],
+      "disjoint": true,
+      "group": "j_mbj",
+      "first_ids": [
+        "JVASP-11762",
+        "JVASP-17413",
+        "JVASP-10869"
+      ]
+    },
+    "Jarvis-Bandgap_OPT": {
+      "total": 55723,
+      "split_sizes": [
+        44578,
+        5572,
+        5573
+      ],
+      "disjoint": true,
+      "group": "j_energy",
+      "first_ids": [
+        "JVASP-21450",
+        "JVASP-1375",
+        "JVASP-5650"
+      ]
+    },
+    "Jarvis-FormationEnergy": {
+      "total": 55723,
+      "split_sizes": [
+        44578,
+        5572,
+        5573
+      ],
+      "disjoint": true,
+      "group": "j_energy",
+      "first_ids": [
+        "JVASP-21450",
+        "JVASP-1375",
+        "JVASP-5650"
+      ]
+    },
+    "Jarvis-TotalEnergy": {
+      "total": 55723,
+      "split_sizes": [
+        44578,
+        5572,
+        5573
+      ],
+      "disjoint": true,
+      "group": "j_energy",
+      "first_ids": [
+        "JVASP-21450",
+        "JVASP-1375",
+        "JVASP-5650"
+      ]
+    },
+    "Jarvis-BulkModulusKv": {
+      "total": 19680,
+      "split_sizes": [
+        15744,
+        1968,
+        1968
+      ],
+      "disjoint": true,
+      "group": "j_mech",
+      "first_ids": [
+        "JVASP-25633",
+        "JVASP-38419",
+        "JVASP-93829"
+      ]
+    },
+    "Jarvis-ShearModulusGv": {
+      "total": 19680,
+      "split_sizes": [
+        15744,
+        1968,
+        1968
+      ],
+      "disjoint": true,
+      "group": "j_mech",
+      "first_ids": [
+        "JVASP-25633",
+        "JVASP-38419",
+        "JVASP-93829"
+      ]
+    },
+    "MP-Bandgap": {
+      "total": 65516,
+      "split_sizes": [
+        60000,
+        5000,
+        516
+      ],
+      "disjoint": true,
+      "group": "mp_large",
+      "first_ids": [
+        "17972",
+        "69133",
+        "50999"
+      ]
+    },
+    "MP-FormationEnergy": {
+      "total": 65516,
+      "split_sizes": [
+        60000,
+        5000,
+        516
+      ],
+      "disjoint": true,
+      "group": "mp_large",
+      "first_ids": [
+        "17972",
+        "69133",
+        "50999"
+      ]
+    },
+    "MP-BulkModuli": {
+      "total": 5830,
+      "split_sizes": [
+        4664,
+        583,
+        583
+      ],
+      "disjoint": true,
+      "group": "mp_mech",
+      "first_ids": [
+        "mp-elastic-000498",
+        "mp-elastic-000844",
+        "mp-elastic-005088"
+      ]
+    },
+    "MP-ShearModuli": {
+      "total": 5830,
+      "split_sizes": [
+        4664,
+        583,
+        583
+      ],
+      "disjoint": true,
+      "group": "mp_mech",
+      "first_ids": [
+        "mp-elastic-000498",
+        "mp-elastic-000844",
+        "mp-elastic-005088"
+      ]
+    }
+  }
+}

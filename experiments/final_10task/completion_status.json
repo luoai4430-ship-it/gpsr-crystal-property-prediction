@@ -1,0 +1,24 @@
+{
+  "status": "COMPLETE",
+  "stage": "complete",
+  "completed_at": "2026-09-22T09:34:58.382830",
+  "verdict": {
+    "verdict": "STRONG_FINAL_MODEL",
+    "text_audit_passed": true,
+    "seed42_improved_tasks": 10,
+    "seed42_macro_normalized_mae": 0.9568534715163338,
+    "multiseed_completed": true,
+    "multiseed_num_seeds": 3,
+    "multiseed_macro_mean": 0.9663723472191945,
+    "multiseed_macro_std": 0.009000367058586008,
+    "tasks_with_majority_seeds_improved": 10,
+    "majority_seed_threshold": 2,
+    "canceled_seeds": [
+      2025,
+      2026
+    ],
+    "mp_correct_text_better_than_shuffled_both": true,
+    "hard_bound_all_tasks_pass": true
+  },
+  "multiseed_macro_std": 0.009000367058586008
+}

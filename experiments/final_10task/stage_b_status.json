@@ -1,0 +1,24 @@
+{
+  "stage_b_complete": true,
+  "final_improved_tasks": 10,
+  "final_macro_normalized_mae": 0.9568534715163338,
+  "success_threshold_met": true,
+  "launch_multiseed": true,
+  "hard_bound_all_tasks_pass": true,
+  "correct_vs_shuffled": [
+    {
+      "task": "MP-Bandgap",
+      "correct_text_mae": 0.1926236513049103,
+      "shuffled_text_mae": 0.2095633320106092,
+      "correct_gain_pct": 8.083322851939252,
+      "correct_better": true
+    },
+    {
+      "task": "MP-FormationEnergy",
+      "correct_text_mae": 0.0255260688158892,
+      "shuffled_text_mae": 0.0276190387879231,
+      "correct_gain_pct": 7.577997149376134,
+      "correct_better": true
+    }
+  ]
+}

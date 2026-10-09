@@ -1,0 +1,7 @@
+{
+  "verdict": "CONTROL_ADVANTAGE_SUPPORTED",
+  "thresholds": {
+    "competitive_gnmae_margin": 0.02,
+    "material_rho_reduction": 0.2
+  }
+}

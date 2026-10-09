@@ -1,0 +1,47 @@
+# Python and test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.cache/
+
+# Environments and editors
+.env
+.venv/
+venv/
+.idea/
+.vscode/
+
+# Data, model weights, and generated caches
+Dataset/
+dataset/
+parameter/
+checkpoints/
+processed/
+cache/
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+
+# Archives and runtime logs
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.log
+*.exit
+queue_status.json
+pipeline_stdout.log
+
+# Local run products
+Pic-log/
+runs/
+outputs/
+wandb/
+tensorboard/
+
+# Operating-system files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,5 @@
+model,macro_normalized_mae,avg_gain_pct,improved_vs_graph
+Graph,1.0,0.0,0
+TextResidual,0.9734911918731326,2.65088081268674,8
+Early NodeGate,0.9605374901896827,3.946250981031729,9
+Final Hard-0.10,0.9568534715163338,4.314652848366618,10
