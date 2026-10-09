@@ -1,0 +1,95 @@
+{
+  "complete": true,
+  "status": "PASS",
+  "fixed_required_results": 28,
+  "audited_results": 28,
+  "group_seed_summaries": [
+    {
+      "group_type": "reduced_composition",
+      "seed": 42,
+      "required_tasks": 6,
+      "reported_tasks": 6,
+      "eligible_tasks": 6,
+      "ineligible_tasks": 0,
+      "tasks_correct_better_than_conditional": 6,
+      "tasks_correct_not_better_than_conditional": 0,
+      "mean_task_advantage_pct": 9.300260493510502,
+      "weak_coverage_tasks": 1,
+      "note": "mean of task-specific normalized effects; no physical-unit MAE pooling"
+    },
+    {
+      "group_type": "reduced_composition",
+      "seed": 7,
+      "required_tasks": 4,
+      "reported_tasks": 4,
+      "eligible_tasks": 4,
+      "ineligible_tasks": 0,
+      "tasks_correct_better_than_conditional": 3,
+      "tasks_correct_not_better_than_conditional": 1,
+      "mean_task_advantage_pct": 2.099359880381468,
+      "weak_coverage_tasks": 1,
+      "note": "mean of task-specific normalized effects; no physical-unit MAE pooling"
+    },
+    {
+      "group_type": "reduced_composition",
+      "seed": 1234,
+      "required_tasks": 4,
+      "reported_tasks": 4,
+      "eligible_tasks": 4,
+      "ineligible_tasks": 0,
+      "tasks_correct_better_than_conditional": 3,
+      "tasks_correct_not_better_than_conditional": 1,
+      "mean_task_advantage_pct": 3.754205380032724,
+      "weak_coverage_tasks": 1,
+      "note": "mean of task-specific normalized effects; no physical-unit MAE pooling"
+    },
+    {
+      "group_type": "element_set",
+      "seed": 42,
+      "required_tasks": 6,
+      "reported_tasks": 6,
+      "eligible_tasks": 6,
+      "ineligible_tasks": 0,
+      "tasks_correct_better_than_conditional": 6,
+      "tasks_correct_not_better_than_conditional": 0,
+      "mean_task_advantage_pct": 11.148472249031457,
+      "weak_coverage_tasks": 0,
+      "note": "mean of task-specific normalized effects; no physical-unit MAE pooling"
+    },
+    {
+      "group_type": "element_set",
+      "seed": 7,
+      "required_tasks": 4,
+      "reported_tasks": 4,
+      "eligible_tasks": 4,
+      "ineligible_tasks": 0,
+      "tasks_correct_better_than_conditional": 4,
+      "tasks_correct_not_better_than_conditional": 0,
+      "mean_task_advantage_pct": 4.772904894202323,
+      "weak_coverage_tasks": 0,
+      "note": "mean of task-specific normalized effects; no physical-unit MAE pooling"
+    },
+    {
+      "group_type": "element_set",
+      "seed": 1234,
+      "required_tasks": 4,
+      "reported_tasks": 4,
+      "eligible_tasks": 4,
+      "ineligible_tasks": 0,
+      "tasks_correct_better_than_conditional": 3,
+      "tasks_correct_not_better_than_conditional": 1,
+      "mean_task_advantage_pct": 5.787404941077909,
+      "weak_coverage_tasks": 0,
+      "note": "mean of task-specific normalized effects; no physical-unit MAE pooling"
+    }
+  ],
+  "interpretation": "exploratory within-checkpoint structural correspondence sensitivity on group-eligible subsets",
+  "no_causal_composition_percentage_decomposition": true,
+  "no_physical_mae_pooling": true,
+  "bootstrap": {
+    "draws": 2000,
+    "unit": "paired crystal",
+    "assignment_errors_averaged_first": true,
+    "composition_cluster_dependence_accounted_for": false
+  }
+}

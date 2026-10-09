@@ -1,0 +1,57 @@
+{
+  "analysis": "Exploratory archived-output correction decomposition",
+  "backbone": "SFTGNN",
+  "model_inference": false,
+  "training": false,
+  "num_runs": 14,
+  "num_tasks_seed42": 6,
+  "permutations_per_run": 20,
+  "analysis_script_sha256": "9a5f4055b4b5c2aa9355600988f135ca9a6a72ae2069fed0b7098bdbb8c9441e",
+  "runtime": {
+    "python": "3.13.9",
+    "numpy": "2.4.3",
+    "pandas": "2.3.3"
+  },
+  "bootstrap": {
+    "replicates": 2000,
+    "base_seed": 20261009,
+    "unit": "test crystal",
+    "type": "paired percentile descriptive interval",
+    "permutations": "all 20 retained and averaged within each crystal",
+    "scope": "conditional on stored checkpoints, test samples, and 20 stored permutations"
+  },
+  "correct_vs_off_benefit_fraction_range": [
+    0.5253025302530253,
+    0.6411268616544051
+  ],
+  "correct_vs_mean_shuffled_benefit_fraction_range": [
+    0.5885588558855885,
+    0.7787307032590052
+  ],
+  "correct_direction_fraction_range": [
+    0.5836083608360836,
+    0.725557461406518
+  ],
+  "correct_aligned_overshoot_fraction_range": [
+    0.058305830583058306,
+    0.09262435677530018
+  ],
+  "correct_reverse_fraction_range": [
+    0.274442538593482,
+    0.4163916391639164
+  ],
+  "correct_reverse_share_of_harmful_mae_loss_range": [
+    0.6913532383810277,
+    0.8988807862836429
+  ],
+  "runs_direction_fraction_greater_than_shuffled": 14,
+  "runs_direction_difference_ci95_above_zero": 14,
+  "runs_pairing_mae_advantage_ci95_above_zero": 14,
+  "seed42_macro_pairing_advantage_pct": 21.532316345442112,
+  "notes": [
+    "The output correction is y_ON-y_OFF, not the hidden GPSR residual tensor.",
+    "Bootstrap intervals are descriptive; crystals need not be independent if composition/structure groups overlap.",
+    "Training seeds use the fixed split and do not represent independent test sets.",
+    "No test-informed checkpoint selection, tuning, or paper changes."
+  ]
+}

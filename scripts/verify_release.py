@@ -44,6 +44,15 @@ def verify_required_files() -> None:
         "experiments/final_confirmatory/semantic_intervention/macro_summary.csv",
         "experiments/semantic_pairing_permutation/task_summary.csv",
         "experiments/semantic_pairing_permutation/validation.json",
+        "experiments/semantic_pairing_permutation/output_correction_analysis/report.md",
+        "experiments/semantic_pairing_permutation/output_correction_analysis/run_summary.csv",
+        "experiments/semantic_pairing_permutation/output_correction_analysis/aggregate.json",
+        "experiments/composition_pairing_control/preflight.json",
+        "experiments/composition_pairing_control/group_coverage.csv",
+        "experiments/composition_pairing_control/task_summary.csv",
+        "experiments/composition_pairing_control/aggregate.json",
+        "experiments/composition_pairing_control/validation.json",
+        "experiments/composition_pairing_control/report.md",
     ]
     missing = [name for name in required if not (ROOT / name).is_file()]
     if missing:
@@ -59,6 +68,8 @@ def verify_results() -> None:
     module.audit_sft(False)
     module.audit_alignn(False)
     module.audit_semantic_pairing()
+    module.audit_output_correction()
+    module.audit_composition_pairing()
 
 
 def main() -> None:

@@ -1,0 +1,38 @@
+{
+  "task": "Jarvis-FormationEnergy",
+  "seed": 42,
+  "group_type": "element_set",
+  "status": "complete",
+  "num_samples": 5573,
+  "num_eligible": 1713,
+  "coverage_fraction": 0.307374842993002,
+  "num_permutations": 20,
+  "num_distinct_assignments": 20,
+  "correct_mae": 0.034089492954709553,
+  "off_mae": 0.03948280991202408,
+  "conditional_mean_mae": 0.03681082472822782,
+  "conditional_mae_sd_over_assignments": 0.0001651968659292496,
+  "context_global_whole_test_donor_mean_mae": 0.042084447216618776,
+  "correct_advantage_pct_vs_conditional": 7.392748718915421,
+  "correct_advantage_pct_vs_global_context": 18.997408284246365,
+  "conditional_worse_than_correct_assignments": 20,
+  "fraction_samples_correct_better_than_conditional_mean": 0.5814360770577933,
+  "same_embedding_fraction_mean": 0.028604786923525978,
+  "same_description_fraction_mean": 0.028604786923525978,
+  "donor_cosine_mean": 0.9835643479395045,
+  "max_rho_final_audited": 0.10000008344650269,
+  "subset_reproduction_max_abs_pred_diff_native": 8.82492290602505e-07,
+  "interpretation": "Exploratory within-checkpoint control on eligible subset; no training; global donor pool differs.",
+  "input_sha256": {
+    "experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/Jarvis-FormationEnergy/best_valid.pth": "47f5e7405b8cbe0b89195e9719444005a037add0516a94cbea911f242aef9897",
+    "experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/Jarvis-FormationEnergy/GPSRNodeGateEarlyBoundedTau010_Jarvis-FormationEnergy_test_pred_true.csv": "817871f86278491ea0a25c7ef606d9ae1e76a1e8fb47858537dbaf88c0646f42",
+    "experiments/semantic_pairing_permutation/runs/seed_42/Jarvis-FormationEnergy/predictions.npz": "87008206e6c344f10685212d957bd00312ba649659a274ea78235c4562d918e4",
+    "experiments/composition_pairing_control/sample_groups.csv": "2f833a8a9b760a7045fa1d989c01e3afa3d843f1a0f29065b3fa3a6b4695c764",
+    "experiments/composition_pairing_control/evaluate.py": "1ee544f2fc990a338fac990fbe95be0f715728d07184567620e86e4084401bd0"
+  },
+  "output_sha256": {
+    "predictions.npz": "85399a5a2569140610d523a3acc0c92f6b3b315bae8c8b51b96530dbd2818b6a",
+    "sample_metrics.csv": "11b0c7dad740646c826d0d5d9e0a58bfab24b5dc513a911f8629839c475ba068",
+    "permutation_metrics.csv": "975eb6b70a0858a03906299bf37112f641d86fbdeb7d609bb50ed05c8e5f25d3"
+  }
+}

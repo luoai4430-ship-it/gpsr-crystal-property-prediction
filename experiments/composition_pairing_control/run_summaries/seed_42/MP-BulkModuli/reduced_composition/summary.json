@@ -1,0 +1,38 @@
+{
+  "task": "MP-BulkModuli",
+  "seed": 42,
+  "group_type": "reduced_composition",
+  "status": "complete",
+  "num_samples": 583,
+  "num_eligible": 45,
+  "coverage_fraction": 0.07718696397941681,
+  "num_permutations": 20,
+  "num_distinct_assignments": 15,
+  "correct_mae": 0.04751450220743815,
+  "off_mae": 0.06810922887590197,
+  "conditional_mean_mae": 0.06693270617061191,
+  "conditional_mae_sd_over_assignments": 0.0026449439843211683,
+  "context_global_whole_test_donor_mean_mae": 0.08519187503390842,
+  "correct_advantage_pct_vs_conditional": 29.011532738085666,
+  "correct_advantage_pct_vs_global_context": 44.22648616605018,
+  "conditional_worse_than_correct_assignments": 20,
+  "fraction_samples_correct_better_than_conditional_mean": 0.6666666666666666,
+  "same_embedding_fraction_mean": 0.0,
+  "same_description_fraction_mean": 0.0,
+  "donor_cosine_mean": 0.9848802170789502,
+  "max_rho_final_audited": 0.10000003129243851,
+  "subset_reproduction_max_abs_pred_diff_native": 6.586615141771951e-07,
+  "interpretation": "Exploratory within-checkpoint control on eligible subset; no training; global donor pool differs.",
+  "input_sha256": {
+    "experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/MP-BulkModuli/best_valid.pth": "427f6d1f059c7aeef60b30a2af47f668a93bc5e17dc78b1c390daa09183e08bb",
+    "experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/MP-BulkModuli/GPSRNodeGateEarlyBoundedTau010_MP-BulkModuli_test_pred_true.csv": "39a12b4d3405d8a93749821c19e34799c16767c51944689ae85fa2431bd615ab",
+    "experiments/semantic_pairing_permutation/runs/seed_42/MP-BulkModuli/predictions.npz": "cfd6209ab4ef13ada82d43486894891c2f54de22cb1088e5e24f8102c65f76af",
+    "experiments/composition_pairing_control/sample_groups.csv": "2f833a8a9b760a7045fa1d989c01e3afa3d843f1a0f29065b3fa3a6b4695c764",
+    "experiments/composition_pairing_control/evaluate.py": "1ee544f2fc990a338fac990fbe95be0f715728d07184567620e86e4084401bd0"
+  },
+  "output_sha256": {
+    "predictions.npz": "479769c27df53cd0bd1fa63c038322664a0eb29982992c0a710f78b89eee6b2f",
+    "sample_metrics.csv": "511fd55cef963bb09c0a7f8f0925cfef1b78ebf1884d8fe272f41895b31e0c12",
+    "permutation_metrics.csv": "94acd556c6f016f046a5ed985da6bb3072bb8b8729451763692a4d93b28f8f7f"
+  }
+}

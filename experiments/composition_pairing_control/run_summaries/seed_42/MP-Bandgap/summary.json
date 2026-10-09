@@ -1,0 +1,97 @@
+{
+  "task": "MP-Bandgap",
+  "seed": 42,
+  "trained": false,
+  "checkpoint_selection": false,
+  "target_std": 1.6265326738357544,
+  "formal_reproduction_max_abs_pred_diff_physical": 9.5367431640625e-07,
+  "formal_reproduction_max_abs_pred_diff_native": 5.863234915270759e-07,
+  "prior_reproduction_max_abs_pred_diff_native": 5.863234915270759e-07,
+  "formal_reproduction_max_abs_true_diff": 8.881784197001252e-16,
+  "input_sha256": {
+    "experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/MP-Bandgap/best_valid.pth": "5b4f3ef25d922b36259c805888792e4b7dc757e0e11ded740a7d319da6df8be5",
+    "experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/MP-Bandgap/GPSRNodeGateEarlyBoundedTau010_MP-Bandgap_test_pred_true.csv": "318e95eb23d75c8a18d694a70455594005dfe4c82b9ad1aa4b3a71f3113ed219",
+    "experiments/semantic_pairing_permutation/runs/seed_42/MP-Bandgap/predictions.npz": "0537f3760f2b6198fd3b29540315ef56618820cd336ff77463a10c3586286bc6",
+    "experiments/composition_pairing_control/sample_groups.csv": "2f833a8a9b760a7045fa1d989c01e3afa3d843f1a0f29065b3fa3a6b4695c764",
+    "experiments/composition_pairing_control/evaluate.py": "1ee544f2fc990a338fac990fbe95be0f715728d07184567620e86e4084401bd0"
+  },
+  "groups": [
+    {
+      "task": "MP-Bandgap",
+      "seed": 42,
+      "group_type": "reduced_composition",
+      "status": "complete",
+      "num_samples": 516,
+      "num_eligible": 12,
+      "coverage_fraction": 0.023255813953488372,
+      "num_permutations": 20,
+      "num_distinct_assignments": 1,
+      "correct_mae": 0.09523595869541168,
+      "off_mae": 0.11482111116250356,
+      "conditional_mean_mae": 0.09627936457594236,
+      "conditional_mae_sd_over_assignments": 2.0904840340347403e-08,
+      "context_global_whole_test_donor_mean_mae": 0.14535553057988485,
+      "correct_advantage_pct_vs_conditional": 1.0837274270829478,
+      "correct_advantage_pct_vs_global_context": 34.48067760787975,
+      "conditional_worse_than_correct_assignments": 20,
+      "fraction_samples_correct_better_than_conditional_mean": 0.3333333333333333,
+      "same_embedding_fraction_mean": 0.0,
+      "same_description_fraction_mean": 0.0,
+      "donor_cosine_mean": 0.9869002066204257,
+      "max_rho_final_audited": 0.10000018030405045,
+      "subset_reproduction_max_abs_pred_diff_native": 2.9316174576353793e-07,
+      "interpretation": "Exploratory within-checkpoint control on eligible subset; no training; global donor pool differs.",
+      "input_sha256": {
+        "experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/MP-Bandgap/best_valid.pth": "5b4f3ef25d922b36259c805888792e4b7dc757e0e11ded740a7d319da6df8be5",
+        "experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/MP-Bandgap/GPSRNodeGateEarlyBoundedTau010_MP-Bandgap_test_pred_true.csv": "318e95eb23d75c8a18d694a70455594005dfe4c82b9ad1aa4b3a71f3113ed219",
+        "experiments/semantic_pairing_permutation/runs/seed_42/MP-Bandgap/predictions.npz": "0537f3760f2b6198fd3b29540315ef56618820cd336ff77463a10c3586286bc6",
+        "experiments/composition_pairing_control/sample_groups.csv": "2f833a8a9b760a7045fa1d989c01e3afa3d843f1a0f29065b3fa3a6b4695c764",
+        "experiments/composition_pairing_control/evaluate.py": "1ee544f2fc990a338fac990fbe95be0f715728d07184567620e86e4084401bd0"
+      },
+      "output_sha256": {
+        "predictions.npz": "0df03d4086ebc8db78fe0c2c18345c15a1c97894b94c7675198d142b76bbee11",
+        "sample_metrics.csv": "72765628338b12a2afe8adf4a2ea8548ecb8b65d9a46cd99b7aa4e920f4178e9",
+        "permutation_metrics.csv": "b2203c525566aaf32f93347c904911aeaeec457e3af11c7f68c474760fbbd2d8"
+      }
+    },
+    {
+      "task": "MP-Bandgap",
+      "seed": 42,
+      "group_type": "element_set",
+      "status": "complete",
+      "num_samples": 516,
+      "num_eligible": 90,
+      "coverage_fraction": 0.1744186046511628,
+      "num_permutations": 20,
+      "num_distinct_assignments": 20,
+      "correct_mae": 0.2423657258351644,
+      "off_mae": 0.26349083582560223,
+      "conditional_mean_mae": 0.2611083982388179,
+      "conditional_mae_sd_over_assignments": 0.007550733389411874,
+      "context_global_whole_test_donor_mean_mae": 0.28989216340912716,
+      "correct_advantage_pct_vs_conditional": 7.178119329011723,
+      "correct_advantage_pct_vs_global_context": 16.394523058178823,
+      "conditional_worse_than_correct_assignments": 20,
+      "fraction_samples_correct_better_than_conditional_mean": 0.5,
+      "same_embedding_fraction_mean": 0.0,
+      "same_description_fraction_mean": 0.0,
+      "donor_cosine_mean": 0.9885248709723798,
+      "max_rho_final_audited": 0.10000018030405045,
+      "subset_reproduction_max_abs_pred_diff_native": 8.794852372906138e-07,
+      "interpretation": "Exploratory within-checkpoint control on eligible subset; no training; global donor pool differs.",
+      "input_sha256": {
+        "experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/MP-Bandgap/best_valid.pth": "5b4f3ef25d922b36259c805888792e4b7dc757e0e11ded740a7d319da6df8be5",
+        "experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/MP-Bandgap/GPSRNodeGateEarlyBoundedTau010_MP-Bandgap_test_pred_true.csv": "318e95eb23d75c8a18d694a70455594005dfe4c82b9ad1aa4b3a71f3113ed219",
+        "experiments/semantic_pairing_permutation/runs/seed_42/MP-Bandgap/predictions.npz": "0537f3760f2b6198fd3b29540315ef56618820cd336ff77463a10c3586286bc6",
+        "experiments/composition_pairing_control/sample_groups.csv": "2f833a8a9b760a7045fa1d989c01e3afa3d843f1a0f29065b3fa3a6b4695c764",
+        "experiments/composition_pairing_control/evaluate.py": "1ee544f2fc990a338fac990fbe95be0f715728d07184567620e86e4084401bd0"
+      },
+      "output_sha256": {
+        "predictions.npz": "942ff5c090982f9571490f2e564445ef23ac0b604f55646c8b69fc57917fb844",
+        "sample_metrics.csv": "4b267f6bb4dafd42d1dead11347c8e56506515728a08e61bdf9328856d0b8337",
+        "permutation_metrics.csv": "0592d46691c6df1002499ca260a88862c6db4e685254f0d3c243cc7c6060d071"
+      }
+    }
+  ],
+  "max_rho_final_audited": 0.10000018030405045
+}

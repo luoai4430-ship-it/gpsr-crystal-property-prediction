@@ -1,0 +1,38 @@
+{
+  "task": "Jarvis-BulkModulusKv",
+  "seed": 42,
+  "group_type": "element_set",
+  "status": "complete",
+  "num_samples": 1968,
+  "num_eligible": 370,
+  "coverage_fraction": 0.18800813008130082,
+  "num_permutations": 20,
+  "num_distinct_assignments": 20,
+  "correct_mae": 8.163855331008499,
+  "off_mae": 8.843402501699087,
+  "conditional_mean_mae": 8.832309443499591,
+  "conditional_mae_sd_over_assignments": 0.0594687297960228,
+  "context_global_whole_test_donor_mean_mae": 9.491555261354188,
+  "correct_advantage_pct_vs_conditional": 7.568282302235929,
+  "correct_advantage_pct_vs_global_context": 13.988223149809297,
+  "conditional_worse_than_correct_assignments": 20,
+  "fraction_samples_correct_better_than_conditional_mean": 0.5783783783783784,
+  "same_embedding_fraction_mean": 0.055405405405405415,
+  "same_description_fraction_mean": 0.055405405405405415,
+  "donor_cosine_mean": 0.9814983788891801,
+  "max_rho_final_audited": 0.10000002384185791,
+  "subset_reproduction_max_abs_pred_diff_native": 9.200911212241904e-07,
+  "interpretation": "Exploratory within-checkpoint control on eligible subset; no training; global donor pool differs.",
+  "input_sha256": {
+    "experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/Jarvis-BulkModulusKv/best_valid.pth": "3f0533b4f8cb81b580d822c3e251b387ecfb686441132535f00299b247a2ede0",
+    "experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/Jarvis-BulkModulusKv/GPSRNodeGateEarlyBoundedTau010_Jarvis-BulkModulusKv_test_pred_true.csv": "e796b30478eebe60c581236414490b661b52666ec6dd2e46f08060975a6da6a7",
+    "experiments/semantic_pairing_permutation/runs/seed_42/Jarvis-BulkModulusKv/predictions.npz": "e61102310d15362abbad4578dda4f34eb8910e62f590e39161cdb437995d74a1",
+    "experiments/composition_pairing_control/sample_groups.csv": "2f833a8a9b760a7045fa1d989c01e3afa3d843f1a0f29065b3fa3a6b4695c764",
+    "experiments/composition_pairing_control/evaluate.py": "1ee544f2fc990a338fac990fbe95be0f715728d07184567620e86e4084401bd0"
+  },
+  "output_sha256": {
+    "predictions.npz": "3c9fc9b30546a39f3bd8e3f59eecd43cb9ceea08c41bf4901b7659fea81bbd54",
+    "sample_metrics.csv": "0e913ddbd169ede5b6e3e9f9d3b1da882f1ae91d7d715f99f87bd827a3462aa0",
+    "permutation_metrics.csv": "4201c9ce60b42614296c464d3458303890e90d16549a80a225c0da21bb3c00b2"
+  }
+}

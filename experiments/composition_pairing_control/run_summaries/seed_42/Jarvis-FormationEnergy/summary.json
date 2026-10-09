@@ -1,0 +1,97 @@
+{
+  "task": "Jarvis-FormationEnergy",
+  "seed": 42,
+  "trained": false,
+  "checkpoint_selection": false,
+  "target_std": 1.0806602239608765,
+  "formal_reproduction_max_abs_pred_diff_physical": 4.768371586472142e-07,
+  "formal_reproduction_max_abs_pred_diff_native": 4.4124614571219505e-07,
+  "prior_reproduction_max_abs_pred_diff_native": 4.412461453012525e-07,
+  "formal_reproduction_max_abs_true_diff": 4.440892098500626e-16,
+  "input_sha256": {
+    "experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/Jarvis-FormationEnergy/best_valid.pth": "47f5e7405b8cbe0b89195e9719444005a037add0516a94cbea911f242aef9897",
+    "experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/Jarvis-FormationEnergy/GPSRNodeGateEarlyBoundedTau010_Jarvis-FormationEnergy_test_pred_true.csv": "817871f86278491ea0a25c7ef606d9ae1e76a1e8fb47858537dbaf88c0646f42",
+    "experiments/semantic_pairing_permutation/runs/seed_42/Jarvis-FormationEnergy/predictions.npz": "87008206e6c344f10685212d957bd00312ba649659a274ea78235c4562d918e4",
+    "experiments/composition_pairing_control/sample_groups.csv": "2f833a8a9b760a7045fa1d989c01e3afa3d843f1a0f29065b3fa3a6b4695c764",
+    "experiments/composition_pairing_control/evaluate.py": "1ee544f2fc990a338fac990fbe95be0f715728d07184567620e86e4084401bd0"
+  },
+  "groups": [
+    {
+      "task": "Jarvis-FormationEnergy",
+      "seed": 42,
+      "group_type": "reduced_composition",
+      "status": "complete",
+      "num_samples": 5573,
+      "num_eligible": 679,
+      "coverage_fraction": 0.12183743046832944,
+      "num_permutations": 20,
+      "num_distinct_assignments": 20,
+      "correct_mae": 0.0356042576907134,
+      "off_mae": 0.042859459441259434,
+      "conditional_mean_mae": 0.038395862880441334,
+      "conditional_mae_sd_over_assignments": 0.0003913201690147794,
+      "context_global_whole_test_donor_mean_mae": 0.04632517956581313,
+      "correct_advantage_pct_vs_conditional": 7.27058849652773,
+      "correct_advantage_pct_vs_global_context": 23.142752981386195,
+      "conditional_worse_than_correct_assignments": 20,
+      "fraction_samples_correct_better_than_conditional_mean": 0.5463917525773195,
+      "same_embedding_fraction_mean": 0.08564064801178202,
+      "same_description_fraction_mean": 0.08564064801178202,
+      "donor_cosine_mean": 0.9874652342857424,
+      "max_rho_final_audited": 0.10000008344650269,
+      "subset_reproduction_max_abs_pred_diff_native": 6.618692179518788e-07,
+      "interpretation": "Exploratory within-checkpoint control on eligible subset; no training; global donor pool differs.",
+      "input_sha256": {
+        "experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/Jarvis-FormationEnergy/best_valid.pth": "47f5e7405b8cbe0b89195e9719444005a037add0516a94cbea911f242aef9897",
+        "experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/Jarvis-FormationEnergy/GPSRNodeGateEarlyBoundedTau010_Jarvis-FormationEnergy_test_pred_true.csv": "817871f86278491ea0a25c7ef606d9ae1e76a1e8fb47858537dbaf88c0646f42",
+        "experiments/semantic_pairing_permutation/runs/seed_42/Jarvis-FormationEnergy/predictions.npz": "87008206e6c344f10685212d957bd00312ba649659a274ea78235c4562d918e4",
+        "experiments/composition_pairing_control/sample_groups.csv": "2f833a8a9b760a7045fa1d989c01e3afa3d843f1a0f29065b3fa3a6b4695c764",
+        "experiments/composition_pairing_control/evaluate.py": "1ee544f2fc990a338fac990fbe95be0f715728d07184567620e86e4084401bd0"
+      },
+      "output_sha256": {
+        "predictions.npz": "27e8ab94b549e43a2daf63712ef0e80b515cce0a6f15c1ffd1627b9cc112d3d9",
+        "sample_metrics.csv": "93a20c4a558956901a70cd274844161162bec13b52c5182f7fafc43d61139964",
+        "permutation_metrics.csv": "89af688e78af8290eaee4b993ec24a38068c7775544b77f727b9df1f5c5b0848"
+      }
+    },
+    {
+      "task": "Jarvis-FormationEnergy",
+      "seed": 42,
+      "group_type": "element_set",
+      "status": "complete",
+      "num_samples": 5573,
+      "num_eligible": 1713,
+      "coverage_fraction": 0.307374842993002,
+      "num_permutations": 20,
+      "num_distinct_assignments": 20,
+      "correct_mae": 0.034089492954709553,
+      "off_mae": 0.03948280991202408,
+      "conditional_mean_mae": 0.03681082472822782,
+      "conditional_mae_sd_over_assignments": 0.0001651968659292496,
+      "context_global_whole_test_donor_mean_mae": 0.042084447216618776,
+      "correct_advantage_pct_vs_conditional": 7.392748718915421,
+      "correct_advantage_pct_vs_global_context": 18.997408284246365,
+      "conditional_worse_than_correct_assignments": 20,
+      "fraction_samples_correct_better_than_conditional_mean": 0.5814360770577933,
+      "same_embedding_fraction_mean": 0.028604786923525978,
+      "same_description_fraction_mean": 0.028604786923525978,
+      "donor_cosine_mean": 0.9835643479395045,
+      "max_rho_final_audited": 0.10000008344650269,
+      "subset_reproduction_max_abs_pred_diff_native": 8.82492290602505e-07,
+      "interpretation": "Exploratory within-checkpoint control on eligible subset; no training; global donor pool differs.",
+      "input_sha256": {
+        "experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/Jarvis-FormationEnergy/best_valid.pth": "47f5e7405b8cbe0b89195e9719444005a037add0516a94cbea911f242aef9897",
+        "experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/Jarvis-FormationEnergy/GPSRNodeGateEarlyBoundedTau010_Jarvis-FormationEnergy_test_pred_true.csv": "817871f86278491ea0a25c7ef606d9ae1e76a1e8fb47858537dbaf88c0646f42",
+        "experiments/semantic_pairing_permutation/runs/seed_42/Jarvis-FormationEnergy/predictions.npz": "87008206e6c344f10685212d957bd00312ba649659a274ea78235c4562d918e4",
+        "experiments/composition_pairing_control/sample_groups.csv": "2f833a8a9b760a7045fa1d989c01e3afa3d843f1a0f29065b3fa3a6b4695c764",
+        "experiments/composition_pairing_control/evaluate.py": "1ee544f2fc990a338fac990fbe95be0f715728d07184567620e86e4084401bd0"
+      },
+      "output_sha256": {
+        "predictions.npz": "85399a5a2569140610d523a3acc0c92f6b3b315bae8c8b51b96530dbd2818b6a",
+        "sample_metrics.csv": "11b0c7dad740646c826d0d5d9e0a58bfab24b5dc513a911f8629839c475ba068",
+        "permutation_metrics.csv": "975eb6b70a0858a03906299bf37112f641d86fbdeb7d609bb50ed05c8e5f25d3"
+      }
+    }
+  ],
+  "max_rho_final_audited": 0.10000008344650269
+}

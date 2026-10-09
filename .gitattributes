@@ -2,3 +2,5 @@
 *.png binary
 *.pdf binary
 *.pkl binary
+# Preserve this raw preflight table's attested archive checksum.
+experiments/composition_pairing_control/group_coverage.csv -text

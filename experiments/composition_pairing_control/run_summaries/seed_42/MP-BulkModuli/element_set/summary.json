@@ -1,0 +1,38 @@
+{
+  "task": "MP-BulkModuli",
+  "seed": 42,
+  "group_type": "element_set",
+  "status": "complete",
+  "num_samples": 583,
+  "num_eligible": 117,
+  "coverage_fraction": 0.2006861063464837,
+  "num_permutations": 20,
+  "num_distinct_assignments": 20,
+  "correct_mae": 0.04149641593297323,
+  "off_mae": 0.060021511509887174,
+  "conditional_mean_mae": 0.06313065906875154,
+  "conditional_mae_sd_over_assignments": 0.0014720529134959982,
+  "context_global_whole_test_donor_mean_mae": 0.07406908156525376,
+  "correct_advantage_pct_vs_conditional": 34.2689961659007,
+  "correct_advantage_pct_vs_global_context": 43.97606254046028,
+  "conditional_worse_than_correct_assignments": 20,
+  "fraction_samples_correct_better_than_conditional_mean": 0.6495726495726496,
+  "same_embedding_fraction_mean": 0.0,
+  "same_description_fraction_mean": 0.0,
+  "donor_cosine_mean": 0.981819498559446,
+  "max_rho_final_audited": 0.10000003129243851,
+  "subset_reproduction_max_abs_pred_diff_native": 6.586615141771951e-07,
+  "interpretation": "Exploratory within-checkpoint control on eligible subset; no training; global donor pool differs.",
+  "input_sha256": {
+    "experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/MP-BulkModuli/best_valid.pth": "427f6d1f059c7aeef60b30a2af47f668a93bc5e17dc78b1c390daa09183e08bb",
+    "experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/MP-BulkModuli/GPSRNodeGateEarlyBoundedTau010_MP-BulkModuli_test_pred_true.csv": "39a12b4d3405d8a93749821c19e34799c16767c51944689ae85fa2431bd615ab",
+    "experiments/semantic_pairing_permutation/runs/seed_42/MP-BulkModuli/predictions.npz": "cfd6209ab4ef13ada82d43486894891c2f54de22cb1088e5e24f8102c65f76af",
+    "experiments/composition_pairing_control/sample_groups.csv": "2f833a8a9b760a7045fa1d989c01e3afa3d843f1a0f29065b3fa3a6b4695c764",
+    "experiments/composition_pairing_control/evaluate.py": "1ee544f2fc990a338fac990fbe95be0f715728d07184567620e86e4084401bd0"
+  },
+  "output_sha256": {
+    "predictions.npz": "6b9efc0eeca95a711bb9e41f59b64d1283f47f8b1c449789f9e9d380301bd935",
+    "sample_metrics.csv": "17f0432aa67c188c66cc55bed28b22da6a620965e55aad60c2cd57cbad2afe60",
+    "permutation_metrics.csv": "59513125d4aab06ffb5e75af7542f850e3afa84565014a82f4a8b0020de04c9e"
+  }
+}

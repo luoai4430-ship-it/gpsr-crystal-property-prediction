@@ -1,0 +1,256 @@
+{
+  "status": "PASS",
+  "protocol": "composition-conditioned frozen pairing v1",
+  "num_required_runs": 14,
+  "num_permutations_each": 20,
+  "primary_group_type": "reduced_composition",
+  "secondary_group_type": "element_set",
+  "labels_used_for_grouping": false,
+  "source_files": [
+    {
+      "path": "/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/semantic_pairing_permutation/runs/seed_42/Jarvis-Bandgap_MBJ/sample_metrics.csv",
+      "sha256": "4b48f89e4ccdca6710e12f75eaf51a975be4597840679257d17977378db043af",
+      "bytes": 390720
+    },
+    {
+      "path": "/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/semantic_pairing_permutation/runs/seed_42/Jarvis-Bandgap_OPT/sample_metrics.csv",
+      "sha256": "83e0e9577fc4724e1be51ba6fd56700f73fdc1cd2b72d4d3a36c446ebfce03e7",
+      "bytes": 1219265
+    },
+    {
+      "path": "/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/semantic_pairing_permutation/runs/seed_42/Jarvis-FormationEnergy/sample_metrics.csv",
+      "sha256": "34bc5a6e1453f2b90acfbf41fcd084619b87108135302ffba556c64df46f118c",
+      "bytes": 1259762
+    },
+    {
+      "path": "/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/semantic_pairing_permutation/runs/seed_42/Jarvis-BulkModulusKv/sample_metrics.csv",
+      "sha256": "8d90c9dc7febf8edc8636022bf16aa1e2b13e8cd6b236ec488d1a34463dcc316",
+      "bytes": 405947
+    },
+    {
+      "path": "/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/semantic_pairing_permutation/runs/seed_42/MP-Bandgap/sample_metrics.csv",
+      "sha256": "52d70761ffecf69f857308fa8cb0e92f4535cafb4e104dff0cb3cae44698f89e",
+      "bytes": 103646
+    },
+    {
+      "path": "/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/semantic_pairing_permutation/runs/seed_42/MP-BulkModuli/sample_metrics.csv",
+      "sha256": "cee7f0b4ffa5e14aa2a5adf8300b3bf183f16ca5f95586dca9c45701cf24db1d",
+      "bytes": 126603
+    },
+    {
+      "path": "/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/semantic_pairing_permutation/runs/seed_7/Jarvis-Bandgap_MBJ/sample_metrics.csv",
+      "sha256": "450c337425d9a18a26daf94280e1c031b084bd8fdb9634bedce1053e825c5bb4",
+      "bytes": 389737
+    },
+    {
+      "path": "/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/semantic_pairing_permutation/runs/seed_7/Jarvis-BulkModulusKv/sample_metrics.csv",
+      "sha256": "72d9acd5750af93ee59767717432f1a1b95d66834019353393ee2dd6e8bf50e7",
+      "bytes": 403852
+    },
+    {
+      "path": "/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/semantic_pairing_permutation/runs/seed_7/Jarvis-FormationEnergy/sample_metrics.csv",
+      "sha256": "06e438dcdbff76eee4755af43f62025af851d2421fdde9ba92876b2bea4bf810",
+      "bytes": 1254949
+    },
+    {
+      "path": "/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/semantic_pairing_permutation/runs/seed_7/MP-Bandgap/sample_metrics.csv",
+      "sha256": "1e391bacf6dd25f9a8ae19f12df1ee597880ba079a6db445bbd3893caec984bd",
+      "bytes": 103106
+    },
+    {
+      "path": "/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/semantic_pairing_permutation/runs/seed_1234/Jarvis-Bandgap_MBJ/sample_metrics.csv",
+      "sha256": "c21f1c1e5f4cb2f5fda94c0e4e468d380cce9cf19bf52c443c4600515b170e21",
+      "bytes": 394502
+    },
+    {
+      "path": "/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/semantic_pairing_permutation/runs/seed_1234/Jarvis-BulkModulusKv/sample_metrics.csv",
+      "sha256": "bdeaaaf3f1ed97c8a7e3e6c894260ed4e9ccece5391b094eeaf367f5c9bec716",
+      "bytes": 409518
+    },
+    {
+      "path": "/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/semantic_pairing_permutation/runs/seed_1234/Jarvis-FormationEnergy/sample_metrics.csv",
+      "sha256": "4f106a61069742a7361004690fb0f5d9f2fcd05fcf63b19e69966bca16298c96",
+      "bytes": 1271377
+    },
+    {
+      "path": "/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/semantic_pairing_permutation/runs/seed_1234/MP-Bandgap/sample_metrics.csv",
+      "sha256": "07f301df03d31aee289566347094ef4c9b75d65625bbf753006c12d4886346ce",
+      "bytes": 104469
+    },
+    {
+      "path": "/root/autodl-tmp/dataset1/dataset/jarvis/mbj_bandgap/description.csv",
+      "sha256": "19d7fc31cf8788c3ea027368956df5e2271ae0176ba0e9c9d6f2d38c26d8bf81",
+      "bytes": 18490038
+    },
+    {
+      "path": "/root/autodl-tmp/dataset1/dataset/jarvis/optb88vdw_bandgap/description.csv",
+      "sha256": "35bf205a80162b94cf3477a436f63c6c65a6cb654181df4eefd2904b50256ed2",
+      "bytes": 71330322
+    },
+    {
+      "path": "/root/autodl-tmp/dataset1/dataset/jarvis/formation_energy_peratom/description.csv",
+      "sha256": "a1236980583dc9bf02fc5298702116e941df4746c9099c521fcd02209f497061",
+      "bytes": 70944351
+    },
+    {
+      "path": "/root/autodl-tmp/dataset1/dataset/jarvis/bulk_modulus_kv/description.csv",
+      "sha256": "bfdde6df86eb12e7f6ee4813bc387d1fe06524ba15e54e2eb37040bbf5c968b1",
+      "bytes": 18092032
+    },
+    {
+      "path": "/root/autodl-tmp/dataset1/dataset/mp_2018/MP-bandgap/description.csv",
+      "sha256": "7dc95a752a433d9af31bb07895fe9ceb5be2cc1149394239c77c8a4382b113f6",
+      "bytes": 240972998
+    },
+    {
+      "path": "/root/autodl-tmp/dataset1/dataset/mp_2018_small/bulk/description.csv",
+      "sha256": "6dbe2277a49360eb88ea027e016e8a949f72ee9a0e4cc86629ae821eead94e66",
+      "bytes": 6187066
+    }
+  ],
+  "sample_groups_schema": [
+    "task",
+    "sample_index",
+    "sample_id",
+    "reduced_composition",
+    "element_set",
+    "description_sha256",
+    "formula",
+    "description_id",
+    "match_strategy",
+    "group_size_reduced_composition",
+    "group_size_element_set",
+    "metadata_formula",
+    "formula_source",
+    "formula_source_file",
+    "formula_source_sha256"
+  ],
+  "group_coverage_schema": [
+    "task",
+    "group_type",
+    "num_samples",
+    "num_eligible",
+    "num_groups_eligible",
+    "coverage_fraction",
+    "num_groups",
+    "num_singletons",
+    "max_group_size",
+    "eligible_group_size_histogram",
+    "same_description_ordered_pair_fraction",
+    "num_eligible_samples_without_distinct_description_peer",
+    "fraction_eligible_samples_without_distinct_description_peer",
+    "distinct_mapping_space_capped",
+    "mapping_space_cap",
+    "sampling_note"
+  ],
+  "formula_metadata_recoveries": {},
+  "num_runs": 14,
+  "num_tasks": 6,
+  "num_unique_task_samples": 16031,
+  "runs": [
+    {
+      "task": "Jarvis-Bandgap_MBJ",
+      "seed": 42,
+      "num_samples": 1818,
+      "id_order_sha256": "05371ec720c9abf623a796df2538d65f84ef173f524d517fed1ef5dfdd783929"
+    },
+    {
+      "task": "Jarvis-Bandgap_OPT",
+      "seed": 42,
+      "num_samples": 5573,
+      "id_order_sha256": "4aaf97436e022b238602c0f5338843ef3d96c2f7482ccc7007f51b493b262564"
+    },
+    {
+      "task": "Jarvis-FormationEnergy",
+      "seed": 42,
+      "num_samples": 5573,
+      "id_order_sha256": "4aaf97436e022b238602c0f5338843ef3d96c2f7482ccc7007f51b493b262564"
+    },
+    {
+      "task": "Jarvis-BulkModulusKv",
+      "seed": 42,
+      "num_samples": 1968,
+      "id_order_sha256": "298804d7d81b7f56ad1bd3a9ff61a85fb0a1d1e6a2bcbfde73de81ccac925d59"
+    },
+    {
+      "task": "MP-Bandgap",
+      "seed": 42,
+      "num_samples": 516,
+      "id_order_sha256": "3ceaebd53894d11f03225eed152d0f2bc517fe48509ff4840e07c4164c731296"
+    },
+    {
+      "task": "MP-BulkModuli",
+      "seed": 42,
+      "num_samples": 583,
+      "id_order_sha256": "f6bbc0820e6285a9333cebbd91e75f420b0a5c341c131d66ca5f660bcff98023"
+    },
+    {
+      "task": "Jarvis-Bandgap_MBJ",
+      "seed": 7,
+      "num_samples": 1818,
+      "id_order_sha256": "05371ec720c9abf623a796df2538d65f84ef173f524d517fed1ef5dfdd783929"
+    },
+    {
+      "task": "Jarvis-BulkModulusKv",
+      "seed": 7,
+      "num_samples": 1968,
+      "id_order_sha256": "298804d7d81b7f56ad1bd3a9ff61a85fb0a1d1e6a2bcbfde73de81ccac925d59"
+    },
+    {
+      "task": "Jarvis-FormationEnergy",
+      "seed": 7,
+      "num_samples": 5573,
+      "id_order_sha256": "4aaf97436e022b238602c0f5338843ef3d96c2f7482ccc7007f51b493b262564"
+    },
+    {
+      "task": "MP-Bandgap",
+      "seed": 7,
+      "num_samples": 516,
+      "id_order_sha256": "3ceaebd53894d11f03225eed152d0f2bc517fe48509ff4840e07c4164c731296"
+    },
+    {
+      "task": "Jarvis-Bandgap_MBJ",
+      "seed": 1234,
+      "num_samples": 1818,
+      "id_order_sha256": "05371ec720c9abf623a796df2538d65f84ef173f524d517fed1ef5dfdd783929"
+    },
+    {
+      "task": "Jarvis-BulkModulusKv",
+      "seed": 1234,
+      "num_samples": 1968,
+      "id_order_sha256": "298804d7d81b7f56ad1bd3a9ff61a85fb0a1d1e6a2bcbfde73de81ccac925d59"
+    },
+    {
+      "task": "Jarvis-FormationEnergy",
+      "seed": 1234,
+      "num_samples": 5573,
+      "id_order_sha256": "4aaf97436e022b238602c0f5338843ef3d96c2f7482ccc7007f51b493b262564"
+    },
+    {
+      "task": "MP-Bandgap",
+      "seed": 1234,
+      "num_samples": 516,
+      "id_order_sha256": "3ceaebd53894d11f03225eed152d0f2bc517fe48509ff4840e07c4164c731296"
+    }
+  ],
+  "description_row_counts": {
+    "Jarvis-Bandgap_MBJ": 18172,
+    "Jarvis-Bandgap_OPT": 55723,
+    "Jarvis-FormationEnergy": 55723,
+    "Jarvis-BulkModulusKv": 19680,
+    "MP-Bandgap": 69235,
+    "MP-BulkModuli": 5830
+  },
+  "no_missing_test_id": true,
+  "identical_test_id_order_across_seeds": true,
+  "composition_parser": "strict element whitelist; exact Decimal/Fraction counts; gcd reduced stoichiometry",
+  "warnings": [
+    "Coverage is subset-specific; repeated mappings do not supply independent evidence.",
+    "Element-set matching preserves element identity but may change stoichiometry.",
+    "Grouping reads identity, composition, and description only; no target values are used."
+  ],
+  "output_hashes": {
+    "sample_groups.csv": "2f833a8a9b760a7045fa1d989c01e3afa3d843f1a0f29065b3fa3a6b4695c764",
+    "group_coverage.csv": "ca4ef18a0e0e104b7397d66e03902cf331842745f2f90090804adffe7d7998fc"
+  }
+}

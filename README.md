@@ -136,6 +136,13 @@ the sample-standard-deviation macro summary, ALIGNN transfer results, and the
 The semantic-pairing experiment and compact sample-level outputs are under
 `experiments/semantic_pairing_permutation/`. Large prediction arrays and runtime
 logs remain in the archived experiment workspace rather than this release.
+Its `output_correction_analysis/` subdirectory decomposes archived prediction
+shifts and provides descriptive paired bootstrap intervals without running a
+model. See `docs/RESULTS.md` for the scope and raw-archive requirements.
+The composition-conditioned follow-up is under
+`experiments/composition_pairing_control/`; it preserves chemical composition
+or element identity during frozen-checkpoint donor permutations and retains
+both positive and negative results.
 
 ## License
 

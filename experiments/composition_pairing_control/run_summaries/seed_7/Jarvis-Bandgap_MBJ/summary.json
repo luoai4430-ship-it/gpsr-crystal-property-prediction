@@ -1,0 +1,97 @@
+{
+  "task": "Jarvis-Bandgap_MBJ",
+  "seed": 7,
+  "trained": false,
+  "checkpoint_selection": false,
+  "target_std": 2.3161327838897705,
+  "formal_reproduction_max_abs_pred_diff_physical": 9.536743181826068e-07,
+  "formal_reproduction_max_abs_pred_diff_native": 4.117528687543478e-07,
+  "prior_reproduction_max_abs_pred_diff_native": 4.117528679873983e-07,
+  "formal_reproduction_max_abs_true_diff": 1.7763568394002505e-15,
+  "input_sha256": {
+    "experiments/final_confirmatory/semantic_intervention/runs/seed_7/gpsr/Jarvis-Bandgap_MBJ/best_valid.pth": "82cd6c02e33b986d7b0fc0739a53088477ba55967518f609a50d0d86453f5be3",
+    "experiments/final_confirmatory/semantic_intervention/runs/seed_7/gpsr/Jarvis-Bandgap_MBJ/GPSRNodeGateEarlyBoundedTau010_Jarvis-Bandgap_MBJ_test_pred_true.csv": "63c0545bd402c69d6882536e1811cc2ec4ee0ba78a4fcc67f41fb03ca1810dbf",
+    "experiments/semantic_pairing_permutation/runs/seed_7/Jarvis-Bandgap_MBJ/predictions.npz": "626ab30c8a88721c27a6a5f30ebdcc526e80130b8e9eedf563aa58323b05d333",
+    "experiments/composition_pairing_control/sample_groups.csv": "2f833a8a9b760a7045fa1d989c01e3afa3d843f1a0f29065b3fa3a6b4695c764",
+    "experiments/composition_pairing_control/evaluate.py": "1ee544f2fc990a338fac990fbe95be0f715728d07184567620e86e4084401bd0"
+  },
+  "groups": [
+    {
+      "task": "Jarvis-Bandgap_MBJ",
+      "seed": 7,
+      "group_type": "reduced_composition",
+      "status": "complete",
+      "num_samples": 1818,
+      "num_eligible": 167,
+      "coverage_fraction": 0.09185918591859187,
+      "num_permutations": 20,
+      "num_distinct_assignments": 20,
+      "correct_mae": 0.3155878500310247,
+      "off_mae": 0.34995212740526943,
+      "conditional_mean_mae": 0.33289743260352195,
+      "conditional_mae_sd_over_assignments": 0.0019317448533710444,
+      "context_global_whole_test_donor_mean_mae": 0.3648165129258961,
+      "correct_advantage_pct_vs_conditional": 5.199674397342924,
+      "correct_advantage_pct_vs_global_context": 13.494088439157647,
+      "conditional_worse_than_correct_assignments": 20,
+      "fraction_samples_correct_better_than_conditional_mean": 0.5269461077844312,
+      "same_embedding_fraction_mean": 0.0718562874251497,
+      "same_description_fraction_mean": 0.0718562874251497,
+      "donor_cosine_mean": 0.9856948909801311,
+      "max_rho_final_audited": 0.1000000461935997,
+      "subset_reproduction_max_abs_pred_diff_native": 6.176293019810974e-07,
+      "interpretation": "Exploratory within-checkpoint control on eligible subset; no training; global donor pool differs.",
+      "input_sha256": {
+        "experiments/final_confirmatory/semantic_intervention/runs/seed_7/gpsr/Jarvis-Bandgap_MBJ/best_valid.pth": "82cd6c02e33b986d7b0fc0739a53088477ba55967518f609a50d0d86453f5be3",
+        "experiments/final_confirmatory/semantic_intervention/runs/seed_7/gpsr/Jarvis-Bandgap_MBJ/GPSRNodeGateEarlyBoundedTau010_Jarvis-Bandgap_MBJ_test_pred_true.csv": "63c0545bd402c69d6882536e1811cc2ec4ee0ba78a4fcc67f41fb03ca1810dbf",
+        "experiments/semantic_pairing_permutation/runs/seed_7/Jarvis-Bandgap_MBJ/predictions.npz": "626ab30c8a88721c27a6a5f30ebdcc526e80130b8e9eedf563aa58323b05d333",
+        "experiments/composition_pairing_control/sample_groups.csv": "2f833a8a9b760a7045fa1d989c01e3afa3d843f1a0f29065b3fa3a6b4695c764",
+        "experiments/composition_pairing_control/evaluate.py": "1ee544f2fc990a338fac990fbe95be0f715728d07184567620e86e4084401bd0"
+      },
+      "output_sha256": {
+        "predictions.npz": "9e6a736421e266301360fdc753b1382b351235c4a2ed9a548b98c9f1aae21a1f",
+        "sample_metrics.csv": "4bedfffefd4b6058bf341740ae44365fb6cfa70f73366817506b9db91f51c454",
+        "permutation_metrics.csv": "c23a855a47a60a00ae8878cc337e33569a9beb9467ea73a1b17a40e9a8bfebc9"
+      }
+    },
+    {
+      "task": "Jarvis-Bandgap_MBJ",
+      "seed": 7,
+      "group_type": "element_set",
+      "status": "complete",
+      "num_samples": 1818,
+      "num_eligible": 347,
+      "coverage_fraction": 0.19086908690869087,
+      "num_permutations": 20,
+      "num_distinct_assignments": 20,
+      "correct_mae": 0.2697237276549985,
+      "off_mae": 0.2909001761279807,
+      "conditional_mean_mae": 0.27644510525104293,
+      "conditional_mae_sd_over_assignments": 0.0034355467058467875,
+      "context_global_whole_test_donor_mean_mae": 0.3039649858083093,
+      "correct_advantage_pct_vs_conditional": 2.431360681875938,
+      "correct_advantage_pct_vs_global_context": 11.264869229018526,
+      "conditional_worse_than_correct_assignments": 20,
+      "fraction_samples_correct_better_than_conditional_mean": 0.5100864553314121,
+      "same_embedding_fraction_mean": 0.0345821325648415,
+      "same_description_fraction_mean": 0.0345821325648415,
+      "donor_cosine_mean": 0.9839102616897121,
+      "max_rho_final_audited": 0.1000000461935997,
+      "subset_reproduction_max_abs_pred_diff_native": 8.235057359747966e-07,
+      "interpretation": "Exploratory within-checkpoint control on eligible subset; no training; global donor pool differs.",
+      "input_sha256": {
+        "experiments/final_confirmatory/semantic_intervention/runs/seed_7/gpsr/Jarvis-Bandgap_MBJ/best_valid.pth": "82cd6c02e33b986d7b0fc0739a53088477ba55967518f609a50d0d86453f5be3",
+        "experiments/final_confirmatory/semantic_intervention/runs/seed_7/gpsr/Jarvis-Bandgap_MBJ/GPSRNodeGateEarlyBoundedTau010_Jarvis-Bandgap_MBJ_test_pred_true.csv": "63c0545bd402c69d6882536e1811cc2ec4ee0ba78a4fcc67f41fb03ca1810dbf",
+        "experiments/semantic_pairing_permutation/runs/seed_7/Jarvis-Bandgap_MBJ/predictions.npz": "626ab30c8a88721c27a6a5f30ebdcc526e80130b8e9eedf563aa58323b05d333",
+        "experiments/composition_pairing_control/sample_groups.csv": "2f833a8a9b760a7045fa1d989c01e3afa3d843f1a0f29065b3fa3a6b4695c764",
+        "experiments/composition_pairing_control/evaluate.py": "1ee544f2fc990a338fac990fbe95be0f715728d07184567620e86e4084401bd0"
+      },
+      "output_sha256": {
+        "predictions.npz": "547bc297e2c1d9d857f96435606883e7c91d91cc2390010e80dea5bac42bb37d",
+        "sample_metrics.csv": "56d72d38bcd5757af5a24aa7b61386ef69a59ab8db77577d2b8799e97558f098",
+        "permutation_metrics.csv": "09f61d875c23863f65940a513e255baac3a43a20a6e9b81382282ae98a198b6b"
+      }
+    }
+  ],
+  "max_rho_final_audited": 0.1000000461935997
+}
