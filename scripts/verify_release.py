@@ -42,6 +42,8 @@ def verify_required_files() -> None:
         "experiments/backbone_transfer_alignn/summary/alignn_multiseed_paired.csv",
         "experiments/cartnet_gpsr/summary/cartnet_seed1_10task.csv",
         "experiments/final_confirmatory/semantic_intervention/macro_summary.csv",
+        "experiments/semantic_pairing_permutation/task_summary.csv",
+        "experiments/semantic_pairing_permutation/validation.json",
     ]
     missing = [name for name in required if not (ROOT / name).is_file()]
     if missing:
@@ -56,6 +58,7 @@ def verify_results() -> None:
     spec.loader.exec_module(module)
     module.audit_sft(False)
     module.audit_alignn(False)
+    module.audit_semantic_pairing()
 
 
 def main() -> None:

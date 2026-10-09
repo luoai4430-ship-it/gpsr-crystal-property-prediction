@@ -1,0 +1,15 @@
+task,seed,summary_present,num_permutation_rows,fixed_point_max,num_sample_rows,prediction_shape,sample_ids_unique,standardized_reproduction_max_abs_diff,reproduction_pass,correct_below_all_permutations
+Jarvis-Bandgap_MBJ,7,True,20,0.0,1818,"(20, 1818)",True,4.117528687543478e-07,True,True
+Jarvis-BulkModulusKv,7,True,20,0.0,1968,"(20, 1968)",True,6.325626458416309e-07,True,True
+Jarvis-FormationEnergy,7,True,20,0.0,5573,"(20, 5573)",True,8.82492290602505e-07,True,True
+MP-Bandgap,7,True,20,0.0,516,"(20, 516)",True,5.863234915270759e-07,True,True
+Jarvis-Bandgap_MBJ,42,True,20,0.0,1818,"(20, 1818)",True,8.235057359747966e-07,True,True
+Jarvis-Bandgap_OPT,42,True,20,0.0,5573,"(20, 5573)",True,1.018271179191968e-06,True,True
+Jarvis-BulkModulusKv,42,True,20,0.0,1968,"(20, 1968)",True,5.750569507651191e-07,True,True
+Jarvis-FormationEnergy,42,True,20,0.0,5573,"(20, 5573)",True,4.4124614571219505e-07,True,True
+MP-Bandgap,42,True,20,0.0,516,"(20, 516)",True,3.6645218220442243e-07,True,True
+MP-BulkModuli,42,True,20,0.0,583,"(20, 583)",True,6.586615154040477e-07,True,True
+Jarvis-Bandgap_MBJ,1234,True,20,0.0,1818,"(20, 1818)",True,4.117528679873983e-07,True,True
+Jarvis-BulkModulusKv,1234,True,20,0.0,1968,"(20, 1968)",True,9.200911212241904e-07,True,True
+Jarvis-FormationEnergy,1234,True,20,0.0,5573,"(20, 5573)",True,4.4124614571219505e-07,True,True
+MP-Bandgap,1234,True,20,0.0,516,"(20, 516)",True,5.86323491800104e-07,True,True

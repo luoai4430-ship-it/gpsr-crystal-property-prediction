@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "required_runs": 14,
+  "completed_runs": 14,
+  "permutations_per_run": 20,
+  "all_derangements_have_zero_fixed_points": true,
+  "all_sample_ids_unique_within_run": true,
+  "formal_reproduction_tolerance_standardized": 1e-05,
+  "max_observed_standardized_reproduction_error": 1.018271179191968e-06,
+  "note": "The tolerance is applied in the model's native standardized-output scale; raw physical-unit differences are also retained in task_summary.csv."
+}

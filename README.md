@@ -130,7 +130,12 @@ python scripts/audit_release_results.py
 ```
 
 It checks the 30 canonical SFTGNN task-seed rows, the `28/30` improvement count,
-the sample-standard-deviation macro summary, and stale summary text.
+the sample-standard-deviation macro summary, ALIGNN transfer results, and the
+14-run frozen-checkpoint semantic-pairing control.
+
+The semantic-pairing experiment and compact sample-level outputs are under
+`experiments/semantic_pairing_permutation/`. Large prediction arrays and runtime
+logs remain in the archived experiment workspace rather than this release.
 
 ## License
 

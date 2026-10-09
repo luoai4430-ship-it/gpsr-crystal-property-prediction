@@ -1,0 +1,18 @@
+{
+  "task": "Jarvis-BulkModulusKv",
+  "seed": 7,
+  "num_samples": 1968,
+  "num_permutations": 20,
+  "correct_mae": 9.070431819776209,
+  "off_mae": 9.888922827030585,
+  "shuffle_mean_mae": 10.362089544873895,
+  "shuffle_sample_sd_mae": 0.10992893625817868,
+  "pairing_advantage_pct_vs_shuffle": 12.465224504228168,
+  "correct_gain_pct_vs_off": 8.276846948558402,
+  "permutation_p_one_sided": 0.047619047619047616,
+  "fraction_samples_pairing_helped": 0.6808943089430894,
+  "formal_reproduction_max_abs_pred_diff": 4.1961669921875e-05,
+  "formal_reproduction_max_abs_pred_diff_standardized": 6.325626458416309e-07,
+  "formal_reproduction_max_abs_true_diff": 5.684341886080802e-14,
+  "control_note": "Frozen validation-selected checkpoint; test embeddings permuted without replacement; no training or model selection."
+}

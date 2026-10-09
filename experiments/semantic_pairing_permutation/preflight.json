@@ -1,0 +1,29 @@
+{
+  "created_at": "2026-10-09T07:40:17",
+  "experiment": "Frozen-checkpoint semantic pairing permutation control",
+  "training": false,
+  "checkpoint_selection": false,
+  "tasks_seed42": [
+    "Jarvis-Bandgap_MBJ",
+    "Jarvis-Bandgap_OPT",
+    "Jarvis-FormationEnergy",
+    "Jarvis-BulkModulusKv",
+    "MP-Bandgap",
+    "MP-BulkModuli"
+  ],
+  "followup_seeds": [
+    7,
+    1234
+  ],
+  "followup_tasks": [
+    "Jarvis-Bandgap_MBJ",
+    "Jarvis-FormationEnergy",
+    "Jarvis-BulkModulusKv",
+    "MP-Bandgap"
+  ],
+  "permutations_per_run": 20,
+  "permutation_type": "within-test-set fixed-point-free, without replacement",
+  "formal_prediction_reproduction_smoke_max_abs_diff": 1.9073486328125e-06,
+  "disk_free_bytes": 3144196096,
+  "interpretation": "exploratory within-checkpoint semantic-specificity control"
+}

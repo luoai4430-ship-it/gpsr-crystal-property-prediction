@@ -29,3 +29,19 @@ at seed 1234.
 the matched six-task seed-42 comparison of graph-only, SMM, unbounded residual,
 and bounded GPSR. These results support an accuracy-control trade-off rather
 than a universal-improvement claim.
+
+## Semantic-pairing permutation control
+
+`experiments/semantic_pairing_permutation/task_summary.csv` contains a
+post-hoc, frozen-checkpoint control that compares correctly paired MatBERT
+embeddings with semantic OFF and 20 within-test-set derangements. Correct
+pairing had lower MAE than every derangement in all 14 task-seed runs and was
+better than semantic OFF in all 14 runs. The six-task seed-42 mean advantage
+relative to shuffled pairing was 21.5323%; the task-level three-seed mean
+advantages ranged from 12.6446% to 21.7869% on the four repeated tasks.
+
+This result establishes semantic-pairing specificity within the trained GPSR
+checkpoints. It is exploratory and does not replace independently trained
+graph-only comparisons. In particular, the large within-checkpoint pairing
+advantage for MP-Bulk does not imply that GPSR beats an independently optimized
+CartNet model on that task.

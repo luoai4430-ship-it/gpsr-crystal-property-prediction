@@ -1,0 +1,12 @@
+{
+  "num_runs": 14,
+  "num_seed42_tasks": 6,
+  "seed42_mean_pairing_advantage_pct": 21.532316345442116,
+  "seed42_tasks_positive_pairing_advantage": 6,
+  "all_runs_positive_pairing_advantage": 14,
+  "all_runs_correct_better_than_off": 14,
+  "all_runs_shuffle_worse_than_off": 14,
+  "runs_correct_below_all_20_permutations": 14,
+  "monte_carlo_p_value_each_run": 0.047619047619047616,
+  "max_formal_reproduction_abs_diff_standardized": 1.018271179191968e-06
+}

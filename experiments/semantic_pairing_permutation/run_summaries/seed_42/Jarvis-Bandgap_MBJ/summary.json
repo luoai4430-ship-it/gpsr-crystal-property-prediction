@@ -1,0 +1,18 @@
+{
+  "task": "Jarvis-Bandgap_MBJ",
+  "seed": 42,
+  "num_samples": 1818,
+  "num_permutations": 20,
+  "correct_mae": 0.264172414118963,
+  "off_mae": 0.2874507500786986,
+  "shuffle_mean_mae": 0.30859493962576157,
+  "shuffle_sample_sd_mae": 0.004036939976651622,
+  "pairing_advantage_pct_vs_shuffle": 14.395092013067535,
+  "correct_gain_pct_vs_off": 8.098199762346226,
+  "permutation_p_one_sided": 0.047619047619047616,
+  "fraction_samples_pairing_helped": 0.621012101210121,
+  "formal_reproduction_max_abs_pred_diff": 1.9073486328125e-06,
+  "formal_reproduction_max_abs_true_diff": 1.7763568394002505e-15,
+  "control_note": "Frozen validation-selected checkpoint; test embeddings permuted without replacement; no training or model selection.",
+  "formal_reproduction_max_abs_pred_diff_standardized": 8.235057359747966e-07
+}

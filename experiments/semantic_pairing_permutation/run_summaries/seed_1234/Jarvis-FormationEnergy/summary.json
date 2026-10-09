@@ -1,0 +1,18 @@
+{
+  "task": "Jarvis-FormationEnergy",
+  "seed": 1234,
+  "num_samples": 5573,
+  "num_permutations": 20,
+  "correct_mae": 0.03170669963324325,
+  "off_mae": 0.03873878293355705,
+  "shuffle_mean_mae": 0.040831621952733245,
+  "shuffle_sample_sd_mae": 0.00021126273336926637,
+  "pairing_advantage_pct_vs_shuffle": 22.347685159440942,
+  "correct_gain_pct_vs_off": 18.15256641483782,
+  "permutation_p_one_sided": 0.047619047619047616,
+  "fraction_samples_pairing_helped": 0.7274358514265207,
+  "formal_reproduction_max_abs_pred_diff": 4.768371586472142e-07,
+  "formal_reproduction_max_abs_pred_diff_standardized": 4.4124614571219505e-07,
+  "formal_reproduction_max_abs_true_diff": 4.440892098500626e-16,
+  "control_note": "Frozen validation-selected checkpoint; test embeddings permuted without replacement; no training or model selection."
+}

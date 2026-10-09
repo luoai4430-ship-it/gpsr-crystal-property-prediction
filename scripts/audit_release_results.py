@@ -14,6 +14,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SFT = ROOT / "experiments/final_10task/summary/multiseed_paired_results.csv"
 ALIGNN = ROOT / "experiments/backbone_transfer_alignn/summary/alignn_multiseed_paired.csv"
+PAIRING = ROOT / "experiments/semantic_pairing_permutation/task_summary.csv"
 
 
 def rows(path: Path):
@@ -162,14 +163,35 @@ def audit_alignn(write: bool):
     return macro_mean, macro_sd, improved
 
 
+def audit_semantic_pairing():
+    data = rows(PAIRING)
+    assert len(data) == 14, f"expected 14 semantic-pairing rows, found {len(data)}"
+    pairs = {(row["task"], int(row["seed"])) for row in data}
+    assert len(pairs) == 14
+    assert sum(float(row["pairing_advantage_pct_vs_shuffle"]) > 0 for row in data) == 14
+    assert sum(float(row["correct_mae"]) < float(row["off_mae"]) for row in data) == 14
+    assert sum(float(row["shuffle_mean_mae"]) > float(row["off_mae"]) for row in data) == 14
+    assert all(int(row["num_permutations"]) == 20 for row in data)
+    assert all(float(row["formal_reproduction_max_abs_pred_diff_standardized"]) <= 1e-5
+               for row in data)
+    seed42 = [float(row["pairing_advantage_pct_vs_shuffle"]) for row in data
+              if int(row["seed"]) == 42]
+    assert len(seed42) == 6
+    seed42_mean = statistics.mean(seed42)
+    assert abs(seed42_mean - 21.532316345442116) < 1e-12
+    return seed42_mean, len(data)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--write", action="store_true", help="refresh derived summaries")
     args = parser.parse_args()
     sft = audit_sft(args.write)
     alignn = audit_alignn(args.write)
+    pairing = audit_semantic_pairing()
     print(f"SFTGNN macro={sft[0]:.10f} sample_sd={sft[1]:.10f} improved={sft[2]}/30")
     print(f"ALIGNN  macro={alignn[0]:.10f} sample_sd={alignn[1]:.10f} improved={alignn[2]}/30")
+    print(f"PAIRING seed42_mean_advantage={pairing[0]:.10f}% positive={pairing[1]}/{pairing[1]}")
 
 
 if __name__ == "__main__":

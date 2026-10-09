@@ -1,0 +1,18 @@
+{
+  "task": "MP-Bandgap",
+  "seed": 1234,
+  "num_samples": 516,
+  "num_permutations": 20,
+  "correct_mae": 0.21051632618719293,
+  "off_mae": 0.24326849237892978,
+  "shuffle_mean_mae": 0.26279341926754907,
+  "shuffle_sample_sd_mae": 0.011714847168285773,
+  "pairing_advantage_pct_vs_shuffle": 19.892847098706458,
+  "correct_gain_pct_vs_off": 13.463381908381333,
+  "permutation_p_one_sided": 0.047619047619047616,
+  "fraction_samples_pairing_helped": 0.6511627906976745,
+  "formal_reproduction_max_abs_pred_diff": 9.536743168503392e-07,
+  "formal_reproduction_max_abs_pred_diff_standardized": 5.86323491800104e-07,
+  "formal_reproduction_max_abs_true_diff": 8.881784197001252e-16,
+  "control_note": "Frozen validation-selected checkpoint; test embeddings permuted without replacement; no training or model selection."
+}
