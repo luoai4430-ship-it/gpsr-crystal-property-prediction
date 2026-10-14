@@ -1,0 +1,44 @@
+{
+  "phase": "phase0",
+  "complete": true,
+  "sanity_pass": true,
+  "tasks_completed": 4,
+  "failed_tasks": []
+}
+{
+  "phase": "phase1",
+  "complete": true,
+  "macro_gnmae": 1.005040655971947,
+  "mean_gain_percent": -0.5040655971946917,
+  "improved_tasks": 6,
+  "max_rho_final": 0.10000016540288925,
+  "verdict": "NO_STRONG_BACKBONE_GAIN",
+  "proceed_phase2": false
+}
+{
+  "phase0": {
+    "phase": "phase0",
+    "complete": true,
+    "sanity_pass": true,
+    "tasks_completed": 4,
+    "failed_tasks": []
+  },
+  "phase1": {
+    "phase": "phase1",
+    "complete": true,
+    "macro_gnmae": 1.005040655971947,
+    "mean_gain_percent": -0.5040655971946917,
+    "improved_tasks": 6,
+    "max_rho_final": 0.10000016540288925,
+    "verdict": "NO_STRONG_BACKBONE_GAIN",
+    "proceed_phase2": false
+  },
+  "phase2": {
+    "runs": 1,
+    "macro_gnmae_mean": 1.005040655971947,
+    "macro_gnmae_std": 0,
+    "mean_gain_percent": -0.5040655971946917,
+    "lower_mae_evaluations": 6,
+    "total_evaluations": 10
+  }
+}

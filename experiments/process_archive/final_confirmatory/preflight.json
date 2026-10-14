@@ -1,0 +1,41 @@
+{
+  "created_at": "2026-10-05T13:57:45.322010",
+  "sftgnn": {
+    "epochs": 60,
+    "batch_size": 32,
+    "seed": 42,
+    "optimizer": "AdamW",
+    "lr": 0.001,
+    "max_lr": 0.001,
+    "onecycle_pct_start": 0.3,
+    "checkpoint": "minimum validation MAE"
+  },
+  "smm": {
+    "label": "SMM paper-derived adaptation (not official SAGE-Net)",
+    "official_repository": "https://github.com/zhanggh1999/SAGE-Net",
+    "official_commit": "fc298f82efd6141383b78070bce6ccc053f9bd0c",
+    "module": "TextConditionedMiddleModule",
+    "projector": "Linear(768,128)-GELU-Linear(128,128)",
+    "injection": "after first valid SFTGNN block",
+    "hard_norm_constraint": false
+  },
+  "gpsr": {
+    "tau": 0.1,
+    "unchanged": true
+  },
+  "reuse": {
+    "graph_seed42": "final_10task summary, fully matched independent Graph",
+    "semantic": "retrain because final_10task checkpoints were intentionally cleaned and ON/OFF requires same checkpoint"
+  },
+  "decision_thresholds": {
+    "competitive_gnmae_margin": 0.02,
+    "material_rho_reduction": 0.2
+  },
+  "source_hashes": {
+    "run.py": "1924f9a7e96740f4ef6effe79c0865af6ead4fbc7d0a90bae5835b4021ff16e5",
+    "train_and_test.py": "e872b1d7fbf7715b17168e7d9921e0e91fc1ceb0b26598b380c8d7e9d8d2796b",
+    "model/semantic_residual.py": "8879427aa801936400fbbc1235f82d43a422b873cb363050c60dc0c0f2a3fc2f",
+    "experiments/final_confirmatory/semantic_intervention/smm_model.py": "58308dce084aaddf23e0d6d6a34b4b9af8870ad8aa4d3e17a85a15c286cfd4bd",
+    "experiments/cartnet_gpsr/train_matched.py": "b6afa3e8192718ee6887da841e0c77e06377c33667bf9c2c123a2dca29c7dd2f"
+  }
+}

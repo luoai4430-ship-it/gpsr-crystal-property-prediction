@@ -1,0 +1,17 @@
+{
+  "task": "Jarvis-FormationEnergy",
+  "method": "smm",
+  "seed": 1234,
+  "mae_on": 0.032215237665621316,
+  "mae_off": 0.034201724239852814,
+  "mean_rho": 0.10445102818795554,
+  "median_rho": 0.1039946377277374,
+  "p90_rho": 0.11978914439678184,
+  "p95_rho": 0.12466074377298353,
+  "max_rho": 0.1491159051656723,
+  "mean_cos_h_off_on": 0.9945144297382293,
+  "mean_cos_delta_h": -0.02530338037977036,
+  "mean_abs_delta_y": 0.012040438834713495,
+  "mean_normalized_output_shift": 0.35204186637712365,
+  "counterfactual_note": "semantic-OFF diagnostic pass; formal ON test was evaluated once during training"
+}

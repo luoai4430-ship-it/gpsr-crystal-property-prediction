@@ -1,0 +1,7 @@
+task,predictor,N,spearman_vs_normalized_error_gain
+J-MBJ,rho_raw,1818,0.06344621228651372
+J-MBJ,projection_scale,1818,-0.06344621228651372
+J-Bulk,rho_raw,1968,-0.12487254167880364
+J-Bulk,projection_scale,1968,0.12487254167880364
+MP-Bulk,rho_raw,583,0.06712948888662265
+MP-Bulk,projection_scale,583,-0.0671613209622259

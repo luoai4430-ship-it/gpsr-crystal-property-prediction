@@ -1,0 +1,2 @@
+model,target,MAE,RMSE,R2,graph_MAE,graph_RMSE,graph_R2,alpha,num_samples
+SemanticMessageModulation,MP-BulkModuli,0.036692258935440876,0.06387874768087144,0.9685634258756778,,,,,583

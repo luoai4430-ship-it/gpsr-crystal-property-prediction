@@ -1,0 +1,37 @@
+{
+  "task": "MP-ShearModuli",
+  "category": "Mechanical",
+  "model": "graph",
+  "seed": 42,
+  "epochs": 500,
+  "batch_size": 64,
+  "optimizer": "Adam",
+  "scheduler": "OneCycleLR",
+  "learning_rate": 0.001,
+  "checkpoint_rule": "minimum validation MAE; test evaluated once",
+  "best_epoch": 241,
+  "best_valid_mae": 0.06575950504780634,
+  "test_mae": 0.07154021214048409,
+  "split_seed": 123,
+  "split_status": {
+    "expected": 5830,
+    "loaded": 5830,
+    "sizes": [
+      4664,
+      583,
+      583
+    ]
+  },
+  "graph": {
+    "cutoff": 5.0,
+    "neighbors": "all within radius",
+    "directional": true
+  },
+  "elapsed_s": 1121.085825920105,
+  "graph_path_equivalence": {
+    "max_output_abs_error": 1.4901161193847656e-08,
+    "max_atom_state_abs_error": 0.0,
+    "tolerance": 1e-07,
+    "pass": true
+  }
+}

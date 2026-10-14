@@ -1,0 +1,49 @@
+{
+  "jarvis_sources": [
+    {
+      "task": "mbj_bandgap",
+      "num_samples": 18172,
+      "fingerprinted_duplicate_jid_records": 6,
+      "num_unique_stable_ids": 18172
+    },
+    {
+      "task": "formation_energy_peratom",
+      "num_samples": 55723,
+      "fingerprinted_duplicate_jid_records": 16,
+      "num_unique_stable_ids": 55723
+    },
+    {
+      "task": "bulk_modulus_kv",
+      "num_samples": 19680,
+      "fingerprinted_duplicate_jid_records": 0,
+      "num_unique_stable_ids": 19680
+    }
+  ],
+  "jarvis_aliases": [
+    {
+      "task": "optb88vdw_bandgap",
+      "num_samples": 55723,
+      "num_unique_stable_ids": 55723
+    },
+    {
+      "task": "optb88vdw_total_energy",
+      "num_samples": 55723,
+      "num_unique_stable_ids": 55723
+    },
+    {
+      "task": "shear_modulus_gv",
+      "num_samples": 19680,
+      "num_unique_stable_ids": 19680
+    }
+  ],
+  "mp_large": {
+    "MP-bandgap": {
+      "added_generated_descriptions": 103,
+      "total_description_rows": 69235
+    },
+    "MP-formation": {
+      "added_generated_descriptions": 103,
+      "total_description_rows": 69235
+    }
+  }
+}

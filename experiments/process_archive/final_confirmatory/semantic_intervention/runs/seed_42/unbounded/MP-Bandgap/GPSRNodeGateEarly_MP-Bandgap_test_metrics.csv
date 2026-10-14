@@ -1,0 +1,2 @@
+model,target,MAE,RMSE,R2,graph_MAE,graph_RMSE,graph_R2,alpha,num_samples
+GPSRNodeGateEarly,MP-Bandgap,0.1895333470762238,0.3881663409044653,0.9425033462964831,,,,,516

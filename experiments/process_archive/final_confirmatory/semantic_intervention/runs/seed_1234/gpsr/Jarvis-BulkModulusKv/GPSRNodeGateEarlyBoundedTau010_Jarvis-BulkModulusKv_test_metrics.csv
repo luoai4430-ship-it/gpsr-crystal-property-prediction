@@ -1,0 +1,2 @@
+model,target,MAE,RMSE,R2,graph_MAE,graph_RMSE,graph_R2,alpha,num_samples
+GPSRNodeGateEarlyBoundedTau010,Jarvis-BulkModulusKv,8.986531625918257,23.303396002152073,0.8773157813572501,,,,,1968

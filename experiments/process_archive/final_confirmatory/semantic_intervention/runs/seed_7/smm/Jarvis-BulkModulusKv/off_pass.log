@@ -1,0 +1,12 @@
+/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_confirmatory/semantic_intervention/smm_model.py:127: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  "std_cos_delta_h": node_cos_d_h.std().item(),
+[multimodal] Re-loaded text embeddings from /root/autodl-tmp/dataset1/dataset/jarvis/bulk_modulus_kv/MatBert_embeddings.pt (cache had 19680 samples)
+[multimodal] 19680 / 19680 samples have non-zero text embeddings
+[multimodal] Text modality will be used (contrastive + property).
+dataset split: total=19680, train=15744, valid=1968, test=1968
+train range:(-22.709999084472656,470.80999755859375)
+valid range:(-10.169998168945312,437.6000061035156)
+test range:(-17.099998474121094,339.55999755859375)
+mean:84.35910034179688
+std:66.33599090576172
+{"task": "Jarvis-BulkModulusKv", "method": "smm", "seed": 7, "mae_on": 9.049843072891235, "mae_off": 10.091812253967534, "mean_rho": 0.18202960616871108, "median_rho": 0.18195452541112894, "p90_rho": 0.20260328799486158, "p95_rho": 0.20827016979455948, "max_rho": 0.2365770488977432, "mean_cos_h_off_on": 0.9841030326073732, "mean_cos_delta_h": -0.030104828478385564, "mean_abs_delta_y": 3.784113889787255, "mean_normalized_output_shift": 0.3749687166742082, "counterfactual_note": "semantic-OFF diagnostic pass; formal ON test was evaluated once during training"}

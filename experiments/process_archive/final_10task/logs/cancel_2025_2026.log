@@ -1,0 +1,3 @@
+[2026-09-22T05:08:07] watchdog armed; waiting for seed 1234 to finish
+[2026-09-22T09:34:29] detected prohibited phase multiseed_seed_2025; managers=[85125]
+[2026-09-22T09:34:31] restarted pipeline with seeds 42,7,1234 only

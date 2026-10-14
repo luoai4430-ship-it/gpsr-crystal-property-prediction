@@ -1,0 +1,2 @@
+model,target,MAE,RMSE,R2,graph_MAE,graph_RMSE,graph_R2,alpha,num_samples
+GPSRNodeGateEarly,Jarvis-Bandgap_MBJ,0.27565834624539115,0.7523862035392225,0.888715065878957,,,,,1818

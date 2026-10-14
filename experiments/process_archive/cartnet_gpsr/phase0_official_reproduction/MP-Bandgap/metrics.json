@@ -1,0 +1,22 @@
+{
+  "task": "MP-Bandgap",
+  "dataset": "megnet",
+  "target": "gap pbe",
+  "seed": 0,
+  "epochs": 500,
+  "batch_size": 64,
+  "optimizer": "Adam",
+  "scheduler": "OneCycleLR",
+  "cutoff": 5.0,
+  "neighbors": "all within radius",
+  "hidden_dim": 256,
+  "interaction_layers": 4,
+  "best_epoch": 460,
+  "best_valid_mae": 0.18846691531217566,
+  "test_mae": 0.18943836718956963,
+  "published_reference": 0.1908,
+  "relative_error": 0.007136440306238801,
+  "sanity_pass": true,
+  "checkpoint_rule": "minimum validation MAE; test once",
+  "elapsed_s": 26842.629062652588
+}

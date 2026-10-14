@@ -1,0 +1,18 @@
+{
+  "task": "MP-FormationEnergy",
+  "model": "graph",
+  "seed": 42,
+  "split_seed": 123,
+  "epochs": 60,
+  "batch_size": 32,
+  "best_epoch": 57,
+  "valid_mae": 0.02578296520723364,
+  "test_mae": 0.0316873302524404,
+  "train_size": 60000,
+  "valid_size": 5000,
+  "test_size": 516,
+  "target_mean": -1.6532751321792603,
+  "target_std": 1.072024941444397,
+  "graph_recovery_max_abs_error": null,
+  "alpha_initial_mean": null
+}

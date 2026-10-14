@@ -1,0 +1,6 @@
+{"event": "graph_progress", "task": "MP-BulkModuli", "done": 1000, "total": 5830, "elapsed_s": 17.827826976776123}
+{"event": "graph_progress", "task": "MP-BulkModuli", "done": 2000, "total": 5830, "elapsed_s": 36.431803941726685}
+{"event": "graph_progress", "task": "MP-BulkModuli", "done": 3000, "total": 5830, "elapsed_s": 54.69309973716736}
+{"event": "graph_progress", "task": "MP-BulkModuli", "done": 4000, "total": 5830, "elapsed_s": 72.95182251930237}
+{"event": "graph_progress", "task": "MP-BulkModuli", "done": 5000, "total": 5830, "elapsed_s": 91.25749254226685}
+{"event": "graph_progress", "task": "MP-BulkModuli", "done": 5830, "total": 5830, "elapsed_s": 106.09504389762878}

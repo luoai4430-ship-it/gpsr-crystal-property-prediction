@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_10task/pipeline.py", line 80, in <module>
+    main()
+  File "/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_10task/pipeline.py", line 62, in main
+    run(EXP / "multiseed_queue.py", "multiseed_pipeline.log")
+  File "/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_10task/pipeline.py", line 21, in run
+    subprocess.run(
+  File "/usr/lib/python3.10/subprocess.py", line 526, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/root/venvs/fair-v21/bin/python', '/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_10task/multiseed_queue.py']' died with <Signals.SIGTERM: 15>.

@@ -1,0 +1,53 @@
+{
+  "archive": "/root/autodl-tmp/dataset1/jdft_3d-8-18-2021.json.zip",
+  "num_official_records": 55723,
+  "sources": [
+    {
+      "task_dir": "mbj_bandgap",
+      "prop": "mbj_bandgap",
+      "target": "Bandgap_MBJ",
+      "num_rows": 18172,
+      "num_missing_reconstructed": 8,
+      "embedding_path": "/root/autodl-tmp/dataset1/dataset/jarvis/mbj_bandgap/MatBert_embeddings.pt"
+    },
+    {
+      "task_dir": "formation_energy_peratom",
+      "prop": "formation_energy_peratom",
+      "target": "FormationEnergy",
+      "num_rows": 55723,
+      "num_missing_reconstructed": 35,
+      "embedding_path": "/root/autodl-tmp/dataset1/dataset/jarvis/formation_energy_peratom/MatBert_embeddings.pt"
+    },
+    {
+      "task_dir": "bulk_modulus_kv",
+      "prop": "bulk_modulus_kv",
+      "target": "BulkModulusKv",
+      "num_rows": 19680,
+      "num_missing_reconstructed": 11,
+      "embedding_path": "/root/autodl-tmp/dataset1/dataset/jarvis/bulk_modulus_kv/MatBert_embeddings.pt"
+    }
+  ],
+  "aliases": [
+    {
+      "task_dir": "optb88vdw_bandgap",
+      "prop": "optb88vdw_bandgap",
+      "source": "formation_energy_peratom",
+      "num_rows": 55723,
+      "embedding_hardlink": true
+    },
+    {
+      "task_dir": "optb88vdw_total_energy",
+      "prop": "optb88vdw_total_energy",
+      "source": "formation_energy_peratom",
+      "num_rows": 55723,
+      "embedding_hardlink": true
+    },
+    {
+      "task_dir": "shear_modulus_gv",
+      "prop": "shear_modulus_gv",
+      "source": "bulk_modulus_kv",
+      "num_rows": 19680,
+      "embedding_hardlink": true
+    }
+  ]
+}

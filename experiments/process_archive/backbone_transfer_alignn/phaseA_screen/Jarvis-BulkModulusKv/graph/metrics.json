@@ -1,0 +1,18 @@
+{
+  "task": "Jarvis-BulkModulusKv",
+  "model": "graph",
+  "seed": 42,
+  "split_seed": 123,
+  "epochs": 60,
+  "batch_size": 32,
+  "best_epoch": 60,
+  "valid_mae": 9.283984762723328,
+  "test_mae": 9.390955405506661,
+  "train_size": 15744,
+  "valid_size": 1968,
+  "test_size": 1968,
+  "target_mean": 84.35910034179688,
+  "target_std": 66.33599090576172,
+  "graph_recovery_max_abs_error": null,
+  "alpha_initial_mean": null
+}

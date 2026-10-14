@@ -1,0 +1,2 @@
+model,target,MAE,RMSE,R2,graph_MAE,graph_RMSE,graph_R2,alpha,num_samples
+GPSRNodeGateEarly,Jarvis-FormationEnergy,0.032194989658698304,0.06975164981155701,0.9959566091751301,,,,,5573

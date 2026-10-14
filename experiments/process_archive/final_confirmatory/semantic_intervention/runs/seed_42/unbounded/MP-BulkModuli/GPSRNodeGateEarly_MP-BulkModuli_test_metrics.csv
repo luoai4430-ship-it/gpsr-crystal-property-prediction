@@ -1,0 +1,2 @@
+model,target,MAE,RMSE,R2,graph_MAE,graph_RMSE,graph_R2,alpha,num_samples
+GPSRNodeGateEarly,MP-BulkModuli,0.03671522911376037,0.06488724545518854,0.9675629685910156,,,,,583

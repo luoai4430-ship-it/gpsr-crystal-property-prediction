@@ -4,3 +4,6 @@
 *.pkl binary
 # Preserve this raw preflight table's attested archive checksum.
 experiments/composition_pairing_control/group_coverage.csv -text
+# Keep the immutable server process archive byte-for-byte identical to its
+# source manifest, including original line endings.
+experiments/process_archive/** -text

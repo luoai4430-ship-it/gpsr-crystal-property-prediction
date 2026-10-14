@@ -1,0 +1,37 @@
+{
+  "task": "Jarvis-FormationEnergy",
+  "category": "Energy",
+  "model": "gpsr",
+  "seed": 42,
+  "epochs": 500,
+  "batch_size": 64,
+  "optimizer": "Adam",
+  "scheduler": "OneCycleLR",
+  "learning_rate": 0.001,
+  "checkpoint_rule": "minimum validation MAE; test evaluated once",
+  "best_epoch": 489,
+  "best_valid_mae": 0.026930258092547354,
+  "test_mae": 0.02738385489980879,
+  "split_seed": 123,
+  "split_status": {
+    "expected": 55723,
+    "loaded": 55723,
+    "sizes": [
+      44578,
+      5572,
+      5573
+    ]
+  },
+  "graph": {
+    "cutoff": 5.0,
+    "neighbors": "all within radius",
+    "directional": true
+  },
+  "elapsed_s": 11034.138350248337,
+  "graph_path_equivalence": {
+    "max_output_abs_error": 1.4901161193847656e-08,
+    "max_atom_state_abs_error": 0.0,
+    "tolerance": 1e-07,
+    "pass": true
+  }
+}

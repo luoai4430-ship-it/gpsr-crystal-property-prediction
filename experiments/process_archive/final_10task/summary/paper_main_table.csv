@@ -1,0 +1,11 @@
+dataset_property,Graph,TextResidual,Early NodeGate,Final Hard-0.10
+Jarvis-Bandgap_MBJ,0.277082 ± 0.00459,0.275791 (seed 42),0.271814 (seed 42),0.267956 ± 0.00454
+Jarvis-Bandgap_OPT,0.131574 ± 0.00272,0.124419 (seed 42),0.125804 (seed 42),0.12884 ± 0.00333
+Jarvis-FormationEnergy,0.0325717 ± 0.000278,0.0318123 (seed 42),0.0314192 (seed 42),0.0317481 ± 0.000334
+Jarvis-TotalEnergy,0.034863 ± 0.000151,0.0349241 (seed 42),0.0341791 (seed 42),0.0342518 ± 0.00023
+Jarvis-BulkModulusKv,9.24824 ± 0.0934,8.81753 (seed 42),8.97141 (seed 42),9.13941 ± 0.0571
+Jarvis-ShearModulusGv,8.67583 ± 0.0645,8.53328 (seed 42),8.56281 (seed 42),8.54503 ± 0.0635
+MP-Bandgap,0.215767 ± 0.00238,0.196128 (seed 42),0.188069 (seed 42),0.19535 ± 0.00384
+MP-FormationEnergy,0.0261416 ± 0.000427,0.026708 (seed 42),0.0267306 (seed 42),0.0262772 ± 0.00059
+MP-BulkModuli,0.0387675 ± 0.000352,0.0373081 (seed 42),0.0361538 (seed 42),0.0361056 ± 0.000214
+MP-ShearModuli,0.0731811 ± 0.00104,0.0724986 (seed 42),0.0690595 (seed 42),0.0690955 ± 0.000956

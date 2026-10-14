@@ -1,0 +1,17 @@
+{
+  "task": "Jarvis-BulkModulusKv",
+  "method": "unbounded",
+  "seed": 1234,
+  "mae_on": 9.09817721979405,
+  "mae_off": 11.232654455231458,
+  "mean_rho": 0.47233706419696897,
+  "median_rho": 0.44980329275131226,
+  "p90_rho": 0.6758599042892456,
+  "p95_rho": 0.7557722091674804,
+  "max_rho": 1.0996615886688232,
+  "mean_cos_h_off_on": 0.8951756077689853,
+  "mean_cos_delta_h": -0.08685466392518913,
+  "mean_abs_delta_y": 5.288117924356849,
+  "mean_normalized_output_shift": 0.4707807887648479,
+  "counterfactual_note": "semantic-OFF diagnostic pass; formal ON test was evaluated once during training"
+}

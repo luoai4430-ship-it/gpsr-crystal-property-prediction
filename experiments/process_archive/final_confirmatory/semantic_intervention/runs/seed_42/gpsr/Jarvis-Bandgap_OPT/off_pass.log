@@ -1,0 +1,14 @@
+[shared-graph] Loaded 55723 structures from Dataset/raw/Jarvis-FormationEnergy-cutoff4.0-maxNeibNum16-spheHarmL4-CIF_CSV-rawData.pt with task targets from /root/autodl-tmp/dataset1/dataset/jarvis/optb88vdw_bandgap/cif/id_prop.csv
+/root/venvs/fair-v21/lib/python3.10/site-packages/torch_geometric/data/in_memory_dataset.py:300: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  warnings.warn(msg)
+/root/autodl-tmp/TextResidualSHFMat-FAIR/model/semantic_residual.py:294: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  "std_cos_delta_h": cos_delta_h.std().item(),
+[multimodal] 55723 / 55723 samples have non-zero text embeddings
+[multimodal] Text modality will be used (contrastive + property).
+dataset split: total=55723, train=44578, valid=5572, test=5573
+train range:(0.0,9.642999649047852)
+valid range:(0.0,9.029999732971191)
+test range:(0.0,9.479000091552734)
+mean:0.6863698959350586
+std:1.4048433303833008
+{"task": "Jarvis-Bandgap_OPT", "method": "gpsr", "seed": 42, "mae_on": 0.12161049025396288, "mae_off": 0.13990784513871202, "mean_rho": 0.10000000152086497, "median_rho": 0.1000000014901161, "p90_rho": 0.1000000089406967, "p95_rho": 0.1000000163912773, "max_rho": 0.1000000685453414, "mean_cos_h_off_on": 0.995082663383857, "mean_cos_delta_h": 0.00475358936924612, "mean_abs_delta_y": 0.054633198612450314, "mean_normalized_output_shift": 0.3904941753500961, "counterfactual_note": "semantic-OFF diagnostic pass; formal ON test was evaluated once during training"}

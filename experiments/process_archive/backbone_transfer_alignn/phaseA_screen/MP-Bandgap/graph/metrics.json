@@ -1,0 +1,18 @@
+{
+  "task": "MP-Bandgap",
+  "model": "graph",
+  "seed": 42,
+  "split_seed": 123,
+  "epochs": 60,
+  "batch_size": 32,
+  "best_epoch": 58,
+  "valid_mae": 0.23395282545915017,
+  "test_mae": 0.22429185828497245,
+  "train_size": 60000,
+  "valid_size": 5000,
+  "test_size": 516,
+  "target_mean": 1.350268006324768,
+  "target_std": 1.6265326738357544,
+  "graph_recovery_max_abs_error": null,
+  "alpha_initial_mean": null
+}

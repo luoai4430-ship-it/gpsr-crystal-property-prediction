@@ -1,0 +1,12 @@
+/root/autodl-tmp/TextResidualSHFMat-FAIR/model/semantic_residual.py:294: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  "std_cos_delta_h": cos_delta_h.std().item(),
+[multimodal] Re-loaded text embeddings from /root/autodl-tmp/dataset1/dataset/jarvis/formation_energy_peratom/MatBert_embeddings.pt (cache had 55723 samples)
+[multimodal] 55723 / 55723 samples have non-zero text embeddings
+[multimodal] Text modality will be used (contrastive + property).
+dataset split: total=55723, train=44578, valid=5572, test=5573
+train range:(-4.385529518127441,4.985750198364258)
+valid range:(-4.379370212554932,3.7853994369506836)
+test range:(-4.42303991317749,3.307389736175537)
+mean:-0.831722617149353
+std:1.0806602239608765
+{"task": "Jarvis-FormationEnergy", "method": "gpsr", "seed": 1234, "mae_on": 0.03170670049955873, "mae_off": 0.038738784741054806, "mean_rho": 0.10000000179760464, "median_rho": 0.1000000014901161, "p90_rho": 0.1000000089406967, "p95_rho": 0.1000000163912773, "max_rho": 0.1000000536441803, "mean_cos_h_off_on": 0.9950200038432818, "mean_cos_delta_h": -0.10519655745622167, "mean_abs_delta_y": 0.018407525145427855, "mean_normalized_output_shift": 0.47517043367444173, "counterfactual_note": "semantic-OFF diagnostic pass; formal ON test was evaluated once during training"}

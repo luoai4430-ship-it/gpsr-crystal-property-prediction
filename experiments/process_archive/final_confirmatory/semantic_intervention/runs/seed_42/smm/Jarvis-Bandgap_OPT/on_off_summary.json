@@ -1,0 +1,17 @@
+{
+  "task": "Jarvis-Bandgap_OPT",
+  "method": "smm",
+  "seed": 42,
+  "mae_on": 0.12941922671743983,
+  "mae_off": 0.13633660190562769,
+  "mean_rho": 0.13434039521009855,
+  "median_rho": 0.1324618011713028,
+  "p90_rho": 0.15685673952102655,
+  "p95_rho": 0.16622521877288812,
+  "max_rho": 0.2238073348999023,
+  "mean_cos_h_off_on": 0.9908848183706507,
+  "mean_cos_delta_h": -0.1670021919679013,
+  "mean_abs_delta_y": 0.03435243648792242,
+  "mean_normalized_output_shift": 0.25196782087689995,
+  "counterfactual_note": "semantic-OFF diagnostic pass; formal ON test was evaluated once during training"
+}

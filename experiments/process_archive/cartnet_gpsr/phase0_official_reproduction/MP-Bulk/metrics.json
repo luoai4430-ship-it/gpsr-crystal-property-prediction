@@ -1,0 +1,22 @@
+{
+  "task": "MP-Bulk",
+  "dataset": "megnet",
+  "target": "bulk modulus",
+  "seed": 0,
+  "epochs": 500,
+  "batch_size": 64,
+  "optimizer": "Adam",
+  "scheduler": "OneCycleLR",
+  "cutoff": 5.0,
+  "neighbors": "all within radius",
+  "hidden_dim": 256,
+  "interaction_layers": 4,
+  "best_epoch": 385,
+  "best_valid_mae": 0.028983128277195385,
+  "test_mae": 0.03388056728298981,
+  "published_reference": 0.033,
+  "relative_error": 0.0266838570602973,
+  "sanity_pass": true,
+  "checkpoint_rule": "minimum validation MAE; test once",
+  "elapsed_s": 1053.9995794296265
+}

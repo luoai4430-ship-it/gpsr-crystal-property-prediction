@@ -1,0 +1,21 @@
+{
+  "task": "Jarvis-Bandgap_MBJ",
+  "label": "J-MBJ",
+  "N": 1818,
+  "checkpoint_epoch": 343,
+  "checkpoint_validation_mae": 0.24655320976353898,
+  "formal_independent_cartnet_mae": 0.2477434583754167,
+  "formal_independent_gpsr_mae": 0.23250933632467707,
+  "within_gpsr_checkpoint_mae_off": 0.2952805172139648,
+  "within_gpsr_checkpoint_mae_on": 0.2325093412290856,
+  "replay_max_abs_prediction_difference": 2.2649765014648438e-06,
+  "alpha_mean_abs": 0.13204756379127502,
+  "alpha_l2_norm": 2.478908061981201,
+  "mean_projected_text_norm": 69.33099663978888,
+  "mean_raw_residual_norm": 28.730941005797014,
+  "mean_final_residual_norm": 3.6021392372968566,
+  "fraction_improved": 0.6914191419141914,
+  "fraction_hurt": 0.3069306930693069,
+  "fraction_tied": 0.0016501650165016502,
+  "max_rho_final": 0.10000003129243851
+}

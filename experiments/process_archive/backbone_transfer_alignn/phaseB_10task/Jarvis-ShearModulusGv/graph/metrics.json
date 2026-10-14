@@ -1,0 +1,18 @@
+{
+  "task": "Jarvis-ShearModulusGv",
+  "model": "graph",
+  "seed": 42,
+  "split_seed": 123,
+  "epochs": 60,
+  "batch_size": 32,
+  "best_epoch": 51,
+  "valid_mae": 8.749796531239493,
+  "test_mae": 9.208666890617309,
+  "train_size": 15744,
+  "valid_size": 1968,
+  "test_size": 1968,
+  "target_mean": 37.37079620361328,
+  "target_std": 39.461280822753906,
+  "graph_recovery_max_abs_error": null,
+  "alpha_initial_mean": null
+}

@@ -1,0 +1,10 @@
+[multimodal] Re-loaded text embeddings from /root/autodl-tmp/dataset1/dataset/mp_2018/MP-bandgap/MatBert_embeddings.pt (cache had 65516 samples)
+[multimodal] 65516 / 65516 samples have non-zero text embeddings
+[multimodal] Text modality will be used (contrastive + property).
+dataset split: total=65516, train=60000, valid=5000, test=516
+train range:(0.0,17.891399383544922)
+valid range:(0.0,8.311300277709961)
+test range:(0.0,7.539400100708008)
+mean:1.350268006324768
+std:1.6265326738357544
+{"task": "MP-Bandgap", "method": "gpsr", "seed": 1234, "mae_on": 0.21051632006501042, "mae_off": 0.2432685010423956, "mean_rho": 0.10000000248641469, "median_rho": 0.1000000014901161, "p90_rho": 0.1000000238418579, "p95_rho": 0.1000000387430191, "max_rho": 0.1000001356005668, "mean_cos_h_off_on": 0.9950691358756649, "mean_cos_delta_h": -0.0014025934999661455, "mean_abs_delta_y": 0.09923526182655217, "mean_normalized_output_shift": 0.4079248295662327, "counterfactual_note": "semantic-OFF diagnostic pass; formal ON test was evaluated once during training"}

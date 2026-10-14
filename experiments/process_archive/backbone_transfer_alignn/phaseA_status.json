@@ -1,0 +1,10 @@
+{
+  "phase": "A",
+  "verdict": "BACKBONE_TRANSFER_GAIN",
+  "graph_macro_nmae": 1.0,
+  "early_macro_nmae": 0.935459242929072,
+  "hard_macro_nmae": 0.9530877303610922,
+  "hard_improved_tasks": 5,
+  "num_tasks": 5,
+  "hard_bound_pass": true
+}

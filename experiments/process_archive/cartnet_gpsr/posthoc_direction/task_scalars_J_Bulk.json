@@ -1,0 +1,21 @@
+{
+  "task": "Jarvis-BulkModulusKv",
+  "label": "J-Bulk",
+  "N": 1968,
+  "checkpoint_epoch": 358,
+  "checkpoint_validation_mae": 8.041236133110232,
+  "formal_independent_cartnet_mae": 8.788754626018244,
+  "formal_independent_gpsr_mae": 8.603873671554938,
+  "within_gpsr_checkpoint_mae_off": 11.630696367199828,
+  "within_gpsr_checkpoint_mae_on": 8.603873841282798,
+  "replay_max_abs_prediction_difference": 0.0001220703125,
+  "alpha_mean_abs": 0.12359090149402618,
+  "alpha_l2_norm": 2.5333023071289062,
+  "mean_projected_text_norm": 132.84338973111252,
+  "mean_raw_residual_norm": 56.57446716204891,
+  "mean_final_residual_norm": 3.6029449585613196,
+  "fraction_improved": 0.6539634146341463,
+  "fraction_hurt": 0.34603658536585363,
+  "fraction_tied": 0.0,
+  "max_rho_final": 0.1000000387430191
+}

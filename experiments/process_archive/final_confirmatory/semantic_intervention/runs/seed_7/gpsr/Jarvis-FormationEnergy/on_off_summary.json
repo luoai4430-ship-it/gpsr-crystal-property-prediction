@@ -1,0 +1,17 @@
+{
+  "task": "Jarvis-FormationEnergy",
+  "method": "gpsr",
+  "seed": 7,
+  "mae_on": 0.031692305517949604,
+  "mae_off": 0.039224604275375045,
+  "mean_rho": 0.10000000165722944,
+  "median_rho": 0.1000000014901161,
+  "p90_rho": 0.1000000089406967,
+  "p95_rho": 0.1000000163912773,
+  "max_rho": 0.1000000834465026,
+  "mean_cos_h_off_on": 0.9950178973704293,
+  "mean_cos_delta_h": -0.09578395712146481,
+  "mean_abs_delta_y": 0.018748515291400515,
+  "mean_normalized_output_shift": 0.47797844332035017,
+  "counterfactual_note": "semantic-OFF diagnostic pass; formal ON test was evaluated once during training"
+}

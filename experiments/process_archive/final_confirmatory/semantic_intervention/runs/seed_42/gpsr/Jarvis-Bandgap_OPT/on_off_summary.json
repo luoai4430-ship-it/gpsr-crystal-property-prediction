@@ -1,0 +1,17 @@
+{
+  "task": "Jarvis-Bandgap_OPT",
+  "method": "gpsr",
+  "seed": 42,
+  "mae_on": 0.12161049025396288,
+  "mae_off": 0.13990784513871202,
+  "mean_rho": 0.10000000152086497,
+  "median_rho": 0.1000000014901161,
+  "p90_rho": 0.1000000089406967,
+  "p95_rho": 0.1000000163912773,
+  "max_rho": 0.1000000685453414,
+  "mean_cos_h_off_on": 0.995082663383857,
+  "mean_cos_delta_h": 0.00475358936924612,
+  "mean_abs_delta_y": 0.054633198612450314,
+  "mean_normalized_output_shift": 0.3904941753500961,
+  "counterfactual_note": "semantic-OFF diagnostic pass; formal ON test was evaluated once during training"
+}

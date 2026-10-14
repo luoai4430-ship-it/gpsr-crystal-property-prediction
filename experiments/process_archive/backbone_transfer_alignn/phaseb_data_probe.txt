@@ -1,0 +1,10 @@
+Jarvis-Bandgap_MBJ 18172 jarvis_json
+Jarvis-Bandgap_OPT 55723 jarvis_json
+Jarvis-FormationEnergy 55723 jarvis_json
+Jarvis-TotalEnergy 55723 jarvis_json
+Jarvis-BulkModulusKv 19680 jarvis_json
+Jarvis-ShearModulusGv 19680 jarvis_json
+MP-Bandgap 65516 missing_cif 0 examples []
+MP-FormationEnergy 65516 missing_cif 0 examples []
+MP-BulkModuli 5830 missing_cif 0 examples []
+MP-ShearModuli 5830 missing_cif 0 examples []

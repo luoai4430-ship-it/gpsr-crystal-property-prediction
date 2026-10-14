@@ -1,0 +1,21 @@
+{
+  "task": "MP-BulkModuli",
+  "label": "MP-Bulk",
+  "N": 583,
+  "checkpoint_epoch": 404,
+  "checkpoint_validation_mae": 0.0327366639574028,
+  "formal_independent_cartnet_mae": 0.030243743754169338,
+  "formal_independent_gpsr_mae": 0.03399093400552792,
+  "within_gpsr_checkpoint_mae_off": 0.055983025356999394,
+  "within_gpsr_checkpoint_mae_on": 0.03399092582650291,
+  "replay_max_abs_prediction_difference": 7.152557373046875e-07,
+  "alpha_mean_abs": 0.07820167392492294,
+  "alpha_l2_norm": 1.6364223957061768,
+  "mean_projected_text_norm": 42.39540282162753,
+  "mean_raw_residual_norm": 8.806822048656732,
+  "mean_final_residual_norm": 2.4065777646125284,
+  "fraction_improved": 0.7512864493996569,
+  "fraction_hurt": 0.24871355060034306,
+  "fraction_tied": 0.0,
+  "max_rho_final": 0.10000003129243851
+}

@@ -1,0 +1,17 @@
+{
+  "task": "MP-Bandgap",
+  "method": "unbounded",
+  "seed": 1234,
+  "mae_on": 0.19511215873928958,
+  "mae_off": 0.24414934622224913,
+  "mean_rho": 0.4325530851303145,
+  "median_rho": 0.41546520590782166,
+  "p90_rho": 0.6173969507217407,
+  "p95_rho": 0.7003956288099289,
+  "max_rho": 1.3753443956375122,
+  "mean_cos_h_off_on": 0.9099844773841459,
+  "mean_cos_delta_h": -0.08530337937819668,
+  "mean_abs_delta_y": 0.13573933490949083,
+  "mean_normalized_output_shift": 0.5559684554138733,
+  "counterfactual_note": "semantic-OFF diagnostic pass; formal ON test was evaluated once during training"
+}

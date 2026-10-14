@@ -1,0 +1,6 @@
+{"event": "graph_progress", "task": "MP-ShearModuli", "done": 1000, "total": 5830, "elapsed_s": 17.966862201690674}
+{"event": "graph_progress", "task": "MP-ShearModuli", "done": 2000, "total": 5830, "elapsed_s": 36.73890209197998}
+{"event": "graph_progress", "task": "MP-ShearModuli", "done": 3000, "total": 5830, "elapsed_s": 54.990819215774536}
+{"event": "graph_progress", "task": "MP-ShearModuli", "done": 4000, "total": 5830, "elapsed_s": 73.01240944862366}
+{"event": "graph_progress", "task": "MP-ShearModuli", "done": 5000, "total": 5830, "elapsed_s": 91.12820601463318}
+{"event": "graph_progress", "task": "MP-ShearModuli", "done": 5830, "total": 5830, "elapsed_s": 106.24064350128174}

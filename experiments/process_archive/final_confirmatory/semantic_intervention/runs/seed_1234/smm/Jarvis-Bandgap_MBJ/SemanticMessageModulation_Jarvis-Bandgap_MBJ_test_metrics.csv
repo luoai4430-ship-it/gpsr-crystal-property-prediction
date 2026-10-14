@@ -1,0 +1,2 @@
+model,target,MAE,RMSE,R2,graph_MAE,graph_RMSE,graph_R2,alpha,num_samples
+SemanticMessageModulation,Jarvis-Bandgap_MBJ,0.2760253058473925,0.7536586214137826,0.8883383426621583,,,,,1818

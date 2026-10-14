@@ -1,0 +1,2 @@
+model,target,MAE,RMSE,R2,graph_MAE,graph_RMSE,graph_R2,alpha,num_samples
+SemanticMessageModulation,MP-Bandgap,0.22701654438824617,0.4645639003617335,0.9176435267165093,,,,,516

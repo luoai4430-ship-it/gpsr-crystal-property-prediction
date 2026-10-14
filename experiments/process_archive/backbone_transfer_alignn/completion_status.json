@@ -1,0 +1,10 @@
+{
+  "phase": "C",
+  "verdict": "BACKBONE_AGNOSTIC_GRAPH_PRESERVING_GAIN",
+  "num_seeds": 3,
+  "macro_nmae_mean": 0.9702851787687328,
+  "macro_nmae_std": 0.005376688990352558,
+  "gain_pct_mean": 2.971482123126723,
+  "tasks_with_majority_seeds_improved": 9,
+  "hard_bound_pass": true
+}

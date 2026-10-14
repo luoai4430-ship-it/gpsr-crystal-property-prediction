@@ -1,0 +1,6 @@
+{
+  "max_output_abs_error": 1.4901161193847656e-08,
+  "max_atom_state_abs_error": 0.0,
+  "tolerance": 1e-07,
+  "pass": true
+}

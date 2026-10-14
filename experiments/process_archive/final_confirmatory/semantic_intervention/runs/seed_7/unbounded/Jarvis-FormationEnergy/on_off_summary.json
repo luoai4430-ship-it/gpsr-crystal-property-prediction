@@ -1,0 +1,17 @@
+{
+  "task": "Jarvis-FormationEnergy",
+  "method": "unbounded",
+  "seed": 7,
+  "mae_on": 0.032194989658698304,
+  "mae_off": 0.047658929988680376,
+  "mean_rho": 0.25337757236043,
+  "median_rho": 0.2368360459804535,
+  "p90_rho": 0.3767194628715515,
+  "p95_rho": 0.42935300469398496,
+  "max_rho": 0.9190054535865784,
+  "mean_cos_h_off_on": 0.9644937822640359,
+  "mean_cos_delta_h": -0.10637569615049612,
+  "mean_abs_delta_y": 0.030850100582513994,
+  "mean_normalized_output_shift": 0.6473099708667671,
+  "counterfactual_note": "semantic-OFF diagnostic pass; formal ON test was evaluated once during training"
+}

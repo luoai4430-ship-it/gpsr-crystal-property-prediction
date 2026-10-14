@@ -1,0 +1,291 @@
+2026-10-06 05:01:17 - Jarvis-Bandgap - Run output directory: Pic-log/GPSRNodeGateEarly_Jarvis-Bandgap_MatBert_20261006_050117
+2026-10-06 05:01:17 - Jarvis-Bandgap - GPSR setup: injection_after_block = 1 (of 5 SFTConv blocks); node_dim = 128; text_dim = 768; use_node_gate = True; alpha_init = 0.001; max_residual_ratio = inf
+2026-10-06 05:01:37 - Jarvis-Bandgap - Training...
+2026-10-06 05:03:12 - Jarvis-Bandgap - epoch:000; train:mae:0.76073081;valid:mae:0.63914822;
+2026-10-06 05:03:12 - Jarvis-Bandgap - gpsr_epoch:000; raw(mean/median/max)=0.083095/0.073539/0.215450; final(mean/median/max)=0.083095/0.073539/0.215450; clipped=0.000000; mean_scale=1.000000; |delta_raw|=2.998951e-02; |delta_final|=2.998951e-02; |H|=3.983862e-01; gate=0.674380; alpha_absmean=1.850843e-02
+2026-10-06 05:03:12 - Jarvis-Bandgap - sample_gate_epoch:000; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:04:50 - Jarvis-Bandgap - epoch:001; train:mae:0.59223299;valid:mae:0.55169271;
+2026-10-06 05:04:50 - Jarvis-Bandgap - gpsr_epoch:001; raw(mean/median/max)=0.151643/0.143555/0.343494; final(mean/median/max)=0.151643/0.143555/0.343494; clipped=0.000000; mean_scale=1.000000; |delta_raw|=5.285065e-02; |delta_final|=5.285065e-02; |H|=3.980638e-01; gate=0.693203; alpha_absmean=2.340871e-02
+2026-10-06 05:04:50 - Jarvis-Bandgap - sample_gate_epoch:001; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:06:28 - Jarvis-Bandgap - epoch:002; train:mae:0.53750186;valid:mae:0.53768685;
+2026-10-06 05:06:28 - Jarvis-Bandgap - gpsr_epoch:002; raw(mean/median/max)=0.274819/0.286850/0.496115; final(mean/median/max)=0.274819/0.286850/0.496115; clipped=0.000000; mean_scale=1.000000; |delta_raw|=8.808512e-02; |delta_final|=8.808512e-02; |H|=3.905667e-01; gate=0.713985; alpha_absmean=2.768436e-02
+2026-10-06 05:06:28 - Jarvis-Bandgap - sample_gate_epoch:002; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:08:08 - Jarvis-Bandgap - epoch:003; train:mae:0.50311017;valid:mae:0.48442795;
+2026-10-06 05:08:08 - Jarvis-Bandgap - gpsr_epoch:003; raw(mean/median/max)=0.264969/0.261892/0.594393; final(mean/median/max)=0.264969/0.261892/0.594393; clipped=0.000000; mean_scale=1.000000; |delta_raw|=8.341084e-02; |delta_final|=8.341084e-02; |H|=3.940169e-01; gate=0.664675; alpha_absmean=3.272329e-02
+2026-10-06 05:08:08 - Jarvis-Bandgap - sample_gate_epoch:003; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:09:50 - Jarvis-Bandgap - epoch:004; train:mae:0.48303335;valid:mae:0.45634005;
+2026-10-06 05:09:50 - Jarvis-Bandgap - gpsr_epoch:004; raw(mean/median/max)=0.307202/0.316622/0.596634; final(mean/median/max)=0.307202/0.316622/0.596634; clipped=0.000000; mean_scale=1.000000; |delta_raw|=9.705932e-02; |delta_final|=9.705932e-02; |H|=3.873914e-01; gate=0.681962; alpha_absmean=3.936477e-02
+2026-10-06 05:09:50 - Jarvis-Bandgap - sample_gate_epoch:004; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:11:31 - Jarvis-Bandgap - epoch:005; train:mae:0.46928750;valid:mae:0.45079382;
+2026-10-06 05:11:31 - Jarvis-Bandgap - gpsr_epoch:005; raw(mean/median/max)=0.288606/0.280586/0.650387; final(mean/median/max)=0.288606/0.280586/0.650387; clipped=0.000000; mean_scale=1.000000; |delta_raw|=9.834424e-02; |delta_final|=9.834424e-02; |H|=3.949495e-01; gate=0.690019; alpha_absmean=4.627559e-02
+2026-10-06 05:11:31 - Jarvis-Bandgap - sample_gate_epoch:005; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:13:15 - Jarvis-Bandgap - epoch:006; train:mae:0.46081391;valid:mae:0.46330498;
+2026-10-06 05:13:15 - Jarvis-Bandgap - gpsr_epoch:006; raw(mean/median/max)=0.304258/0.298338/0.750542; final(mean/median/max)=0.304258/0.298338/0.750542; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.168969e-01; |delta_final|=1.168969e-01; |H|=3.978922e-01; gate=0.709339; alpha_absmean=5.331411e-02
+2026-10-06 05:13:15 - Jarvis-Bandgap - sample_gate_epoch:006; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:14:43 - Jarvis-Bandgap - epoch:007; train:mae:0.44635895;valid:mae:0.47450635;
+2026-10-06 05:14:43 - Jarvis-Bandgap - gpsr_epoch:007; raw(mean/median/max)=0.343053/0.327097/0.894081; final(mean/median/max)=0.343053/0.327097/0.894081; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.394899e-01; |delta_final|=1.394899e-01; |H|=3.873127e-01; gate=0.740370; alpha_absmean=5.702967e-02
+2026-10-06 05:14:43 - Jarvis-Bandgap - sample_gate_epoch:007; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:16:07 - Jarvis-Bandgap - epoch:008; train:mae:0.44186992;valid:mae:0.46156814;
+2026-10-06 05:16:07 - Jarvis-Bandgap - gpsr_epoch:008; raw(mean/median/max)=0.333959/0.316093/0.874406; final(mean/median/max)=0.333959/0.316093/0.874406; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.418454e-01; |delta_final|=1.418454e-01; |H|=4.039336e-01; gate=0.754174; alpha_absmean=6.103613e-02
+2026-10-06 05:16:07 - Jarvis-Bandgap - sample_gate_epoch:008; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:17:33 - Jarvis-Bandgap - epoch:009; train:mae:0.43517903;valid:mae:0.47003357;
+2026-10-06 05:17:33 - Jarvis-Bandgap - gpsr_epoch:009; raw(mean/median/max)=0.321600/0.294073/1.014987; final(mean/median/max)=0.321600/0.294073/1.014987; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.296543e-01; |delta_final|=1.296543e-01; |H|=3.958914e-01; gate=0.730085; alpha_absmean=6.279878e-02
+2026-10-06 05:17:33 - Jarvis-Bandgap - sample_gate_epoch:009; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:19:12 - Jarvis-Bandgap - epoch:010; train:mae:0.42706818;valid:mae:0.43250387;
+2026-10-06 05:19:12 - Jarvis-Bandgap - gpsr_epoch:010; raw(mean/median/max)=0.308859/0.286954/0.976147; final(mean/median/max)=0.308859/0.286954/0.976147; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.154369e-01; |delta_final|=1.154369e-01; |H|=3.859413e-01; gate=0.665138; alpha_absmean=5.952124e-02
+2026-10-06 05:19:12 - Jarvis-Bandgap - sample_gate_epoch:010; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:21:15 - Jarvis-Bandgap - epoch:011; train:mae:0.41481502;valid:mae:0.43924817;
+2026-10-06 05:21:15 - Jarvis-Bandgap - gpsr_epoch:011; raw(mean/median/max)=0.352903/0.335365/0.989024; final(mean/median/max)=0.352903/0.335365/0.989024; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.318813e-01; |delta_final|=1.318813e-01; |H|=3.887850e-01; gate=0.677470; alpha_absmean=5.851395e-02
+2026-10-06 05:21:15 - Jarvis-Bandgap - sample_gate_epoch:011; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:23:18 - Jarvis-Bandgap - epoch:012; train:mae:0.40878597;valid:mae:0.40685610;
+2026-10-06 05:23:18 - Jarvis-Bandgap - gpsr_epoch:012; raw(mean/median/max)=0.339472/0.322934/0.978242; final(mean/median/max)=0.339472/0.322934/0.978242; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.267721e-01; |delta_final|=1.267721e-01; |H|=3.937010e-01; gate=0.661650; alpha_absmean=5.683546e-02
+2026-10-06 05:23:18 - Jarvis-Bandgap - sample_gate_epoch:012; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:25:23 - Jarvis-Bandgap - epoch:013; train:mae:0.39430279;valid:mae:0.40363791;
+2026-10-06 05:25:23 - Jarvis-Bandgap - gpsr_epoch:013; raw(mean/median/max)=0.365740/0.343538/1.104168; final(mean/median/max)=0.365740/0.343538/1.104168; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.261546e-01; |delta_final|=1.261546e-01; |H|=3.731825e-01; gate=0.653579; alpha_absmean=5.501328e-02
+2026-10-06 05:25:23 - Jarvis-Bandgap - sample_gate_epoch:013; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:27:27 - Jarvis-Bandgap - epoch:014; train:mae:0.38233358;valid:mae:0.42311289;
+2026-10-06 05:27:27 - Jarvis-Bandgap - gpsr_epoch:014; raw(mean/median/max)=0.339967/0.318327/1.132864; final(mean/median/max)=0.339967/0.318327/1.132864; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.238234e-01; |delta_final|=1.238234e-01; |H|=3.897648e-01; gate=0.648260; alpha_absmean=5.429344e-02
+2026-10-06 05:27:27 - Jarvis-Bandgap - sample_gate_epoch:014; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:29:31 - Jarvis-Bandgap - epoch:015; train:mae:0.37426427;valid:mae:0.40304314;
+2026-10-06 05:29:31 - Jarvis-Bandgap - gpsr_epoch:015; raw(mean/median/max)=0.248979/0.229830/1.098764; final(mean/median/max)=0.248979/0.229830/1.098764; clipped=0.000000; mean_scale=1.000000; |delta_raw|=8.350259e-02; |delta_final|=8.350259e-02; |H|=3.992649e-01; gate=0.621038; alpha_absmean=5.134596e-02
+2026-10-06 05:29:31 - Jarvis-Bandgap - sample_gate_epoch:015; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:31:37 - Jarvis-Bandgap - epoch:016; train:mae:0.36207147;valid:mae:0.37995621;
+2026-10-06 05:31:37 - Jarvis-Bandgap - gpsr_epoch:016; raw(mean/median/max)=0.294949/0.275356/1.089183; final(mean/median/max)=0.294949/0.275356/1.089183; clipped=0.000000; mean_scale=1.000000; |delta_raw|=9.757854e-02; |delta_final|=9.757854e-02; |H|=3.887440e-01; gate=0.621668; alpha_absmean=5.170033e-02
+2026-10-06 05:31:37 - Jarvis-Bandgap - sample_gate_epoch:016; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:33:40 - Jarvis-Bandgap - epoch:017; train:mae:0.34977693;valid:mae:0.34582574;
+2026-10-06 05:33:40 - Jarvis-Bandgap - gpsr_epoch:017; raw(mean/median/max)=0.386460/0.360304/1.632945; final(mean/median/max)=0.386460/0.360304/1.632945; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.271580e-01; |delta_final|=1.271580e-01; |H|=3.939523e-01; gate=0.607563; alpha_absmean=5.469681e-02
+2026-10-06 05:33:40 - Jarvis-Bandgap - sample_gate_epoch:017; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:35:46 - Jarvis-Bandgap - epoch:018; train:mae:0.34094822;valid:mae:0.34268738;
+2026-10-06 05:35:46 - Jarvis-Bandgap - gpsr_epoch:018; raw(mean/median/max)=0.276619/0.255250/1.344913; final(mean/median/max)=0.276619/0.255250/1.344913; clipped=0.000000; mean_scale=1.000000; |delta_raw|=8.625595e-02; |delta_final|=8.625595e-02; |H|=3.898244e-01; gate=0.611389; alpha_absmean=5.109919e-02
+2026-10-06 05:35:46 - Jarvis-Bandgap - sample_gate_epoch:018; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:37:51 - Jarvis-Bandgap - epoch:019; train:mae:0.33360074;valid:mae:0.34429656;
+2026-10-06 05:37:51 - Jarvis-Bandgap - gpsr_epoch:019; raw(mean/median/max)=0.340483/0.319187/1.496446; final(mean/median/max)=0.340483/0.319187/1.496446; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.032551e-01; |delta_final|=1.032551e-01; |H|=3.983317e-01; gate=0.602229; alpha_absmean=5.074484e-02
+2026-10-06 05:37:51 - Jarvis-Bandgap - sample_gate_epoch:019; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:39:56 - Jarvis-Bandgap - epoch:020; train:mae:0.32293234;valid:mae:0.35217760;
+2026-10-06 05:39:56 - Jarvis-Bandgap - gpsr_epoch:020; raw(mean/median/max)=0.338381/0.317026/1.702092; final(mean/median/max)=0.338381/0.317026/1.702092; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.092641e-01; |delta_final|=1.092641e-01; |H|=3.936202e-01; gate=0.605667; alpha_absmean=5.322158e-02
+2026-10-06 05:39:56 - Jarvis-Bandgap - sample_gate_epoch:020; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:42:01 - Jarvis-Bandgap - epoch:021; train:mae:0.31606789;valid:mae:0.33522655;
+2026-10-06 05:42:01 - Jarvis-Bandgap - gpsr_epoch:021; raw(mean/median/max)=0.394002/0.371465/1.373875; final(mean/median/max)=0.394002/0.371465/1.373875; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.225718e-01; |delta_final|=1.225718e-01; |H|=3.974584e-01; gate=0.601563; alpha_absmean=5.102159e-02
+2026-10-06 05:42:01 - Jarvis-Bandgap - sample_gate_epoch:021; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:44:07 - Jarvis-Bandgap - epoch:022; train:mae:0.30669025;valid:mae:0.32428376;
+2026-10-06 05:44:07 - Jarvis-Bandgap - gpsr_epoch:022; raw(mean/median/max)=0.329281/0.307935/1.497544; final(mean/median/max)=0.329281/0.307935/1.497544; clipped=0.000000; mean_scale=1.000000; |delta_raw|=9.984429e-02; |delta_final|=9.984429e-02; |H|=4.077476e-01; gate=0.601563; alpha_absmean=5.059937e-02
+2026-10-06 05:44:07 - Jarvis-Bandgap - sample_gate_epoch:022; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:46:09 - Jarvis-Bandgap - epoch:023; train:mae:0.30009679;valid:mae:0.32485634;
+2026-10-06 05:46:09 - Jarvis-Bandgap - gpsr_epoch:023; raw(mean/median/max)=0.434291/0.417204/1.666961; final(mean/median/max)=0.434291/0.417204/1.666961; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.334758e-01; |delta_final|=1.334758e-01; |H|=4.105136e-01; gate=0.601563; alpha_absmean=5.107374e-02
+2026-10-06 05:46:09 - Jarvis-Bandgap - sample_gate_epoch:023; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:48:13 - Jarvis-Bandgap - epoch:024; train:mae:0.29442690;valid:mae:0.31766735;
+2026-10-06 05:48:13 - Jarvis-Bandgap - gpsr_epoch:024; raw(mean/median/max)=0.330325/0.305092/1.666508; final(mean/median/max)=0.330325/0.305092/1.666508; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.011553e-01; |delta_final|=1.011553e-01; |H|=4.165870e-01; gate=0.601563; alpha_absmean=5.172268e-02
+2026-10-06 05:48:13 - Jarvis-Bandgap - sample_gate_epoch:024; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:50:17 - Jarvis-Bandgap - epoch:025; train:mae:0.28395046;valid:mae:0.30592269;
+2026-10-06 05:50:17 - Jarvis-Bandgap - gpsr_epoch:025; raw(mean/median/max)=0.357867/0.337435/1.228868; final(mean/median/max)=0.357867/0.337435/1.228868; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.125669e-01; |delta_final|=1.125669e-01; |H|=4.177155e-01; gate=0.601563; alpha_absmean=5.090117e-02
+2026-10-06 05:50:17 - Jarvis-Bandgap - sample_gate_epoch:025; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:52:20 - Jarvis-Bandgap - epoch:026; train:mae:0.27879938;valid:mae:0.29745769;
+2026-10-06 05:52:20 - Jarvis-Bandgap - gpsr_epoch:026; raw(mean/median/max)=0.365421/0.343176/1.821638; final(mean/median/max)=0.365421/0.343176/1.821638; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.141624e-01; |delta_final|=1.141624e-01; |H|=4.280026e-01; gate=0.593750; alpha_absmean=5.181308e-02
+2026-10-06 05:52:20 - Jarvis-Bandgap - sample_gate_epoch:026; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:54:29 - Jarvis-Bandgap - epoch:027; train:mae:0.27317153;valid:mae:0.30407223;
+2026-10-06 05:54:29 - Jarvis-Bandgap - gpsr_epoch:027; raw(mean/median/max)=0.354674/0.330963/1.636857; final(mean/median/max)=0.354674/0.330963/1.636857; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.103076e-01; |delta_final|=1.103076e-01; |H|=4.181674e-01; gate=0.593750; alpha_absmean=4.988831e-02
+2026-10-06 05:54:29 - Jarvis-Bandgap - sample_gate_epoch:027; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:56:39 - Jarvis-Bandgap - epoch:028; train:mae:0.26267401;valid:mae:0.29627738;
+2026-10-06 05:56:39 - Jarvis-Bandgap - gpsr_epoch:028; raw(mean/median/max)=0.307520/0.287514/1.280207; final(mean/median/max)=0.307520/0.287514/1.280207; clipped=0.000000; mean_scale=1.000000; |delta_raw|=9.494953e-02; |delta_final|=9.494953e-02; |H|=4.196082e-01; gate=0.593750; alpha_absmean=4.865611e-02
+2026-10-06 05:56:39 - Jarvis-Bandgap - sample_gate_epoch:028; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 05:58:51 - Jarvis-Bandgap - epoch:029; train:mae:0.25663011;valid:mae:0.30684791;
+2026-10-06 05:58:51 - Jarvis-Bandgap - gpsr_epoch:029; raw(mean/median/max)=0.364485/0.341978/1.488191; final(mean/median/max)=0.364485/0.341978/1.488191; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.081795e-01; |delta_final|=1.081795e-01; |H|=4.201774e-01; gate=0.593750; alpha_absmean=4.950031e-02
+2026-10-06 05:58:51 - Jarvis-Bandgap - sample_gate_epoch:029; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:01:05 - Jarvis-Bandgap - epoch:030; train:mae:0.25159112;valid:mae:0.27812934;
+2026-10-06 06:01:05 - Jarvis-Bandgap - gpsr_epoch:030; raw(mean/median/max)=0.334307/0.315359/1.470327; final(mean/median/max)=0.334307/0.315359/1.470327; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.001099e-01; |delta_final|=1.001099e-01; |H|=4.205401e-01; gate=0.593750; alpha_absmean=4.778183e-02
+2026-10-06 06:01:05 - Jarvis-Bandgap - sample_gate_epoch:030; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:03:14 - Jarvis-Bandgap - epoch:031; train:mae:0.24652146;valid:mae:0.28513444;
+2026-10-06 06:03:14 - Jarvis-Bandgap - gpsr_epoch:031; raw(mean/median/max)=0.353124/0.333182/1.410582; final(mean/median/max)=0.353124/0.333182/1.410582; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.096138e-01; |delta_final|=1.096138e-01; |H|=4.234875e-01; gate=0.593750; alpha_absmean=4.756051e-02
+2026-10-06 06:03:14 - Jarvis-Bandgap - sample_gate_epoch:031; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:05:20 - Jarvis-Bandgap - epoch:032; train:mae:0.23703484;valid:mae:0.26381604;
+2026-10-06 06:05:20 - Jarvis-Bandgap - gpsr_epoch:032; raw(mean/median/max)=0.429648/0.400926/1.786069; final(mean/median/max)=0.429648/0.400926/1.786069; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.286586e-01; |delta_final|=1.286586e-01; |H|=4.226132e-01; gate=0.593750; alpha_absmean=4.853931e-02
+2026-10-06 06:05:20 - Jarvis-Bandgap - sample_gate_epoch:032; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:07:30 - Jarvis-Bandgap - epoch:033; train:mae:0.23454649;valid:mae:0.25839014;
+2026-10-06 06:07:30 - Jarvis-Bandgap - gpsr_epoch:033; raw(mean/median/max)=0.362674/0.338867/1.549120; final(mean/median/max)=0.362674/0.338867/1.549120; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.158855e-01; |delta_final|=1.158855e-01; |H|=4.319975e-01; gate=0.593750; alpha_absmean=4.976343e-02
+2026-10-06 06:07:30 - Jarvis-Bandgap - sample_gate_epoch:033; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:09:39 - Jarvis-Bandgap - epoch:034; train:mae:0.22432978;valid:mae:0.26258965;
+2026-10-06 06:09:39 - Jarvis-Bandgap - gpsr_epoch:034; raw(mean/median/max)=0.390663/0.368419/1.576862; final(mean/median/max)=0.390663/0.368419/1.576862; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.227464e-01; |delta_final|=1.227464e-01; |H|=4.320422e-01; gate=0.593750; alpha_absmean=5.116908e-02
+2026-10-06 06:09:39 - Jarvis-Bandgap - sample_gate_epoch:034; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:11:48 - Jarvis-Bandgap - epoch:035; train:mae:0.21637245;valid:mae:0.25462503;
+2026-10-06 06:11:48 - Jarvis-Bandgap - gpsr_epoch:035; raw(mean/median/max)=0.381063/0.361060/1.621904; final(mean/median/max)=0.381063/0.361060/1.621904; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.201067e-01; |delta_final|=1.201067e-01; |H|=4.315890e-01; gate=0.593750; alpha_absmean=5.038203e-02
+2026-10-06 06:11:48 - Jarvis-Bandgap - sample_gate_epoch:035; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:13:50 - Jarvis-Bandgap - epoch:036; train:mae:0.21128156;valid:mae:0.26383330;
+2026-10-06 06:13:50 - Jarvis-Bandgap - gpsr_epoch:036; raw(mean/median/max)=0.402228/0.376743/1.767418; final(mean/median/max)=0.402228/0.376743/1.767418; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.226510e-01; |delta_final|=1.226510e-01; |H|=4.286524e-01; gate=0.593750; alpha_absmean=5.117025e-02
+2026-10-06 06:13:50 - Jarvis-Bandgap - sample_gate_epoch:036; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:15:53 - Jarvis-Bandgap - epoch:037; train:mae:0.20254008;valid:mae:0.24665388;
+2026-10-06 06:15:53 - Jarvis-Bandgap - gpsr_epoch:037; raw(mean/median/max)=0.426872/0.403730/1.779094; final(mean/median/max)=0.426872/0.403730/1.779094; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.297487e-01; |delta_final|=1.297487e-01; |H|=4.298380e-01; gate=0.593750; alpha_absmean=5.054357e-02
+2026-10-06 06:15:53 - Jarvis-Bandgap - sample_gate_epoch:037; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:17:58 - Jarvis-Bandgap - epoch:038; train:mae:0.19703840;valid:mae:0.23892607;
+2026-10-06 06:17:58 - Jarvis-Bandgap - gpsr_epoch:038; raw(mean/median/max)=0.384001/0.359776/1.779399; final(mean/median/max)=0.384001/0.359776/1.779399; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.179036e-01; |delta_final|=1.179036e-01; |H|=4.333285e-01; gate=0.593750; alpha_absmean=5.117834e-02
+2026-10-06 06:17:58 - Jarvis-Bandgap - sample_gate_epoch:038; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:19:59 - Jarvis-Bandgap - epoch:039; train:mae:0.18988983;valid:mae:0.23757866;
+2026-10-06 06:19:59 - Jarvis-Bandgap - gpsr_epoch:039; raw(mean/median/max)=0.423402/0.403684/1.656598; final(mean/median/max)=0.423402/0.403684/1.656598; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.276268e-01; |delta_final|=1.276268e-01; |H|=4.278485e-01; gate=0.593750; alpha_absmean=5.189313e-02
+2026-10-06 06:19:59 - Jarvis-Bandgap - sample_gate_epoch:039; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:22:05 - Jarvis-Bandgap - epoch:040; train:mae:0.18466402;valid:mae:0.24012873;
+2026-10-06 06:22:05 - Jarvis-Bandgap - gpsr_epoch:040; raw(mean/median/max)=0.424811/0.401216/1.709965; final(mean/median/max)=0.424811/0.401216/1.709965; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.271926e-01; |delta_final|=1.271926e-01; |H|=4.279207e-01; gate=0.593750; alpha_absmean=5.185559e-02
+2026-10-06 06:22:05 - Jarvis-Bandgap - sample_gate_epoch:040; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:24:08 - Jarvis-Bandgap - epoch:041; train:mae:0.17830440;valid:mae:0.23276928;
+2026-10-06 06:24:08 - Jarvis-Bandgap - gpsr_epoch:041; raw(mean/median/max)=0.417483/0.394562/1.730125; final(mean/median/max)=0.417483/0.394562/1.730125; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.256151e-01; |delta_final|=1.256151e-01; |H|=4.334958e-01; gate=0.593750; alpha_absmean=5.206844e-02
+2026-10-06 06:24:08 - Jarvis-Bandgap - sample_gate_epoch:041; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:26:13 - Jarvis-Bandgap - epoch:042; train:mae:0.17169970;valid:mae:0.23006726;
+2026-10-06 06:26:13 - Jarvis-Bandgap - gpsr_epoch:042; raw(mean/median/max)=0.396544/0.373001/1.718314; final(mean/median/max)=0.396544/0.373001/1.718314; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.226044e-01; |delta_final|=1.226044e-01; |H|=4.347823e-01; gate=0.593750; alpha_absmean=5.128152e-02
+2026-10-06 06:26:13 - Jarvis-Bandgap - sample_gate_epoch:042; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:28:24 - Jarvis-Bandgap - epoch:043; train:mae:0.16518050;valid:mae:0.23169439;
+2026-10-06 06:28:24 - Jarvis-Bandgap - gpsr_epoch:043; raw(mean/median/max)=0.386941/0.358497/1.760210; final(mean/median/max)=0.386941/0.358497/1.760210; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.177430e-01; |delta_final|=1.177430e-01; |H|=4.342455e-01; gate=0.593750; alpha_absmean=5.173413e-02
+2026-10-06 06:28:24 - Jarvis-Bandgap - sample_gate_epoch:043; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:30:32 - Jarvis-Bandgap - epoch:044; train:mae:0.15841083;valid:mae:0.22779562;
+2026-10-06 06:30:32 - Jarvis-Bandgap - gpsr_epoch:044; raw(mean/median/max)=0.420715/0.396634/1.707081; final(mean/median/max)=0.420715/0.396634/1.707081; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.280274e-01; |delta_final|=1.280274e-01; |H|=4.309161e-01; gate=0.593750; alpha_absmean=5.266494e-02
+2026-10-06 06:30:32 - Jarvis-Bandgap - sample_gate_epoch:044; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:32:44 - Jarvis-Bandgap - epoch:045; train:mae:0.15170741;valid:mae:0.22183752;
+2026-10-06 06:32:44 - Jarvis-Bandgap - gpsr_epoch:045; raw(mean/median/max)=0.417830/0.396258/1.672915; final(mean/median/max)=0.417830/0.396258/1.672915; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.267830e-01; |delta_final|=1.267830e-01; |H|=4.341392e-01; gate=0.593750; alpha_absmean=5.272620e-02
+2026-10-06 06:32:44 - Jarvis-Bandgap - sample_gate_epoch:045; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:34:47 - Jarvis-Bandgap - epoch:046; train:mae:0.14660689;valid:mae:0.22126506;
+2026-10-06 06:34:47 - Jarvis-Bandgap - gpsr_epoch:046; raw(mean/median/max)=0.433884/0.410568/1.655715; final(mean/median/max)=0.433884/0.410568/1.655715; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.307849e-01; |delta_final|=1.307849e-01; |H|=4.304743e-01; gate=0.593750; alpha_absmean=5.257508e-02
+2026-10-06 06:34:47 - Jarvis-Bandgap - sample_gate_epoch:046; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:37:03 - Jarvis-Bandgap - epoch:047; train:mae:0.14222022;valid:mae:0.21731982;
+2026-10-06 06:37:03 - Jarvis-Bandgap - gpsr_epoch:047; raw(mean/median/max)=0.418274/0.395276/1.611649; final(mean/median/max)=0.418274/0.395276/1.611649; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.267082e-01; |delta_final|=1.267082e-01; |H|=4.348007e-01; gate=0.593750; alpha_absmean=5.256961e-02
+2026-10-06 06:37:03 - Jarvis-Bandgap - sample_gate_epoch:047; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:39:13 - Jarvis-Bandgap - epoch:048; train:mae:0.13620424;valid:mae:0.21851129;
+2026-10-06 06:39:13 - Jarvis-Bandgap - gpsr_epoch:048; raw(mean/median/max)=0.424383/0.398682/1.678379; final(mean/median/max)=0.424383/0.398682/1.678379; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.287201e-01; |delta_final|=1.287201e-01; |H|=4.349327e-01; gate=0.593750; alpha_absmean=5.320232e-02
+2026-10-06 06:39:13 - Jarvis-Bandgap - sample_gate_epoch:048; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:41:23 - Jarvis-Bandgap - epoch:049; train:mae:0.13177856;valid:mae:0.21694865;
+2026-10-06 06:41:23 - Jarvis-Bandgap - gpsr_epoch:049; raw(mean/median/max)=0.424173/0.398141/1.701568; final(mean/median/max)=0.424173/0.398141/1.701568; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.282873e-01; |delta_final|=1.282873e-01; |H|=4.306786e-01; gate=0.593750; alpha_absmean=5.362119e-02
+2026-10-06 06:41:23 - Jarvis-Bandgap - sample_gate_epoch:049; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:43:35 - Jarvis-Bandgap - epoch:050; train:mae:0.12806112;valid:mae:0.21497591;
+2026-10-06 06:43:35 - Jarvis-Bandgap - gpsr_epoch:050; raw(mean/median/max)=0.443031/0.418843/1.670843; final(mean/median/max)=0.443031/0.418843/1.670843; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.344323e-01; |delta_final|=1.344323e-01; |H|=4.340259e-01; gate=0.593750; alpha_absmean=5.343422e-02
+2026-10-06 06:43:35 - Jarvis-Bandgap - sample_gate_epoch:050; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:45:46 - Jarvis-Bandgap - epoch:051; train:mae:0.12393721;valid:mae:0.21376883;
+2026-10-06 06:45:46 - Jarvis-Bandgap - gpsr_epoch:051; raw(mean/median/max)=0.440854/0.414992/1.708736; final(mean/median/max)=0.440854/0.414992/1.708736; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.332235e-01; |delta_final|=1.332235e-01; |H|=4.318606e-01; gate=0.593750; alpha_absmean=5.389817e-02
+2026-10-06 06:45:46 - Jarvis-Bandgap - sample_gate_epoch:051; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:47:59 - Jarvis-Bandgap - epoch:052; train:mae:0.12037798;valid:mae:0.21111784;
+2026-10-06 06:47:59 - Jarvis-Bandgap - gpsr_epoch:052; raw(mean/median/max)=0.432504/0.407616/1.704501; final(mean/median/max)=0.432504/0.407616/1.704501; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.309469e-01; |delta_final|=1.309469e-01; |H|=4.334143e-01; gate=0.593750; alpha_absmean=5.409161e-02
+2026-10-06 06:47:59 - Jarvis-Bandgap - sample_gate_epoch:052; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:50:11 - Jarvis-Bandgap - epoch:053; train:mae:0.11734957;valid:mae:0.21061456;
+2026-10-06 06:50:11 - Jarvis-Bandgap - gpsr_epoch:053; raw(mean/median/max)=0.431981/0.407752/1.670076; final(mean/median/max)=0.431981/0.407752/1.670076; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.317837e-01; |delta_final|=1.317837e-01; |H|=4.340332e-01; gate=0.593750; alpha_absmean=5.408439e-02
+2026-10-06 06:50:11 - Jarvis-Bandgap - sample_gate_epoch:053; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:52:25 - Jarvis-Bandgap - epoch:054; train:mae:0.11490622;valid:mae:0.21227546;
+2026-10-06 06:52:25 - Jarvis-Bandgap - gpsr_epoch:054; raw(mean/median/max)=0.436039/0.408943/1.726329; final(mean/median/max)=0.436039/0.408943/1.726329; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.318645e-01; |delta_final|=1.318645e-01; |H|=4.341119e-01; gate=0.593750; alpha_absmean=5.419457e-02
+2026-10-06 06:52:25 - Jarvis-Bandgap - sample_gate_epoch:054; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:54:36 - Jarvis-Bandgap - epoch:055; train:mae:0.11306580;valid:mae:0.21119430;
+2026-10-06 06:54:36 - Jarvis-Bandgap - gpsr_epoch:055; raw(mean/median/max)=0.436592/0.410533/1.690541; final(mean/median/max)=0.436592/0.410533/1.690541; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.327031e-01; |delta_final|=1.327031e-01; |H|=4.336558e-01; gate=0.593750; alpha_absmean=5.443662e-02
+2026-10-06 06:54:36 - Jarvis-Bandgap - sample_gate_epoch:055; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:56:47 - Jarvis-Bandgap - epoch:056; train:mae:0.11157086;valid:mae:0.21086452;
+2026-10-06 06:56:47 - Jarvis-Bandgap - gpsr_epoch:056; raw(mean/median/max)=0.441485/0.416228/1.719704; final(mean/median/max)=0.441485/0.416228/1.719704; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.329974e-01; |delta_final|=1.329974e-01; |H|=4.312566e-01; gate=0.593750; alpha_absmean=5.454554e-02
+2026-10-06 06:56:47 - Jarvis-Bandgap - sample_gate_epoch:056; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 06:58:58 - Jarvis-Bandgap - epoch:057; train:mae:0.11094391;valid:mae:0.21029444;
+2026-10-06 06:58:58 - Jarvis-Bandgap - gpsr_epoch:057; raw(mean/median/max)=0.439373/0.413638/1.701828; final(mean/median/max)=0.439373/0.413638/1.701828; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.326846e-01; |delta_final|=1.326846e-01; |H|=4.330467e-01; gate=0.593750; alpha_absmean=5.457021e-02
+2026-10-06 06:58:58 - Jarvis-Bandgap - sample_gate_epoch:057; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 07:01:09 - Jarvis-Bandgap - epoch:058; train:mae:0.11046967;valid:mae:0.21032447;
+2026-10-06 07:01:09 - Jarvis-Bandgap - gpsr_epoch:058; raw(mean/median/max)=0.437576/0.411369/1.717388; final(mean/median/max)=0.437576/0.411369/1.717388; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.326782e-01; |delta_final|=1.326782e-01; |H|=4.339744e-01; gate=0.593750; alpha_absmean=5.458863e-02
+2026-10-06 07:01:09 - Jarvis-Bandgap - sample_gate_epoch:058; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 07:03:19 - Jarvis-Bandgap - epoch:059; train:mae:0.10982701;valid:mae:0.21127707;
+2026-10-06 07:03:19 - Jarvis-Bandgap - gpsr_epoch:059; raw(mean/median/max)=0.437604/0.411656/1.700155; final(mean/median/max)=0.437604/0.411656/1.700155; clipped=0.000000; mean_scale=1.000000; |delta_raw|=1.326974e-01; |delta_final|=1.326974e-01; |H|=4.332522e-01; gate=0.593750; alpha_absmean=5.458864e-02
+2026-10-06 07:03:19 - Jarvis-Bandgap - sample_gate_epoch:059; mean=1.000000; median=1.000000; std=0.000000; p10=1.000000; p90=1.000000; lt050=0.000000; gt075=1.000000
+2026-10-06 07:03:19 - Jarvis-Bandgap - Train time:7301.413s
+2026-10-06 07:03:19 - Jarvis-Bandgap - 
+The best 5:
+model epoch: 057, Valid MAE: 0.21029444
+model epoch: 058, Valid MAE: 0.21032447
+model epoch: 053, Valid MAE: 0.21061456
+model epoch: 056, Valid MAE: 0.21086452
+model epoch: 052, Valid MAE: 0.21111784
+2026-10-06 07:03:19 - Jarvis-Bandgap - GpsrBestEpoch(validation-selected); epoch=57; valid_mae=0.21029444; raw(mean/median/max)=0.439373/0.413638/1.701828; final(mean/median/max)=0.439373/0.413638/1.701828; clipped=0.000000; |delta_raw|=1.326846e-01; |delta_final|=1.326846e-01; |H|=4.330467e-01; gate=0.593750; alpha_absmean=5.457021e-02
+2026-10-06 07:03:19 - Jarvis-Bandgap - Train metrics (train_loss, valid_loss, train_mae, valid_mae) saved to Pic-log/GPSRNodeGateEarly_Jarvis-Bandgap_MatBert_20261006_050117/GPSRNodeGateEarly_MP-Bandgap_train_metrics.csv
+2026-10-06 07:03:19 - Jarvis-Bandgap - GPSR node diagnostic | batch=0 | graphs=32 | nodes=1016 | node_dim=128 | unique_gate_rows=957/1016
+2026-10-06 07:03:19 - Jarvis-Bandgap -   crystal g=0 cid=69133 atoms=12
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  0 (node     0, z=52 Te): mean_gate=0.593750 mean_abs_delta=1.369897e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  1 (node     1, z=52 Te): mean_gate=0.593750 mean_abs_delta=1.369897e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  2 (node     2, z=42 Mo): mean_gate=0.593750 mean_abs_delta=1.369897e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  3 (node     3, z=42 Mo): mean_gate=0.593750 mean_abs_delta=1.369897e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  4 (node     4, z=42 Mo): mean_gate=0.593750 mean_abs_delta=1.369897e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  5 (node     5, z=74  W): mean_gate=0.593750 mean_abs_delta=1.369897e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  6 (node     6, z=34 Se): mean_gate=0.593750 mean_abs_delta=1.369897e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  7 (node     7, z=34 Se): mean_gate=0.593750 mean_abs_delta=1.369897e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     across-atom gate: mean=0.593750 std=0.000000e+00 min=0.593750 max=0.593750
+2026-10-06 07:03:19 - Jarvis-Bandgap -   crystal g=1 cid=48566 atoms=40
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  0 (node    12, z=56 Ba): mean_gate=0.593750 mean_abs_delta=1.433682e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  1 (node    13, z=56 Ba): mean_gate=0.593750 mean_abs_delta=1.433682e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  2 (node    14, z=56 Ba): mean_gate=0.593750 mean_abs_delta=1.433682e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  3 (node    15, z=56 Ba): mean_gate=0.593750 mean_abs_delta=1.433682e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  4 (node    16, z=20 Ca): mean_gate=0.593750 mean_abs_delta=1.433682e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  5 (node    17, z=20 Ca): mean_gate=0.593750 mean_abs_delta=1.433682e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  6 (node    18, z=13 Al): mean_gate=0.593750 mean_abs_delta=1.433682e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  7 (node    19, z=13 Al): mean_gate=0.593750 mean_abs_delta=1.433682e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     across-atom gate: mean=0.593750 std=0.000000e+00 min=0.593750 max=0.593750
+2026-10-06 07:03:19 - Jarvis-Bandgap - GPSR node-specificity check: unique_gate_rows=957 -> PASS (gate varies across atoms)
+2026-10-06 07:03:19 - Jarvis-Bandgap - GPSR node diagnostic | batch=1 | graphs=32 | nodes=825 | node_dim=128 | unique_gate_rows=797/825
+2026-10-06 07:03:19 - Jarvis-Bandgap -   crystal g=0 cid=32257 atoms=5
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  0 (node     0, z=13 Al): mean_gate=0.593750 mean_abs_delta=2.172267e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  1 (node     1, z=27 Co): mean_gate=0.593750 mean_abs_delta=2.172267e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  2 (node     2, z=27 Co): mean_gate=0.593750 mean_abs_delta=2.172267e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  3 (node     3, z=65 Tb): mean_gate=0.593750 mean_abs_delta=2.172267e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  4 (node     4, z=65 Tb): mean_gate=0.593750 mean_abs_delta=2.172267e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     across-atom gate: mean=0.593750 std=0.000000e+00 min=0.593750 max=0.593750
+2026-10-06 07:03:19 - Jarvis-Bandgap -   crystal g=1 cid=64159 atoms=14
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  0 (node     5, z=39  Y): mean_gate=0.593750 mean_abs_delta=1.297898e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  1 (node     6, z=39  Y): mean_gate=0.593750 mean_abs_delta=1.297898e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  2 (node     7, z=39  Y): mean_gate=0.593750 mean_abs_delta=1.297898e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  3 (node     8, z=39  Y): mean_gate=0.593750 mean_abs_delta=1.297898e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  4 (node     9, z=39  Y): mean_gate=0.593750 mean_abs_delta=1.297898e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  5 (node    10, z=39  Y): mean_gate=0.593750 mean_abs_delta=1.297898e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  6 (node    11, z=39  Y): mean_gate=0.593750 mean_abs_delta=1.297898e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     atom  7 (node    12, z=39  Y): mean_gate=0.593750 mean_abs_delta=1.297898e-01
+2026-10-06 07:03:19 - Jarvis-Bandgap -     across-atom gate: mean=0.593750 std=0.000000e+00 min=0.593750 max=0.593750
+2026-10-06 07:03:19 - Jarvis-Bandgap - GPSR node-specificity check: unique_gate_rows=797 -> PASS (gate varies across atoms)
+2026-10-06 07:03:19 - Jarvis-Bandgap - GPSR node diagnostic table saved to Pic-log/GPSRNodeGateEarly_Jarvis-Bandgap_MatBert_20261006_050117/gpsr_node_diagnostic.csv
+2026-10-06 07:03:19 - Jarvis-Bandgap - Testing...
+2026-10-06 07:03:46 - Jarvis-Bandgap - Test time:27.075s, model epoch: 057, Valid MAE: 0.21029444, Test MAE:0.19511216;
+2026-10-06 07:03:46 - Jarvis-Bandgap - 
+data_config:
+{
+    dataset_name=MP
+    target=Bandgap
+    atom_features=CGCNN
+    split_seed=123
+    batch_size=32
+    normalize=True
+    pin_memory=True
+    cutoff=4.0
+    max_neighbors=16
+    use_sh=True
+    use_crystalNN=False
+    spherical_harmonics_l=4
+    use_cif_csv=True
+    use_multimodal=True
+    text_emb_path=/root/autodl-tmp/dataset1/dataset/mp_2018/MP-bandgap/MatBert_embeddings.pt
+    text_shuffle_seed=-1
+}
+2026-10-06 07:03:46 - Jarvis-Bandgap - 
+model_config:
+{
+    model_name=GPSRNodeGateEarly
+    random_seed=1234
+    node_feature=128
+    num_layers=5
+    dist_dim=64
+    sh_dim=64
+    use_sh=True
+    lr=0.001
+    max_lr=0.001
+    weight_decay=0.0001
+    text_emb_dim=768
+    text_hidden_dim=128
+    text_out_dim=64
+    property_fusion=concat
+    use_contrastive=False
+    gpsr_use_node_gate=True
+    gpsr_alpha_init=0.001
+    gpsr_injection_position=early
+    gpsr_injection_after_block=1
+    gpsr_dropout=0.0
+    gpsr_max_residual_ratio=inf
+    gpsr_lambda_res=0.0
+    gpsr_rho_target=0.1
+}
+2026-10-06 07:03:46 - Jarvis-Bandgap - GPSR-NodeGate injected after ~25% of the graph depth
+2026-10-06 07:03:46 - Jarvis-Bandgap - Validation-selected Test MAE:0.19511215873928958
+
+2026-10-06 07:03:46 - Jarvis-Bandgap - GPSR test diagnostics: raw(mean/median/max)=0.432553/0.415465/1.375344; final(mean/median/max)=0.432553/0.415465/1.375344; clipped=0.000000
+2026-10-06 07:03:46 - Jarvis-Bandgap - Test predictions and ground truth saved to Pic-log/GPSRNodeGateEarly_Jarvis-Bandgap_MatBert_20261006_050117/GPSRNodeGateEarly_MP-Bandgap_test_pred_true.csv
+2026-10-06 07:03:46 - Jarvis-Bandgap - Test MAE: 0.19511216, RMSE: 0.40020071, R²: 0.93888293
+2026-10-06 07:03:46 - Jarvis-Bandgap - Test metrics (MAE, RMSE, R²) saved to Pic-log/GPSRNodeGateEarly_Jarvis-Bandgap_MatBert_20261006_050117/GPSRNodeGateEarly_MP-Bandgap_test_metrics.csv

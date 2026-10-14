@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import hashlib
 import importlib.util
+import csv
 from pathlib import Path
 
 
@@ -53,10 +54,37 @@ def verify_required_files() -> None:
         "experiments/composition_pairing_control/aggregate.json",
         "experiments/composition_pairing_control/validation.json",
         "experiments/composition_pairing_control/report.md",
+        "docs/EXPERIMENT_PROCESS_ARCHIVE.md",
+        "metadata/server_experiment_archive_provenance.json",
+        "metadata/server_experiment_process_manifest.csv",
+        "metadata/server_experiment_excluded_artifacts.csv",
     ]
     missing = [name for name in required if not (ROOT / name).is_file()]
     if missing:
         raise AssertionError(f"missing release files: {missing}")
+
+
+def verify_process_archive() -> int:
+    """Verify every retained server experiment file against its source hash."""
+    manifest = ROOT / "metadata/server_experiment_process_manifest.csv"
+    checked = 0
+    with manifest.open(newline="", encoding="utf-8") as handle:
+        for row in csv.DictReader(handle):
+            source = Path(row["path"])
+            if not source.parts or source.parts[0] != "experiments":
+                raise AssertionError(f"unexpected process-manifest path: {source}")
+            relative = Path("experiments/process_archive", *source.parts[1:])
+            path = ROOT / relative
+            if not path.is_file():
+                raise AssertionError(f"missing archived process file: {relative}")
+            if path.stat().st_size != int(row["bytes"]):
+                raise AssertionError(f"size mismatch in process archive: {relative}")
+            if sha256(path) != row["sha256"]:
+                raise AssertionError(f"checksum mismatch in process archive: {relative}")
+            checked += 1
+    if checked != 1132:
+        raise AssertionError(f"expected 1132 archived process files, found {checked}")
+    return checked
 
 
 def verify_results() -> None:
@@ -75,8 +103,12 @@ def verify_results() -> None:
 def main() -> None:
     verify_required_files()
     verify_results()
+    process_files = verify_process_archive()
     checked = verify_checksums()
-    print(f"Release verification passed: canonical results valid, {checked} checksums verified")
+    print(
+        "Release verification passed: canonical results valid, "
+        f"{process_files} process files and {checked} release checksums verified"
+    )
 
 
 if __name__ == "__main__":

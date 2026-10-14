@@ -1,0 +1,17 @@
+{
+  "task": "Jarvis-BulkModulusKv",
+  "method": "gpsr",
+  "seed": 42,
+  "mae_on": 8.756420195587282,
+  "mae_off": 9.573146653369191,
+  "mean_rho": 0.09983678782033181,
+  "median_rho": 0.1000000014901161,
+  "p90_rho": 0.1000000089406967,
+  "p95_rho": 0.1000000163912773,
+  "max_rho": 0.1000000238418579,
+  "mean_cos_h_off_on": 0.9950631700334994,
+  "mean_cos_delta_h": -0.0272485147966977,
+  "mean_abs_delta_y": 2.7424439976855024,
+  "mean_normalized_output_shift": 0.2864725776158794,
+  "counterfactual_note": "semantic-OFF diagnostic pass; formal ON test was evaluated once during training"
+}

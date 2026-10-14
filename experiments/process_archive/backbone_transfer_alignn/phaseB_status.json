@@ -1,0 +1,13 @@
+{
+  "phase": "B",
+  "verdict": "BACKBONE_TRANSFER_GAIN_10TASK",
+  "macro_nmae": 0.96460795254507,
+  "gain_pct": 3.5392047454929965,
+  "improved_tasks": 10,
+  "num_tasks": 10,
+  "electronic_nmae": 0.9390036958599822,
+  "energy_nmae": 0.963045731278279,
+  "mechanical_nmae": 0.984982811008979,
+  "hard_bound_pass": true,
+  "phase_c_triggered": true
+}

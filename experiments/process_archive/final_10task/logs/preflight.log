@@ -1,0 +1,285 @@
+
+[2026-09-21T09:42:23] START /root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_10task/text_audit/preflight_shared_graph_tasks.py
+Traceback (most recent call last):
+  File "/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_10task/text_audit/preflight_shared_graph_tasks.py", line 14, in <module>
+    from run import configure
+ModuleNotFoundError: No module named 'run'
+
+[2026-09-21T09:43:08] START /root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_10task/text_audit/preflight_shared_graph_tasks.py
+[shared-graph] Loaded 55723 structures from Dataset/raw/Jarvis-FormationEnergy-cutoff4.0-maxNeibNum16-spheHarmL4-CIF_CSV-rawData.pt with task targets from /root/autodl-tmp/dataset1/dataset/jarvis/optb88vdw_bandgap/cif/id_prop.csv
+/root/venvs/fair-v21/lib/python3.10/site-packages/torch_geometric/data/in_memory_dataset.py:300: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  warnings.warn(msg)
+[multimodal] 55723 / 55723 samples have non-zero text embeddings
+[multimodal] Text modality will be used (contrastive + property).
+dataset split: total=55723, train=44578, valid=5572, test=5573
+train range:(0.0,9.642999649047852)
+valid range:(0.0,9.029999732971191)
+test range:(0.0,9.479000091552734)
+mean:0.6863698959350586
+std:1.4048433303833008
+[shared-graph] Loaded 55723 structures from Dataset/raw/Jarvis-FormationEnergy-cutoff4.0-maxNeibNum16-spheHarmL4-CIF_CSV-rawData.pt with task targets from /root/autodl-tmp/dataset1/dataset/jarvis/optb88vdw_total_energy/cif/id_prop.csv
+/root/venvs/fair-v21/lib/python3.10/site-packages/torch_geometric/data/in_memory_dataset.py:300: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  warnings.warn(msg)
+[multimodal] 55723 / 55723 samples have non-zero text embeddings
+[multimodal] Text modality will be used (contrastive + property).
+dataset split: total=55723, train=44578, valid=5572, test=5573
+train range:(-10.500269889831543,3.3935000896453857)
+valid range:(-10.327210426330566,2.532370090484619)
+test range:(-10.498250007629395,2.5189900398254395)
+mean:-3.214447259902954
+std:2.1312344074249268
+[shared-graph] Loaded 19680 structures from Dataset/raw/Jarvis-BulkModulusKv-cutoff4.0-maxNeibNum16-spheHarmL4-CIF_CSV-rawData.pt with task targets from /root/autodl-tmp/dataset1/dataset/jarvis/shear_modulus_gv/cif/id_prop.csv
+/root/venvs/fair-v21/lib/python3.10/site-packages/torch_geometric/data/in_memory_dataset.py:300: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  warnings.warn(msg)
+[multimodal] 19680 / 19680 samples have non-zero text embeddings
+[multimodal] Text modality will be used (contrastive + property).
+dataset split: total=19680, train=15744, valid=1968, test=1968
+train range:(-24.959999084472656,529.2999877929688)
+valid range:(-24.739999771118164,529.2999877929688)
+test range:(-24.540000915527344,266.6000061035156)
+mean:37.37079620361328
+std:39.461280822753906
+[shared-graph] Loaded 5830 structures from Dataset/raw/MP-ShearModuli-cutoff4.0-maxNeibNum16-spheHarmL4-CIF_CSV-rawData.pt with task targets from /root/autodl-tmp/dataset1/dataset/mp_2018_small/bulk/cif/id_prop.csv
+/root/venvs/fair-v21/lib/python3.10/site-packages/torch_geometric/data/in_memory_dataset.py:300: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  warnings.warn(msg)
+[multimodal] 5830 / 5830 samples have non-zero text embeddings
+[multimodal] Text modality will be used (contrastive + property).
+dataset split: total=5830, train=4664, valid=583, test=583
+train range:(0.4771212637424469,2.63948655128479)
+valid range:(0.6020600199699402,2.63948655128479)
+test range:(0.6020600199699402,2.5774917602539062)
+mean:1.9345861673355103
+std:0.3619743585586548
+{
+  "Jarvis-Bandgap_OPT": {
+    "split_counts": [
+      44578,
+      5572,
+      5573
+    ],
+    "target_mean_train": 0.6863698959350586,
+    "target_std_train": 1.4048433303833008,
+    "first_test_id": "JVASP-5650",
+    "first_test_text_norm": 22.946285247802734
+  },
+  "Jarvis-TotalEnergy": {
+    "split_counts": [
+      44578,
+      5572,
+      5573
+    ],
+    "target_mean_train": -3.214447259902954,
+    "target_std_train": 2.1312344074249268,
+    "first_test_id": "JVASP-5650",
+    "first_test_text_norm": 22.946285247802734
+  },
+  "Jarvis-ShearModulusGv": {
+    "split_counts": [
+      15744,
+      1968,
+      1968
+    ],
+    "target_mean_train": 37.37079620361328,
+    "target_std_train": 39.461280822753906,
+    "first_test_id": "JVASP-93829",
+    "first_test_text_norm": 22.789579391479492
+  },
+  "MP-BulkModuli": {
+    "split_counts": [
+      4664,
+      583,
+      583
+    ],
+    "target_mean_train": 1.9345861673355103,
+    "target_std_train": 0.3619743585586548,
+    "first_test_id": "mp-elastic-005088",
+    "first_test_text_norm": 22.85980987548828
+  }
+}
+[2026-09-21T09:43:38] COMPLETE /root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_10task/text_audit/preflight_shared_graph_tasks.py
+
+[2026-09-21T22:32:34] START /root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_10task/text_audit/preflight_shared_graph_tasks.py
+[shared-graph] Loaded 55723 structures from Dataset/raw/Jarvis-FormationEnergy-cutoff4.0-maxNeibNum16-spheHarmL4-CIF_CSV-rawData.pt with task targets from /root/autodl-tmp/dataset1/dataset/jarvis/optb88vdw_bandgap/cif/id_prop.csv
+/root/venvs/fair-v21/lib/python3.10/site-packages/torch_geometric/data/in_memory_dataset.py:300: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  warnings.warn(msg)
+[multimodal] 55723 / 55723 samples have non-zero text embeddings
+[multimodal] Text modality will be used (contrastive + property).
+dataset split: total=55723, train=44578, valid=5572, test=5573
+train range:(0.0,9.642999649047852)
+valid range:(0.0,9.029999732971191)
+test range:(0.0,9.479000091552734)
+mean:0.6863698959350586
+std:1.4048433303833008
+[shared-graph] Loaded 55723 structures from Dataset/raw/Jarvis-FormationEnergy-cutoff4.0-maxNeibNum16-spheHarmL4-CIF_CSV-rawData.pt with task targets from /root/autodl-tmp/dataset1/dataset/jarvis/optb88vdw_total_energy/cif/id_prop.csv
+/root/venvs/fair-v21/lib/python3.10/site-packages/torch_geometric/data/in_memory_dataset.py:300: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  warnings.warn(msg)
+[multimodal] 55723 / 55723 samples have non-zero text embeddings
+[multimodal] Text modality will be used (contrastive + property).
+dataset split: total=55723, train=44578, valid=5572, test=5573
+train range:(-10.500269889831543,3.3935000896453857)
+valid range:(-10.327210426330566,2.532370090484619)
+test range:(-10.498250007629395,2.5189900398254395)
+mean:-3.214447259902954
+std:2.1312344074249268
+[shared-graph] Loaded 19680 structures from Dataset/raw/Jarvis-BulkModulusKv-cutoff4.0-maxNeibNum16-spheHarmL4-CIF_CSV-rawData.pt with task targets from /root/autodl-tmp/dataset1/dataset/jarvis/shear_modulus_gv/cif/id_prop.csv
+/root/venvs/fair-v21/lib/python3.10/site-packages/torch_geometric/data/in_memory_dataset.py:300: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  warnings.warn(msg)
+[multimodal] 19680 / 19680 samples have non-zero text embeddings
+[multimodal] Text modality will be used (contrastive + property).
+dataset split: total=19680, train=15744, valid=1968, test=1968
+train range:(-24.959999084472656,529.2999877929688)
+valid range:(-24.739999771118164,529.2999877929688)
+test range:(-24.540000915527344,266.6000061035156)
+mean:37.37079620361328
+std:39.461280822753906
+[shared-graph] Loaded 5830 structures from Dataset/raw/MP-ShearModuli-cutoff4.0-maxNeibNum16-spheHarmL4-CIF_CSV-rawData.pt with task targets from /root/autodl-tmp/dataset1/dataset/mp_2018_small/bulk/cif/id_prop.csv
+/root/venvs/fair-v21/lib/python3.10/site-packages/torch_geometric/data/in_memory_dataset.py:300: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  warnings.warn(msg)
+[multimodal] 5830 / 5830 samples have non-zero text embeddings
+[multimodal] Text modality will be used (contrastive + property).
+dataset split: total=5830, train=4664, valid=583, test=583
+train range:(0.4771212637424469,2.63948655128479)
+valid range:(0.6020600199699402,2.63948655128479)
+test range:(0.6020600199699402,2.5774917602539062)
+mean:1.9345861673355103
+std:0.3619743585586548
+{
+  "Jarvis-Bandgap_OPT": {
+    "split_counts": [
+      44578,
+      5572,
+      5573
+    ],
+    "target_mean_train": 0.6863698959350586,
+    "target_std_train": 1.4048433303833008,
+    "first_test_id": "JVASP-5650",
+    "first_test_text_norm": 22.946285247802734
+  },
+  "Jarvis-TotalEnergy": {
+    "split_counts": [
+      44578,
+      5572,
+      5573
+    ],
+    "target_mean_train": -3.214447259902954,
+    "target_std_train": 2.1312344074249268,
+    "first_test_id": "JVASP-5650",
+    "first_test_text_norm": 22.946285247802734
+  },
+  "Jarvis-ShearModulusGv": {
+    "split_counts": [
+      15744,
+      1968,
+      1968
+    ],
+    "target_mean_train": 37.37079620361328,
+    "target_std_train": 39.461280822753906,
+    "first_test_id": "JVASP-93829",
+    "first_test_text_norm": 22.789579391479492
+  },
+  "MP-BulkModuli": {
+    "split_counts": [
+      4664,
+      583,
+      583
+    ],
+    "target_mean_train": 1.9345861673355103,
+    "target_std_train": 0.3619743585586548,
+    "first_test_id": "mp-elastic-005088",
+    "first_test_text_norm": 22.85980987548828
+  }
+}
+[2026-09-21T22:32:58] COMPLETE /root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_10task/text_audit/preflight_shared_graph_tasks.py
+
+[2026-09-22T09:34:31] START /root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_10task/text_audit/preflight_shared_graph_tasks.py
+[shared-graph] Loaded 55723 structures from Dataset/raw/Jarvis-FormationEnergy-cutoff4.0-maxNeibNum16-spheHarmL4-CIF_CSV-rawData.pt with task targets from /root/autodl-tmp/dataset1/dataset/jarvis/optb88vdw_bandgap/cif/id_prop.csv
+/root/venvs/fair-v21/lib/python3.10/site-packages/torch_geometric/data/in_memory_dataset.py:300: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  warnings.warn(msg)
+[multimodal] 55723 / 55723 samples have non-zero text embeddings
+[multimodal] Text modality will be used (contrastive + property).
+dataset split: total=55723, train=44578, valid=5572, test=5573
+train range:(0.0,9.642999649047852)
+valid range:(0.0,9.029999732971191)
+test range:(0.0,9.479000091552734)
+mean:0.6863698959350586
+std:1.4048433303833008
+[shared-graph] Loaded 55723 structures from Dataset/raw/Jarvis-FormationEnergy-cutoff4.0-maxNeibNum16-spheHarmL4-CIF_CSV-rawData.pt with task targets from /root/autodl-tmp/dataset1/dataset/jarvis/optb88vdw_total_energy/cif/id_prop.csv
+/root/venvs/fair-v21/lib/python3.10/site-packages/torch_geometric/data/in_memory_dataset.py:300: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  warnings.warn(msg)
+[multimodal] 55723 / 55723 samples have non-zero text embeddings
+[multimodal] Text modality will be used (contrastive + property).
+dataset split: total=55723, train=44578, valid=5572, test=5573
+train range:(-10.500269889831543,3.3935000896453857)
+valid range:(-10.327210426330566,2.532370090484619)
+test range:(-10.498250007629395,2.5189900398254395)
+mean:-3.214447259902954
+std:2.1312344074249268
+[shared-graph] Loaded 19680 structures from Dataset/raw/Jarvis-BulkModulusKv-cutoff4.0-maxNeibNum16-spheHarmL4-CIF_CSV-rawData.pt with task targets from /root/autodl-tmp/dataset1/dataset/jarvis/shear_modulus_gv/cif/id_prop.csv
+/root/venvs/fair-v21/lib/python3.10/site-packages/torch_geometric/data/in_memory_dataset.py:300: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  warnings.warn(msg)
+[multimodal] 19680 / 19680 samples have non-zero text embeddings
+[multimodal] Text modality will be used (contrastive + property).
+dataset split: total=19680, train=15744, valid=1968, test=1968
+train range:(-24.959999084472656,529.2999877929688)
+valid range:(-24.739999771118164,529.2999877929688)
+test range:(-24.540000915527344,266.6000061035156)
+mean:37.37079620361328
+std:39.461280822753906
+[shared-graph] Loaded 5830 structures from Dataset/raw/MP-ShearModuli-cutoff4.0-maxNeibNum16-spheHarmL4-CIF_CSV-rawData.pt with task targets from /root/autodl-tmp/dataset1/dataset/mp_2018_small/bulk/cif/id_prop.csv
+/root/venvs/fair-v21/lib/python3.10/site-packages/torch_geometric/data/in_memory_dataset.py:300: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  warnings.warn(msg)
+[multimodal] 5830 / 5830 samples have non-zero text embeddings
+[multimodal] Text modality will be used (contrastive + property).
+dataset split: total=5830, train=4664, valid=583, test=583
+train range:(0.4771212637424469,2.63948655128479)
+valid range:(0.6020600199699402,2.63948655128479)
+test range:(0.6020600199699402,2.5774917602539062)
+mean:1.9345861673355103
+std:0.3619743585586548
+{
+  "Jarvis-Bandgap_OPT": {
+    "split_counts": [
+      44578,
+      5572,
+      5573
+    ],
+    "target_mean_train": 0.6863698959350586,
+    "target_std_train": 1.4048433303833008,
+    "first_test_id": "JVASP-5650",
+    "first_test_text_norm": 22.946285247802734
+  },
+  "Jarvis-TotalEnergy": {
+    "split_counts": [
+      44578,
+      5572,
+      5573
+    ],
+    "target_mean_train": -3.214447259902954,
+    "target_std_train": 2.1312344074249268,
+    "first_test_id": "JVASP-5650",
+    "first_test_text_norm": 22.946285247802734
+  },
+  "Jarvis-ShearModulusGv": {
+    "split_counts": [
+      15744,
+      1968,
+      1968
+    ],
+    "target_mean_train": 37.37079620361328,
+    "target_std_train": 39.461280822753906,
+    "first_test_id": "JVASP-93829",
+    "first_test_text_norm": 22.789579391479492
+  },
+  "MP-BulkModuli": {
+    "split_counts": [
+      4664,
+      583,
+      583
+    ],
+    "target_mean_train": 1.9345861673355103,
+    "target_std_train": 0.3619743585586548,
+    "first_test_id": "mp-elastic-005088",
+    "first_test_text_norm": 22.85980987548828
+  }
+}
+[2026-09-22T09:34:56] COMPLETE /root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_10task/text_audit/preflight_shared_graph_tasks.py

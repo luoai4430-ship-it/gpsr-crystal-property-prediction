@@ -1,0 +1,17 @@
+{
+  "task": "Jarvis-BulkModulusKv",
+  "method": "smm",
+  "seed": 7,
+  "mae_on": 9.049843072891235,
+  "mae_off": 10.091812253967534,
+  "mean_rho": 0.18202960616871108,
+  "median_rho": 0.18195452541112894,
+  "p90_rho": 0.20260328799486158,
+  "p95_rho": 0.20827016979455948,
+  "max_rho": 0.2365770488977432,
+  "mean_cos_h_off_on": 0.9841030326073732,
+  "mean_cos_delta_h": -0.030104828478385564,
+  "mean_abs_delta_y": 3.784113889787255,
+  "mean_normalized_output_shift": 0.3749687166742082,
+  "counterfactual_note": "semantic-OFF diagnostic pass; formal ON test was evaluated once during training"
+}

@@ -1,0 +1,17 @@
+{
+  "task": "MP-BulkModuli",
+  "method": "gpsr",
+  "seed": 42,
+  "mae_on": 0.036473528598634904,
+  "mae_off": 0.04768152312594458,
+  "mean_rho": 0.09278570554549859,
+  "median_rho": 0.0999999940395355,
+  "p90_rho": 0.1000000089406967,
+  "p95_rho": 0.1000000089406967,
+  "max_rho": 0.1000000238418579,
+  "mean_cos_h_off_on": 0.9956642190956129,
+  "mean_cos_delta_h": 0.0019605795552416535,
+  "mean_abs_delta_y": 0.025799655689383458,
+  "mean_normalized_output_shift": 0.5410828765104043,
+  "counterfactual_note": "semantic-OFF diagnostic pass; formal ON test was evaluated once during training"
+}

@@ -1,0 +1,2 @@
+model,target,MAE,RMSE,R2,graph_MAE,graph_RMSE,graph_R2,alpha,num_samples
+SemanticMessageModulation,Jarvis-FormationEnergy,0.032215237665621316,0.06412496457284118,0.996582637660312,,,,,5573

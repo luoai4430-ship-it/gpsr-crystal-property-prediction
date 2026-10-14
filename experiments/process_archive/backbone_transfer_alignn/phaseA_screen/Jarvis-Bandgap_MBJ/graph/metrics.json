@@ -1,0 +1,18 @@
+{
+  "task": "Jarvis-Bandgap_MBJ",
+  "model": "graph",
+  "seed": 42,
+  "split_seed": 123,
+  "epochs": 60,
+  "batch_size": 32,
+  "best_epoch": 58,
+  "valid_mae": 0.2655929179329957,
+  "test_mae": 0.26813115171342267,
+  "train_size": 14537,
+  "valid_size": 1817,
+  "test_size": 1818,
+  "target_mean": 1.4889696836471558,
+  "target_std": 2.3161327838897705,
+  "graph_recovery_max_abs_error": null,
+  "alpha_initial_mean": null
+}

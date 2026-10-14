@@ -1,0 +1,18 @@
+{
+  "stage": "text_audit",
+  "all_pass": true,
+  "passed": 10,
+  "total": 10,
+  "statuses": {
+    "Jarvis-Bandgap_MBJ": "PASS",
+    "Jarvis-Bandgap_OPT": "PASS",
+    "Jarvis-FormationEnergy": "PASS",
+    "Jarvis-TotalEnergy": "PASS",
+    "Jarvis-BulkModulusKv": "PASS",
+    "Jarvis-ShearModulusGv": "PASS",
+    "MP-Bandgap": "PASS",
+    "MP-FormationEnergy": "PASS",
+    "MP-BulkModuli": "PASS",
+    "MP-ShearModuli": "PASS"
+  }
+}

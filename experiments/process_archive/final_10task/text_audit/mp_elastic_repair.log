@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "num_samples": 5830,
+  "missing_descriptions_reconstructed": 6,
+  "missing_source_cif_ids": [
+    "1999",
+    "2689",
+    "2999",
+    "3999",
+    "4999",
+    "5765"
+  ],
+  "stable_id_format": "mp-elastic-%06d",
+  "embedding_hardlinked_between_bulk_and_shear": true
+}

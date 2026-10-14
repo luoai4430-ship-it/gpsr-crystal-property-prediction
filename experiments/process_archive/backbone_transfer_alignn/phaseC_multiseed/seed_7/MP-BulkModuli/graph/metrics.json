@@ -1,0 +1,18 @@
+{
+  "task": "MP-BulkModuli",
+  "model": "graph",
+  "seed": 7,
+  "split_seed": 123,
+  "epochs": 60,
+  "batch_size": 32,
+  "best_epoch": 59,
+  "valid_mae": 0.03749411159919368,
+  "test_mae": 0.037885703721545365,
+  "train_size": 4664,
+  "valid_size": 583,
+  "test_size": 583,
+  "target_mean": 1.9345861673355103,
+  "target_std": 0.3619743585586548,
+  "graph_recovery_max_abs_error": null,
+  "alpha_initial_mean": null
+}

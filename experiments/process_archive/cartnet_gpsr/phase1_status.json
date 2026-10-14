@@ -1,0 +1,10 @@
+{
+  "phase": "phase1",
+  "complete": true,
+  "macro_gnmae": 1.005040655971947,
+  "mean_gain_percent": -0.5040655971946917,
+  "improved_tasks": 6,
+  "max_rho_final": 0.10000016540288925,
+  "verdict": "NO_STRONG_BACKBONE_GAIN",
+  "proceed_phase2": false
+}

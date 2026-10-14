@@ -1,0 +1,5 @@
+task,dataset,target,seed,epochs,batch_size,optimizer,scheduler,cutoff,neighbors,hidden_dim,interaction_layers,best_epoch,best_valid_mae,test_mae,published_reference,relative_error,sanity_pass,checkpoint_rule,elapsed_s
+JARVIS-MBJ,jarvis,mbj_bandgap,1,500,64,Adam,OneCycleLR,5.0,all within radius,256,4,362,0.2449538339017575,0.251048922079503,0.25303,0.007829419122226433,True,minimum validation MAE; test once,3131.5027706623077
+JARVIS-OPT,jarvis,optb88vdw_bandgap,1,500,64,Adam,OneCycleLR,5.0,all within radius,256,4,309,0.12156901333269804,0.11735523658973744,0.11531,0.017736853609725482,True,minimum validation MAE; test once,9901.653103351593
+MP-Bandgap,megnet,gap pbe,0,500,64,Adam,OneCycleLR,5.0,all within radius,256,4,460,0.18846691531217566,0.18943836718956963,0.1908,0.007136440306238801,True,minimum validation MAE; test once,26842.629062652588
+MP-Bulk,megnet,bulk modulus,0,500,64,Adam,OneCycleLR,5.0,all within radius,256,4,385,0.028983128277195385,0.03388056728298981,0.033,0.0266838570602973,True,minimum validation MAE; test once,1053.9995794296265

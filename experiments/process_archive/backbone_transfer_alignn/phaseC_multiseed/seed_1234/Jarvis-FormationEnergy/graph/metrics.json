@@ -1,0 +1,18 @@
+{
+  "task": "Jarvis-FormationEnergy",
+  "model": "graph",
+  "seed": 1234,
+  "split_seed": 123,
+  "epochs": 60,
+  "batch_size": 32,
+  "best_epoch": 59,
+  "valid_mae": 0.03596979911685332,
+  "test_mae": 0.036278943195818744,
+  "train_size": 44578,
+  "valid_size": 5572,
+  "test_size": 5573,
+  "target_mean": -0.831722617149353,
+  "target_std": 1.0806602239608765,
+  "graph_recovery_max_abs_error": null,
+  "alpha_initial_mean": null
+}

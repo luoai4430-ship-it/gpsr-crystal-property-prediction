@@ -1,0 +1,12 @@
+[shared-graph] Loaded 5830 structures from Dataset/raw/MP-ShearModuli-cutoff4.0-maxNeibNum16-spheHarmL4-CIF_CSV-rawData.pt with task targets from /root/autodl-tmp/dataset1/dataset/mp_2018_small/bulk/cif/id_prop.csv
+/root/venvs/fair-v21/lib/python3.10/site-packages/torch_geometric/data/in_memory_dataset.py:300: UserWarning: It is not recommended to directly access the internal storage format `data` of an 'InMemoryDataset'. If you are absolutely certain what you are doing, access the internal storage via `InMemoryDataset._data` instead to suppress this warning. Alternatively, you can access stacked individual attributes of every graph via `dataset.{attr_name}`.
+  warnings.warn(msg)
+[multimodal] 5830 / 5830 samples have non-zero text embeddings
+[multimodal] Text modality will be used (contrastive + property).
+dataset split: total=5830, train=4664, valid=583, test=583
+train range:(0.4771212637424469,2.63948655128479)
+valid range:(0.6020600199699402,2.63948655128479)
+test range:(0.6020600199699402,2.5774917602539062)
+mean:1.9345861673355103
+std:0.3619743585586548
+{"task": "MP-BulkModuli", "method": "gpsr", "seed": 42, "mae_on": 0.036473528598634904, "mae_off": 0.04768152312594458, "mean_rho": 0.09278570554549859, "median_rho": 0.0999999940395355, "p90_rho": 0.1000000089406967, "p95_rho": 0.1000000089406967, "max_rho": 0.1000000238418579, "mean_cos_h_off_on": 0.9956642190956129, "mean_cos_delta_h": 0.0019605795552416535, "mean_abs_delta_y": 0.025799655689383458, "mean_normalized_output_shift": 0.5410828765104043, "counterfactual_note": "semantic-OFF diagnostic pass; formal ON test was evaluated once during training"}

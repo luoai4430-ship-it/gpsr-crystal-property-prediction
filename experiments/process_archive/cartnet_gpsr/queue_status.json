@@ -1,0 +1,33 @@
+{
+  "stage": "complete_gate_stop",
+  "updated_at": "2026-10-05T00:10:55",
+  "current": null,
+  "done": [
+    "phase0/JARVIS-MBJ",
+    "phase0/JARVIS-OPT",
+    "phase0/MP-Bandgap",
+    "phase0/MP-Bulk",
+    "phase1/Jarvis-Bandgap_MBJ/graph",
+    "phase1/Jarvis-Bandgap_MBJ/gpsr",
+    "phase1/Jarvis-Bandgap_OPT/graph",
+    "phase1/Jarvis-Bandgap_OPT/gpsr",
+    "phase1/Jarvis-FormationEnergy/graph",
+    "phase1/Jarvis-FormationEnergy/gpsr",
+    "phase1/Jarvis-TotalEnergy/graph",
+    "phase1/Jarvis-TotalEnergy/gpsr",
+    "phase1/MP-Bandgap/graph",
+    "phase1/MP-Bandgap/gpsr",
+    "phase1/MP-FormationEnergy/graph",
+    "phase1/MP-FormationEnergy/gpsr",
+    "phase1/MP-BulkModuli/graph",
+    "phase1/MP-BulkModuli/gpsr",
+    "phase1/MP-ShearModuli/graph",
+    "phase1/MP-ShearModuli/gpsr",
+    "phase1/Jarvis-BulkModulusKv/graph",
+    "phase1/Jarvis-BulkModulusKv/gpsr",
+    "phase1/Jarvis-ShearModulusGv/graph",
+    "phase1/Jarvis-ShearModulusGv/gpsr"
+  ],
+  "pending": [],
+  "failed": null
+}

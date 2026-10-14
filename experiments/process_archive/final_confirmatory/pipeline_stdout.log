@@ -1,0 +1,125 @@
+confirmatory SMM registration and diagnostics patch applied
+[2026-10-05 08:54:37] start semantic_a1/42/smm/Jarvis-Bandgap_MBJ pid=137171
+[2026-10-05 08:54:37] start semantic_a1/42/unbounded/Jarvis-Bandgap_MBJ pid=137172
+[2026-10-05 08:54:37] start semantic_a1/42/gpsr/Jarvis-Bandgap_MBJ pid=137173
+[2026-10-05 09:08:59] COLLECT/OFF FAIL semantic_a1/42/unbounded/Jarvis-Bandgap_MBJ: CalledProcessError(1, ['/root/venvs/fair-v21/bin/python', 'experiments/final_confirmatory/semantic_intervention/posthoc_off.py', '--target', 'Jarvis-Bandgap_MBJ', '--method', 'unbounded', '--checkpoint', '/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_confirmatory/semantic_intervention/runs/seed_42/unbounded/Jarvis-Bandgap_MBJ/best_valid.pth', '--run-dir', '/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_confirmatory/semantic_intervention/runs/seed_42/unbounded/Jarvis-Bandgap_MBJ', '--cif-dir', '/root/autodl-tmp/dataset1/dataset/jarvis/mbj_bandgap/cif', '--text-emb-path', '/root/autodl-tmp/dataset1/dataset/jarvis/mbj_bandgap/MatBert_embeddings.pt', '--seed', '42'])
+[2026-10-05 09:08:59] start semantic_a1/42/smm/Jarvis-Bandgap_OPT pid=137378
+[2026-10-05 09:09:11] COLLECT/OFF FAIL semantic_a1/42/gpsr/Jarvis-Bandgap_MBJ: CalledProcessError(1, ['/root/venvs/fair-v21/bin/python', 'experiments/final_confirmatory/semantic_intervention/posthoc_off.py', '--target', 'Jarvis-Bandgap_MBJ', '--method', 'gpsr', '--checkpoint', '/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/Jarvis-Bandgap_MBJ/best_valid.pth', '--run-dir', '/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/Jarvis-Bandgap_MBJ', '--cif-dir', '/root/autodl-tmp/dataset1/dataset/jarvis/mbj_bandgap/cif', '--text-emb-path', '/root/autodl-tmp/dataset1/dataset/jarvis/mbj_bandgap/MatBert_embeddings.pt', '--seed', '42'])
+[2026-10-05 09:09:11] start semantic_a1/42/unbounded/Jarvis-Bandgap_OPT pid=137413
+[2026-10-05 09:13:21] FAIL semantic_a1/42/smm/Jarvis-Bandgap_MBJ exit=1
+[2026-10-05 09:13:21] start semantic_a1/42/gpsr/Jarvis-Bandgap_OPT pid=137430
+[2026-10-05 09:59:21] done semantic_a1/42/unbounded/Jarvis-Bandgap_OPT
+[2026-10-05 09:59:21] start semantic_a1/42/smm/Jarvis-FormationEnergy pid=139267
+[2026-10-05 10:05:00] done semantic_a1/42/gpsr/Jarvis-Bandgap_OPT
+[2026-10-05 10:05:00] start semantic_a1/42/unbounded/Jarvis-FormationEnergy pid=139357
+[2026-10-05 10:12:11] FAIL semantic_a1/42/smm/Jarvis-Bandgap_OPT exit=1
+[2026-10-05 10:12:11] start semantic_a1/42/gpsr/Jarvis-FormationEnergy pid=139379
+[2026-10-05 10:55:07] done semantic_a1/42/unbounded/Jarvis-FormationEnergy
+[2026-10-05 10:55:07] start semantic_a1/42/smm/Jarvis-BulkModulusKv pid=139611
+[2026-10-05 11:01:18] done semantic_a1/42/gpsr/Jarvis-FormationEnergy
+[2026-10-05 11:01:18] start semantic_a1/42/unbounded/Jarvis-BulkModulusKv pid=139777
+[2026-10-05 11:03:05] done semantic_a1/42/smm/Jarvis-FormationEnergy
+[2026-10-05 11:03:05] start semantic_a1/42/gpsr/Jarvis-BulkModulusKv pid=139863
+[2026-10-05 11:13:41] done semantic_a1/42/smm/Jarvis-BulkModulusKv
+[2026-10-05 11:13:41] start semantic_a1/42/smm/MP-Bandgap pid=139951
+[2026-10-05 11:17:29] done semantic_a1/42/unbounded/Jarvis-BulkModulusKv
+[2026-10-05 11:17:29] start semantic_a1/42/unbounded/MP-Bandgap pid=140020
+[2026-10-05 11:20:20] done semantic_a1/42/gpsr/Jarvis-BulkModulusKv
+[2026-10-05 11:20:20] start semantic_a1/42/gpsr/MP-Bandgap pid=140083
+[2026-10-05 13:23:14] done semantic_a1/42/unbounded/MP-Bandgap
+[2026-10-05 13:23:14] start semantic_a1/42/smm/MP-BulkModuli pid=140627
+[2026-10-05 13:25:38] done semantic_a1/42/gpsr/MP-Bandgap
+[2026-10-05 13:25:38] start semantic_a1/42/unbounded/MP-BulkModuli pid=140714
+[2026-10-05 13:31:24] done semantic_a1/42/unbounded/MP-BulkModuli
+[2026-10-05 13:31:24] start semantic_a1/42/gpsr/MP-BulkModuli pid=140845
+[2026-10-05 13:32:39] done semantic_a1/42/smm/MP-BulkModuli
+[2026-10-05 13:36:37] done semantic_a1/42/gpsr/MP-BulkModuli
+[2026-10-05 13:52:55] done semantic_a1/42/smm/MP-Bandgap
+[2026-10-05 13:52:55] PIPELINE FAILED: RuntimeError('semantic_a1 failures: [{\'key\': \'semantic_a1/42/unbounded/Jarvis-Bandgap_MBJ\', \'error\': "CalledProcessError(1, [\'/root/venvs/fair-v21/bin/python\', \'experiments/final_confirmatory/semantic_intervention/posthoc_off.py\', \'--target\', \'Jarvis-Bandgap_MBJ\', \'--method\', \'unbounded\', \'--checkpoint\', \'/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_confirmatory/semantic_intervention/runs/seed_42/unbounded/Jarvis-Bandgap_MBJ/best_valid.pth\', \'--run-dir\', \'/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_confirmatory/semantic_intervention/runs/seed_42/unbounded/Jarvis-Bandgap_MBJ\', \'--cif-dir\', \'/root/autodl-tmp/dataset1/dataset/jarvis/mbj_bandgap/cif\', \'--text-emb-path\', \'/root/autodl-tmp/dataset1/dataset/jarvis/mbj_bandgap/MatBert_embeddings.pt\', \'--seed\', \'42\'])"}, {\'key\': \'semantic_a1/42/gpsr/Jarvis-Bandgap_MBJ\', \'error\': "CalledProcessError(1, [\'/root/venvs/fair-v21/bin/python\', \'experiments/final_confirmatory/semantic_intervention/posthoc_off.py\', \'--target\', \'Jarvis-Bandgap_MBJ\', \'--method\', \'gpsr\', \'--checkpoint\', \'/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/Jarvis-Bandgap_MBJ/best_valid.pth\', \'--run-dir\', \'/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/Jarvis-Bandgap_MBJ\', \'--cif-dir\', \'/root/autodl-tmp/dataset1/dataset/jarvis/mbj_bandgap/cif\', \'--text-emb-path\', \'/root/autodl-tmp/dataset1/dataset/jarvis/mbj_bandgap/MatBert_embeddings.pt\', \'--seed\', \'42\'])"}, {\'key\': \'semantic_a1/42/smm/Jarvis-Bandgap_MBJ\', \'exit\': 1}, {\'key\': \'semantic_a1/42/smm/Jarvis-Bandgap_OPT\', \'exit\': 1}]')
+Traceback (most recent call last):
+  File "/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_confirmatory/pipeline.py", line 282, in <module>
+    try: main()
+  File "/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_confirmatory/pipeline.py", line 262, in main
+    run_sft_group(42,list(TASKS),list(METHODS),"semantic_a1")
+  File "/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_confirmatory/pipeline.py", line 131, in run_sft_group
+    if failed: raise RuntimeError(f"{phase} failures: {failed}")
+RuntimeError: semantic_a1 failures: [{'key': 'semantic_a1/42/unbounded/Jarvis-Bandgap_MBJ', 'error': "CalledProcessError(1, ['/root/venvs/fair-v21/bin/python', 'experiments/final_confirmatory/semantic_intervention/posthoc_off.py', '--target', 'Jarvis-Bandgap_MBJ', '--method', 'unbounded', '--checkpoint', '/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_confirmatory/semantic_intervention/runs/seed_42/unbounded/Jarvis-Bandgap_MBJ/best_valid.pth', '--run-dir', '/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_confirmatory/semantic_intervention/runs/seed_42/unbounded/Jarvis-Bandgap_MBJ', '--cif-dir', '/root/autodl-tmp/dataset1/dataset/jarvis/mbj_bandgap/cif', '--text-emb-path', '/root/autodl-tmp/dataset1/dataset/jarvis/mbj_bandgap/MatBert_embeddings.pt', '--seed', '42'])"}, {'key': 'semantic_a1/42/gpsr/Jarvis-Bandgap_MBJ', 'error': "CalledProcessError(1, ['/root/venvs/fair-v21/bin/python', 'experiments/final_confirmatory/semantic_intervention/posthoc_off.py', '--target', 'Jarvis-Bandgap_MBJ', '--method', 'gpsr', '--checkpoint', '/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/Jarvis-Bandgap_MBJ/best_valid.pth', '--run-dir', '/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_confirmatory/semantic_intervention/runs/seed_42/gpsr/Jarvis-Bandgap_MBJ', '--cif-dir', '/root/autodl-tmp/dataset1/dataset/jarvis/mbj_bandgap/cif', '--text-emb-path', '/root/autodl-tmp/dataset1/dataset/jarvis/mbj_bandgap/MatBert_embeddings.pt', '--seed', '42'])"}, {'key': 'semantic_a1/42/smm/Jarvis-Bandgap_MBJ', 'exit': 1}, {'key': 'semantic_a1/42/smm/Jarvis-Bandgap_OPT', 'exit': 1}]
+confirmatory SMM registration and diagnostics patch applied
+[2026-10-05 13:57:49] start semantic_a1/42/smm/Jarvis-Bandgap_MBJ pid=141291
+[2026-10-05 13:57:49] start semantic_a1/42/smm/Jarvis-Bandgap_OPT pid=141292
+[2026-10-05 14:12:32] done semantic_a1/42/smm/Jarvis-Bandgap_MBJ
+[2026-10-05 14:39:26] done semantic_a1/42/smm/Jarvis-Bandgap_OPT
+[2026-10-05 14:39:28] A1 verdict CONTROL_ADVANTAGE_SUPPORTED
+[2026-10-05 14:39:28] start CartNet seed=7 task=Jarvis-Bandgap_MBJ mode=graph
+[2026-10-05 15:32:30] done CartNet seed=7 task=Jarvis-Bandgap_MBJ mode=graph
+[2026-10-05 15:32:30] start CartNet seed=7 task=Jarvis-Bandgap_MBJ mode=gpsr
+[2026-10-05 16:29:33] done CartNet seed=7 task=Jarvis-Bandgap_MBJ mode=gpsr
+[2026-10-05 16:29:33] start CartNet seed=7 task=Jarvis-BulkModulusKv mode=graph
+[2026-10-05 17:26:01] done CartNet seed=7 task=Jarvis-BulkModulusKv mode=graph
+[2026-10-05 17:26:01] start CartNet seed=7 task=Jarvis-BulkModulusKv mode=gpsr
+[2026-10-05 18:26:52] done CartNet seed=7 task=Jarvis-BulkModulusKv mode=gpsr
+[2026-10-05 18:26:52] start CartNet seed=7 task=MP-BulkModuli mode=graph
+[2026-10-05 18:45:05] done CartNet seed=7 task=MP-BulkModuli mode=graph
+[2026-10-05 18:45:05] start CartNet seed=7 task=MP-BulkModuli mode=gpsr
+[2026-10-05 19:04:22] done CartNet seed=7 task=MP-BulkModuli mode=gpsr
+[2026-10-05 19:04:22] start CartNet seed=1234 task=Jarvis-Bandgap_MBJ mode=graph
+[2026-10-05 19:57:43] done CartNet seed=1234 task=Jarvis-Bandgap_MBJ mode=graph
+[2026-10-05 19:57:43] start CartNet seed=1234 task=Jarvis-Bandgap_MBJ mode=gpsr
+[2026-10-05 20:54:33] done CartNet seed=1234 task=Jarvis-Bandgap_MBJ mode=gpsr
+[2026-10-05 20:54:33] start CartNet seed=1234 task=Jarvis-BulkModulusKv mode=graph
+[2026-10-05 21:51:36] done CartNet seed=1234 task=Jarvis-BulkModulusKv mode=graph
+[2026-10-05 21:51:36] start CartNet seed=1234 task=Jarvis-BulkModulusKv mode=gpsr
+[2026-10-05 22:55:56] done CartNet seed=1234 task=Jarvis-BulkModulusKv mode=gpsr
+[2026-10-05 22:55:56] start CartNet seed=1234 task=MP-BulkModuli mode=graph
+[2026-10-05 23:15:15] done CartNet seed=1234 task=MP-BulkModuli mode=graph
+[2026-10-05 23:15:15] start CartNet seed=1234 task=MP-BulkModuli mode=gpsr
+[2026-10-05 23:35:36] done CartNet seed=1234 task=MP-BulkModuli mode=gpsr
+[2026-10-05 23:35:36] start semantic_a2_seed7/7/smm/Jarvis-Bandgap_MBJ pid=145397
+[2026-10-05 23:35:36] start semantic_a2_seed7/7/unbounded/Jarvis-Bandgap_MBJ pid=145398
+[2026-10-05 23:35:36] start semantic_a2_seed7/7/gpsr/Jarvis-Bandgap_MBJ pid=145399
+[2026-10-05 23:50:13] done semantic_a2_seed7/7/unbounded/Jarvis-Bandgap_MBJ
+[2026-10-05 23:50:40] done semantic_a2_seed7/7/gpsr/Jarvis-Bandgap_MBJ
+[2026-10-05 23:50:40] start semantic_a2_seed7/7/smm/Jarvis-FormationEnergy pid=145544
+[2026-10-05 23:50:40] start semantic_a2_seed7/7/unbounded/Jarvis-FormationEnergy pid=145545
+[2026-10-05 23:55:47] done semantic_a2_seed7/7/smm/Jarvis-Bandgap_MBJ
+[2026-10-05 23:55:47] start semantic_a2_seed7/7/gpsr/Jarvis-FormationEnergy pid=145644
+[2026-10-06 00:42:35] done semantic_a2_seed7/7/unbounded/Jarvis-FormationEnergy
+[2026-10-06 00:42:35] start semantic_a2_seed7/7/smm/Jarvis-BulkModulusKv pid=145885
+[2026-10-06 00:47:39] done semantic_a2_seed7/7/gpsr/Jarvis-FormationEnergy
+[2026-10-06 00:47:39] start semantic_a2_seed7/7/unbounded/Jarvis-BulkModulusKv pid=146208
+[2026-10-06 00:52:26] done semantic_a2_seed7/7/smm/Jarvis-FormationEnergy
+[2026-10-06 00:52:26] start semantic_a2_seed7/7/gpsr/Jarvis-BulkModulusKv pid=146297
+[2026-10-06 01:01:29] done semantic_a2_seed7/7/smm/Jarvis-BulkModulusKv
+[2026-10-06 01:01:29] start semantic_a2_seed7/7/smm/MP-Bandgap pid=146450
+[2026-10-06 01:03:55] done semantic_a2_seed7/7/unbounded/Jarvis-BulkModulusKv
+[2026-10-06 01:03:55] start semantic_a2_seed7/7/unbounded/MP-Bandgap pid=146515
+[2026-10-06 01:11:38] done semantic_a2_seed7/7/gpsr/Jarvis-BulkModulusKv
+[2026-10-06 01:11:38] start semantic_a2_seed7/7/gpsr/MP-Bandgap pid=146579
+[2026-10-06 03:11:23] done semantic_a2_seed7/7/unbounded/MP-Bandgap
+[2026-10-06 03:16:22] done semantic_a2_seed7/7/gpsr/MP-Bandgap
+[2026-10-06 03:37:21] done semantic_a2_seed7/7/smm/MP-Bandgap
+[2026-10-06 03:37:21] start semantic_a2_seed1234/1234/smm/Jarvis-Bandgap_MBJ pid=147216
+[2026-10-06 03:37:21] start semantic_a2_seed1234/1234/unbounded/Jarvis-Bandgap_MBJ pid=147217
+[2026-10-06 03:37:21] start semantic_a2_seed1234/1234/gpsr/Jarvis-Bandgap_MBJ pid=147218
+[2026-10-06 03:52:14] done semantic_a2_seed1234/1234/unbounded/Jarvis-Bandgap_MBJ
+[2026-10-06 03:52:42] done semantic_a2_seed1234/1234/gpsr/Jarvis-Bandgap_MBJ
+[2026-10-06 03:52:42] start semantic_a2_seed1234/1234/smm/Jarvis-FormationEnergy pid=147364
+[2026-10-06 03:52:42] start semantic_a2_seed1234/1234/unbounded/Jarvis-FormationEnergy pid=147365
+[2026-10-06 03:55:42] done semantic_a2_seed1234/1234/smm/Jarvis-Bandgap_MBJ
+[2026-10-06 03:55:42] start semantic_a2_seed1234/1234/gpsr/Jarvis-FormationEnergy pid=147464
+[2026-10-06 04:42:32] done semantic_a2_seed1234/1234/unbounded/Jarvis-FormationEnergy
+[2026-10-06 04:42:32] start semantic_a2_seed1234/1234/smm/Jarvis-BulkModulusKv pid=147699
+[2026-10-06 04:45:20] done semantic_a2_seed1234/1234/gpsr/Jarvis-FormationEnergy
+[2026-10-06 04:45:20] start semantic_a2_seed1234/1234/unbounded/Jarvis-BulkModulusKv pid=147787
+[2026-10-06 04:56:33] done semantic_a2_seed1234/1234/smm/Jarvis-FormationEnergy
+[2026-10-06 04:56:33] start semantic_a2_seed1234/1234/gpsr/Jarvis-BulkModulusKv pid=147876
+[2026-10-06 05:00:12] done semantic_a2_seed1234/1234/unbounded/Jarvis-BulkModulusKv
+[2026-10-06 05:00:12] start semantic_a2_seed1234/1234/smm/MP-Bandgap pid=148013
+[2026-10-06 05:01:14] done semantic_a2_seed1234/1234/smm/Jarvis-BulkModulusKv
+[2026-10-06 05:01:14] start semantic_a2_seed1234/1234/unbounded/MP-Bandgap pid=148099
+[2026-10-06 05:18:15] done semantic_a2_seed1234/1234/gpsr/Jarvis-BulkModulusKv
+[2026-10-06 05:18:15] start semantic_a2_seed1234/1234/gpsr/MP-Bandgap pid=148181
+[2026-10-06 07:04:51] done semantic_a2_seed1234/1234/unbounded/MP-Bandgap
+[2026-10-06 07:19:25] done semantic_a2_seed1234/1234/gpsr/MP-Bandgap
+[2026-10-06 07:36:13] done semantic_a2_seed1234/1234/smm/MP-Bandgap
+[2026-10-06 07:36:13] all confirmatory experiments complete

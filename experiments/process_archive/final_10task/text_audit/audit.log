@@ -1,0 +1,38 @@
+Auditing Jarvis-Bandgap_MBJ...
+Jarvis-Bandgap_MBJ PASS
+Auditing Jarvis-Bandgap_OPT...
+Jarvis-Bandgap_OPT PASS
+Auditing Jarvis-FormationEnergy...
+Jarvis-FormationEnergy PASS
+Auditing Jarvis-TotalEnergy...
+Jarvis-TotalEnergy PASS
+Auditing Jarvis-BulkModulusKv...
+Jarvis-BulkModulusKv PASS
+Auditing Jarvis-ShearModulusGv...
+Jarvis-ShearModulusGv PASS
+Auditing MP-Bandgap...
+MP-Bandgap PASS
+Auditing MP-FormationEnergy...
+MP-FormationEnergy PASS
+Auditing MP-BulkModuli...
+MP-BulkModuli PASS
+Auditing MP-ShearModuli...
+MP-ShearModuli PASS
+{
+  "stage": "text_audit",
+  "all_pass": true,
+  "passed": 10,
+  "total": 10,
+  "statuses": {
+    "Jarvis-Bandgap_MBJ": "PASS",
+    "Jarvis-Bandgap_OPT": "PASS",
+    "Jarvis-FormationEnergy": "PASS",
+    "Jarvis-TotalEnergy": "PASS",
+    "Jarvis-BulkModulusKv": "PASS",
+    "Jarvis-ShearModulusGv": "PASS",
+    "MP-Bandgap": "PASS",
+    "MP-FormationEnergy": "PASS",
+    "MP-BulkModuli": "PASS",
+    "MP-ShearModuli": "PASS"
+  }
+}

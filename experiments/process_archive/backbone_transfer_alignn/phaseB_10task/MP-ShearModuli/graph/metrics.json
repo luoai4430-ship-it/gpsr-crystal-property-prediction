@@ -1,0 +1,18 @@
+{
+  "task": "MP-ShearModuli",
+  "model": "graph",
+  "seed": 42,
+  "split_seed": 123,
+  "epochs": 60,
+  "batch_size": 32,
+  "best_epoch": 59,
+  "valid_mae": 0.06789114947120349,
+  "test_mae": 0.07168710477151756,
+  "train_size": 4664,
+  "valid_size": 583,
+  "test_size": 583,
+  "target_mean": 1.6166967153549194,
+  "target_std": 0.36755993962287903,
+  "graph_recovery_max_abs_error": null,
+  "alpha_initial_mean": null
+}

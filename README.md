@@ -40,6 +40,8 @@ experiments/cartnet_gpsr/
                          CartNet adapter, post-hoc analysis, and summaries
 experiments/final_confirmatory/
                          SMM/unbounded/bounded and targeted CartNet checks
+experiments/process_archive/
+                         immutable server process files and runtime logs
 docs/                    method, reproduction, and result notes
 metadata/                release manifest and upstream provenance
 ```
@@ -143,6 +145,14 @@ The composition-conditioned follow-up is under
 `experiments/composition_pairing_control/`; it preserves chemical composition
 or element identity during frozen-checkpoint donor permutations and retains
 both positive and negative results.
+
+The complete retained server-side process records for the experiments reported
+in the paper are under `experiments/process_archive/`. They include launch
+scripts, configurations, queue state, runtime logs, raw metrics, predictions,
+diagnostics, plots, and code snapshots. See
+`docs/EXPERIMENT_PROCESS_ARCHIVE.md` for the paper-to-directory map and
+`metadata/server_experiment_excluded_artifacts.csv` for every omitted weight,
+cache, bytecode, or vendored dependency artifact.
 
 ## License
 

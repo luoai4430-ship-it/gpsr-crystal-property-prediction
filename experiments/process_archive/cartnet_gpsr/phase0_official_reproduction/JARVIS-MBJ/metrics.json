@@ -1,0 +1,22 @@
+{
+  "task": "JARVIS-MBJ",
+  "dataset": "jarvis",
+  "target": "mbj_bandgap",
+  "seed": 1,
+  "epochs": 500,
+  "batch_size": 64,
+  "optimizer": "Adam",
+  "scheduler": "OneCycleLR",
+  "cutoff": 5.0,
+  "neighbors": "all within radius",
+  "hidden_dim": 256,
+  "interaction_layers": 4,
+  "best_epoch": 362,
+  "best_valid_mae": 0.2449538339017575,
+  "test_mae": 0.251048922079503,
+  "published_reference": 0.25303,
+  "relative_error": 0.007829419122226433,
+  "sanity_pass": true,
+  "checkpoint_rule": "minimum validation MAE; test once",
+  "elapsed_s": 3131.5027706623077
+}

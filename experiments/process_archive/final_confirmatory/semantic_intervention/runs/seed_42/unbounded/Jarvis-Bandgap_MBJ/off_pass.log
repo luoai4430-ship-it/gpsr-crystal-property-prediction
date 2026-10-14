@@ -1,0 +1,12 @@
+/root/autodl-tmp/TextResidualSHFMat-FAIR/model/semantic_residual.py:294: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at ../aten/src/ATen/native/ReduceOps.cpp:1760.)
+  "std_cos_delta_h": cos_delta_h.std().item(),
+[multimodal] Re-loaded text embeddings from /root/autodl-tmp/dataset1/dataset/jarvis/mbj_bandgap/MatBert_embeddings.pt (cache had 18172 samples)
+[multimodal] 18172 / 18172 samples have non-zero text embeddings
+[multimodal] Text modality will be used (contrastive + property).
+dataset split: total=18172, train=14537, valid=1817, test=1818
+train range:(0.0,27.500999450683594)
+valid range:(0.0,23.900999069213867)
+test range:(0.0,14.498000144958496)
+mean:1.4889696836471558
+std:2.3161327838897705
+{"task": "Jarvis-Bandgap_MBJ", "method": "unbounded", "seed": 42, "mae_on": 0.2846708740338241, "mae_off": 0.37319634712175176, "mean_rho": 0.3442522112825195, "median_rho": 0.32541587948799133, "p90_rho": 0.5153559982776642, "p95_rho": 0.5959994375705719, "max_rho": 1.1435426473617554, "mean_cos_h_off_on": 0.9388213548788799, "mean_cos_delta_h": -0.05646173293819289, "mean_abs_delta_y": 0.20279592682163838, "mean_normalized_output_shift": 0.543402764752888, "counterfactual_note": "semantic-OFF diagnostic pass; formal ON test was evaluated once during training"}

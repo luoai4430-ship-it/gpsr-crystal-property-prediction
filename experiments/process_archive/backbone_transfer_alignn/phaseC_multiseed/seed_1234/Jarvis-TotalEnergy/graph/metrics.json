@@ -1,0 +1,18 @@
+{
+  "task": "Jarvis-TotalEnergy",
+  "model": "graph",
+  "seed": 1234,
+  "split_seed": 123,
+  "epochs": 60,
+  "batch_size": 32,
+  "best_epoch": 59,
+  "valid_mae": 0.03961049142325747,
+  "test_mae": 0.03972614327004113,
+  "train_size": 44578,
+  "valid_size": 5572,
+  "test_size": 5573,
+  "target_mean": -3.214447259902954,
+  "target_std": 2.1312344074249268,
+  "graph_recovery_max_abs_error": null,
+  "alpha_initial_mean": null
+}

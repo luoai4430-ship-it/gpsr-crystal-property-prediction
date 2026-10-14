@@ -1,0 +1,2 @@
+model,target,MAE,RMSE,R2,graph_MAE,graph_RMSE,graph_R2,alpha,num_samples
+SemanticMessageModulation,Jarvis-BulkModulusKv,9.049843072891235,23.497066037986528,0.8752680977940009,,,,,1968

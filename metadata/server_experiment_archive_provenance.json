@@ -1,0 +1,22 @@
+{
+  "archive_created_utc": "2026-10-14",
+  "source_host": "shfmat",
+  "source_root": "/root/autodl-tmp/TextResidualSHFMat-FAIR/experiments",
+  "paper_artifact": "main_final_polished.pdf",
+  "included_experiments": [
+    "final_10task",
+    "final_confirmatory",
+    "backbone_transfer_alignn",
+    "cartnet_gpsr"
+  ],
+  "included_file_count": 1132,
+  "included_bytes": 257397570,
+  "excluded_file_count": 185,
+  "excluded_bytes": 2537285151,
+  "transfer_archive_sha256": "c60a94c28eb76e4380159b04644dc7cab80bf0120d5cc901d7dada3b56643177",
+  "exclusion_policy": {
+    "extensions": [".pt", ".pth", ".ckpt", ".bin", ".safetensors", ".pyc"],
+    "directories": ["__pycache__", "geometry_cache", "processed", "cache", "third_party"],
+    "maximum_retained_file_bytes": 99614720
+  }
+}

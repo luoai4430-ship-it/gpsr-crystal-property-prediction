@@ -1,0 +1,3 @@
+backbone,tasks,graph_nmae,hard_nmae,gain_pct,improved_tasks
+SHFMat,10,1.0,0.9568534715163338,4.31465284836662,10/10
+ALIGNN,10,1.0,0.96460795254507,3.5392047454929965,10/10

@@ -1,0 +1,105 @@
+
+[2026-09-21T09:43:38] START /root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_10task/seed42_queue.py
+[2026-09-21 09:43:38] [main] launching 40 missing jobs; concurrency=3
+[2026-09-21 09:43:38] [main] start seed42/graph/Jarvis-Bandgap_MBJ pid=81582
+[2026-09-21 09:43:38] [main] start seed42/textresidual/Jarvis-Bandgap_MBJ pid=81583
+[2026-09-21 09:43:38] [main] start seed42/early_nodegate/Jarvis-Bandgap_MBJ pid=81584
+[2026-09-21 09:56:39] [main] done seed42/graph/Jarvis-Bandgap_MBJ
+[2026-09-21 09:56:39] [main] start seed42/final_hard_010/Jarvis-Bandgap_MBJ pid=81685
+[2026-09-21 09:57:19] [main] done seed42/textresidual/Jarvis-Bandgap_MBJ
+[2026-09-21 09:57:19] [main] start seed42/graph/Jarvis-Bandgap_OPT pid=81698
+[2026-09-21 09:58:59] [main] done seed42/early_nodegate/Jarvis-Bandgap_MBJ
+[2026-09-21 09:58:59] [main] start seed42/textresidual/Jarvis-Bandgap_OPT pid=81712
+[2026-09-21 10:12:50] [main] done seed42/final_hard_010/Jarvis-Bandgap_MBJ
+[2026-09-21 10:12:50] [main] start seed42/early_nodegate/Jarvis-Bandgap_OPT pid=81728
+[2026-09-21 10:41:22] [main] done seed42/graph/Jarvis-Bandgap_OPT
+[2026-09-21 10:41:22] [main] start seed42/final_hard_010/Jarvis-Bandgap_OPT pid=81840
+[2026-09-21 10:45:22] [main] done seed42/textresidual/Jarvis-Bandgap_OPT
+[2026-09-21 10:45:22] [main] start seed42/graph/Jarvis-FormationEnergy pid=81854
+[2026-09-21 11:05:03] [main] done seed42/early_nodegate/Jarvis-Bandgap_OPT
+[2026-09-21 11:05:03] [main] start seed42/textresidual/Jarvis-FormationEnergy pid=81954
+[2026-09-21 11:29:54] [main] done seed42/graph/Jarvis-FormationEnergy
+[2026-09-21 11:29:54] [main] start seed42/early_nodegate/Jarvis-FormationEnergy pid=82048
+[2026-09-21 11:32:55] [main] done seed42/final_hard_010/Jarvis-Bandgap_OPT
+[2026-09-21 11:32:55] [main] start seed42/final_hard_010/Jarvis-FormationEnergy pid=82061
+[2026-09-21 11:51:06] [main] done seed42/textresidual/Jarvis-FormationEnergy
+[2026-09-21 11:51:06] [main] start seed42/graph/Jarvis-TotalEnergy pid=82152
+[2026-09-21 12:22:08] [main] done seed42/early_nodegate/Jarvis-FormationEnergy
+[2026-09-21 12:22:08] [main] start seed42/textresidual/Jarvis-TotalEnergy pid=82247
+[2026-09-21 12:24:58] [main] done seed42/final_hard_010/Jarvis-FormationEnergy
+[2026-09-21 12:24:58] [main] start seed42/early_nodegate/Jarvis-TotalEnergy pid=82262
+[2026-09-21 12:35:08] [main] done seed42/graph/Jarvis-TotalEnergy
+[2026-09-21 12:35:08] [main] start seed42/final_hard_010/Jarvis-TotalEnergy pid=82293
+[2026-09-21 13:07:30] [main] done seed42/textresidual/Jarvis-TotalEnergy
+[2026-09-21 13:07:30] [main] start seed42/graph/Jarvis-BulkModulusKv pid=82461
+[2026-09-21 13:16:41] [main] done seed42/early_nodegate/Jarvis-TotalEnergy
+[2026-09-21 13:16:41] [main] start seed42/textresidual/Jarvis-BulkModulusKv pid=82478
+[2026-09-21 13:20:11] [main] done seed42/graph/Jarvis-BulkModulusKv
+[2026-09-21 13:20:11] [main] start seed42/early_nodegate/Jarvis-BulkModulusKv pid=82495
+[2026-09-21 13:26:01] [main] done seed42/final_hard_010/Jarvis-TotalEnergy
+[2026-09-21 13:26:01] [main] start seed42/final_hard_010/Jarvis-BulkModulusKv pid=82656
+[2026-09-21 13:30:02] [main] done seed42/textresidual/Jarvis-BulkModulusKv
+[2026-09-21 13:30:02] [main] start seed42/graph/Jarvis-ShearModulusGv pid=82670
+[2026-09-21 13:35:12] [main] done seed42/early_nodegate/Jarvis-BulkModulusKv
+[2026-09-21 13:35:12] [main] start seed42/textresidual/Jarvis-ShearModulusGv pid=82684
+[2026-09-21 13:41:42] [main] done seed42/final_hard_010/Jarvis-BulkModulusKv
+[2026-09-21 13:41:42] [main] start seed42/early_nodegate/Jarvis-ShearModulusGv pid=82698
+[2026-09-21 13:42:43] [main] done seed42/graph/Jarvis-ShearModulusGv
+[2026-09-21 13:42:43] [main] start seed42/final_hard_010/Jarvis-ShearModulusGv pid=82711
+[2026-09-21 13:48:13] [main] done seed42/textresidual/Jarvis-ShearModulusGv
+[2026-09-21 13:48:13] [main] start seed42/graph/MP-Bandgap pid=82725
+[2026-09-21 13:59:34] [main] done seed42/early_nodegate/Jarvis-ShearModulusGv
+[2026-09-21 13:59:34] [main] start seed42/textresidual/MP-Bandgap pid=82829
+[2026-09-21 14:00:24] [main] done seed42/final_hard_010/Jarvis-ShearModulusGv
+[2026-09-21 14:00:24] [main] start seed42/early_nodegate/MP-Bandgap pid=82843
+[2026-09-21 15:57:31] [main] done seed42/graph/MP-Bandgap
+[2026-09-21 15:57:31] [main] start seed42/final_hard_010/MP-Bandgap pid=83295
+[2026-09-21 16:17:22] [main] done seed42/textresidual/MP-Bandgap
+[2026-09-21 16:17:22] [main] start seed42/graph/MP-FormationEnergy pid=83319
+[2026-09-21 16:31:33] [main] done seed42/early_nodegate/MP-Bandgap
+[2026-09-21 16:31:33] [main] start seed42/textresidual/MP-FormationEnergy pid=83412
+[2026-09-21 18:27:40] [main] done seed42/final_hard_010/MP-Bandgap
+[2026-09-21 18:27:40] [main] start seed42/early_nodegate/MP-FormationEnergy pid=83763
+[2026-09-21 18:32:20] [main] done seed42/graph/MP-FormationEnergy
+[2026-09-21 18:32:20] [main] start seed42/final_hard_010/MP-FormationEnergy pid=83777
+[2026-09-21 18:49:41] [main] done seed42/textresidual/MP-FormationEnergy
+[2026-09-21 18:49:41] [main] start seed42/graph/MP-BulkModuli pid=83794
+[2026-09-21 18:55:32] [main] done seed42/graph/MP-BulkModuli
+[2026-09-21 18:55:32] [main] start seed42/textresidual/MP-BulkModuli pid=83809
+[2026-09-21 19:01:12] [main] done seed42/textresidual/MP-BulkModuli
+[2026-09-21 19:01:12] [main] start seed42/early_nodegate/MP-BulkModuli pid=83901
+[2026-09-21 19:08:32] [main] done seed42/early_nodegate/MP-BulkModuli
+[2026-09-21 19:08:32] [main] start seed42/final_hard_010/MP-BulkModuli pid=83919
+[2026-09-21 19:16:23] [main] done seed42/final_hard_010/MP-BulkModuli
+[2026-09-21 19:16:23] [main] start seed42/graph/MP-ShearModuli pid=83935
+[2026-09-21 19:22:03] [main] done seed42/graph/MP-ShearModuli
+[2026-09-21 19:22:03] [main] start seed42/textresidual/MP-ShearModuli pid=83952
+[2026-09-21 19:28:04] [main] done seed42/textresidual/MP-ShearModuli
+[2026-09-21 19:28:04] [main] start seed42/early_nodegate/MP-ShearModuli pid=84042
+[2026-09-21 19:35:24] [main] done seed42/early_nodegate/MP-ShearModuli
+[2026-09-21 19:35:24] [main] start seed42/final_hard_010/MP-ShearModuli pid=84123
+[2026-09-21 19:43:05] [main] done seed42/final_hard_010/MP-ShearModuli
+[2026-09-21 20:26:27] [main] done seed42/early_nodegate/MP-FormationEnergy
+[2026-09-21 20:28:27] [main] done seed42/final_hard_010/MP-FormationEnergy
+[2026-09-21 20:28:27] [main] phase finished done=40 failed=0
+[2026-09-21 20:28:27] [shuffled_controls] launching 2 missing jobs; concurrency=2
+[2026-09-21 20:28:27] [shuffled_controls] start shuffled/MP-Bandgap pid=84252
+[2026-09-21 20:28:27] [shuffled_controls] start shuffled/MP-FormationEnergy pid=84253
+[2026-09-21 22:10:03] [shuffled_controls] done shuffled/MP-FormationEnergy
+[2026-09-21 22:10:14] [shuffled_controls] done shuffled/MP-Bandgap
+[2026-09-21 22:10:14] [shuffled_controls] phase finished done=2 failed=0
+[2026-09-21T22:10:14] COMPLETE /root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_10task/seed42_queue.py
+
+[2026-09-21T22:32:58] START /root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_10task/seed42_queue.py
+[2026-09-21 22:32:58] [main] launching 0 missing jobs; concurrency=3
+[2026-09-21 22:32:58] [main] phase finished done=0 failed=0
+[2026-09-21 22:32:58] [shuffled_controls] launching 0 missing jobs; concurrency=2
+[2026-09-21 22:32:58] [shuffled_controls] phase finished done=0 failed=0
+[2026-09-21T22:32:58] COMPLETE /root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_10task/seed42_queue.py
+
+[2026-09-22T09:34:56] START /root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_10task/seed42_queue.py
+[2026-09-22 09:34:56] [main] launching 0 missing jobs; concurrency=3
+[2026-09-22 09:34:56] [main] phase finished done=0 failed=0
+[2026-09-22 09:34:56] [shuffled_controls] launching 0 missing jobs; concurrency=2
+[2026-09-22 09:34:56] [shuffled_controls] phase finished done=0 failed=0
+[2026-09-22T09:34:56] COMPLETE /root/autodl-tmp/TextResidualSHFMat-FAIR/experiments/final_10task/seed42_queue.py

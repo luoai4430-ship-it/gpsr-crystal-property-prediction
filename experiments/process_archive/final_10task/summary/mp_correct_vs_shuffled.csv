@@ -1,0 +1,3 @@
+task,correct_text_mae,shuffled_text_mae,correct_gain_pct,correct_better
+MP-Bandgap,0.1926236513049103,0.2095633320106092,8.083322851939252,True
+MP-FormationEnergy,0.0255260688158892,0.0276190387879231,7.577997149376134,True

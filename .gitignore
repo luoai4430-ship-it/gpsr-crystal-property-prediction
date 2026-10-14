@@ -42,6 +42,12 @@ outputs/
 wandb/
 tensorboard/
 
+# Immutable server-side process records for the experiments reported in the paper.
+# These exceptions intentionally retain run directories, logs, exit markers, and
+# queue status files inside this one audited archive.
+!experiments/process_archive/
+!experiments/process_archive/**
+
 # Operating-system files
 .DS_Store
 Thumbs.db

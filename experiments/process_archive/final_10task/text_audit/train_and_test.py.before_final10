@@ -1,0 +1,1017 @@
+import logging
+import json
+import os
+import os.path as osp
+import random
+import time
+from datetime import datetime
+import numpy as np
+import pandas as pd
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from typing import Union, Optional
+from tqdm import tqdm
+from functools import total_ordering
+from copy import deepcopy
+from torch.utils.tensorboard import SummaryWriter
+
+from data.dataset import get_dataloader
+from data.config import Config as data_config, AtomFeatureType
+from data.config import CrystalDataset, JarvisTarget, MPTarget
+from model.net import SFTGNN, SFTGNNMultimodal
+from model.text_residual_shfmat import TextResidualSHFMat
+from model.semantic_residual import GPSRSFTGNN, resolve_injection_block, as_text_matrix
+from model.config import Config as model_config
+from src.loss.infonce import infonce_loss
+
+
+def is_gpsr_model() -> bool:
+    return bool(getattr(model_config, 'gpsr_enabled', False))
+
+
+def _extend_gpsr_samples(model, accum: dict) -> None:
+    """Collect exact per-crystal diagnostics from the most recent forward pass."""
+    stats = getattr(getattr(model, "injector", None), "last_sample_stats", None)
+    if not stats:
+        return
+    for key, value in stats.items():
+        accum.setdefault(key, []).extend(value.detach().cpu().numpy().reshape(-1).tolist())
+
+
+def _summarize_gpsr_samples(accum: dict) -> dict:
+    if not accum or not (accum.get("rho") or accum.get("rho_raw")):
+        return {}
+    rho = np.asarray(accum.get("rho", accum.get("rho_raw")), dtype=float)
+    final = np.asarray(accum.get("rho_final", rho), dtype=float)
+    result = {
+        "mean_rho": float(rho.mean()),
+        "median_rho": float(np.median(rho)),
+        "p25_rho": float(np.quantile(rho, 0.25)),
+        "p75_rho": float(np.quantile(rho, 0.75)),
+        "p90_rho": float(np.quantile(rho, 0.90)),
+        "max_rho": float(rho.max()),
+        "ratio_rho_le_010": float((rho <= 0.10).mean()),
+        "ratio_rho_le_020": float((rho <= 0.20).mean()),
+        "ratio_rho_gt_030": float((rho > 0.30).mean()),
+        # Backward-compatible bounded-residual names.
+        "mean_rho_raw": float(rho.mean()),
+        "median_rho_raw": float(np.median(rho)),
+        "max_rho_raw": float(rho.max()),
+        "mean_rho_final": float(final.mean()),
+        "median_rho_final": float(np.median(final)),
+        "max_rho_final": float(final.max()),
+        "num_samples": int(rho.size),
+    }
+    if "scale" in accum:
+        result["mean_scale"] = float(np.mean(accum["scale"]))
+    if "clipped" in accum:
+        result["clipped_sample_ratio"] = float(np.mean(accum["clipped"]))
+    if "sample_r" in accum:
+        r = np.asarray(accum["sample_r"], dtype=float)
+        result.update({
+            "mean_r": float(r.mean()), "median_r": float(np.median(r)),
+            "std_r": float(r.std()), "p10_r": float(np.quantile(r, 0.10)),
+            "p25_r": float(np.quantile(r, 0.25)), "p75_r": float(np.quantile(r, 0.75)),
+            "p90_r": float(np.quantile(r, 0.90)),
+            "ratio_r_lt_025": float((r < 0.25).mean()),
+            "ratio_r_lt_050": float((r < 0.50).mean()),
+            "ratio_r_gt_075": float((r > 0.75).mean()),
+            "ratio_r_gt_090": float((r > 0.90).mean()),
+        })
+    if "graph_text_cosine" in accum:
+        result["mean_graph_text_cosine"] = float(np.mean(accum["graph_text_cosine"]))
+    for key, out_key in (("delta_norm", "mean_delta_norm"), ("H_norm", "mean_H_norm"),
+                         ("text_proj_norm", "mean_text_proj_norm"),
+                         ("node_text_norm", "mean_node_text_norm"),
+                         ("atom_gate_dispersion", "atom_gate_dispersion")):
+        if key in accum:
+            result[out_key] = float(np.mean(accum[key]))
+    for key, prefix in (("delta_norm", "delta_norm"), ("H_norm", "H_norm"),
+                        ("text_proj_norm", "text_proj_norm")):
+        if key in accum:
+            result["median_" + prefix] = float(np.median(accum[key]))
+            result["p90_" + prefix] = float(np.quantile(accum[key], 0.90))
+    return result
+
+
+def _extend_gpsr_node_moments(model, accum: dict) -> None:
+    stats = getattr(getattr(model, "injector", None), "last_node_stats", None)
+    if not stats:
+        return
+    for key, value in stats.items():
+        x = value.detach().double()
+        accum[key + "_n"] = accum.get(key + "_n", 0) + int(x.numel())
+        accum[key + "_sum"] = accum.get(key + "_sum", 0.0) + float(x.sum().cpu())
+        accum[key + "_sumsq"] = accum.get(key + "_sumsq", 0.0) + float(x.square().sum().cpu())
+
+
+def _summarize_gpsr_node_moments(accum: dict) -> dict:
+    result = {}
+    for key in ("cos_delta_h", "cos_h_hprime"):
+        n = accum.get(key + "_n", 0)
+        if n:
+            mean = accum[key + "_sum"] / n
+            var = max(0.0, accum[key + "_sumsq"] / n - mean * mean)
+            result["mean_" + key] = float(mean)
+            result["std_" + key] = float(var ** 0.5)
+    return result
+
+
+def _extend_gpsr_node_arrays(model, accum: dict) -> None:
+    stats = getattr(getattr(model, "injector", None), "last_node_stats", None)
+    if not stats:
+        return
+    for key, value in stats.items():
+        accum.setdefault(key, []).append(value.detach().cpu().numpy().reshape(-1))
+
+
+def _summarize_gpsr_node_arrays(accum: dict) -> dict:
+    result = {}
+    if accum.get("cos_delta_h"):
+        x = np.concatenate(accum["cos_delta_h"]).astype(float)
+        result.update({
+            "mean_cos_delta_h": float(x.mean()),
+            "median_cos_delta_h": float(np.median(x)),
+            "std_cos_delta_h": float(x.std()),
+            "ratio_cos_gt_05": float((x > 0.5).mean()),
+            "ratio_cos_abs_lt_02": float((np.abs(x) < 0.2).mean()),
+            "ratio_cos_lt_minus02": float((x < -0.2).mean()),
+        })
+    if accum.get("cos_h_hprime"):
+        x = np.concatenate(accum["cos_h_hprime"]).astype(float)
+        result.update({"mean_cos_h_hprime": float(x.mean()),
+                       "p10_cos_h_hprime": float(np.quantile(x, 0.10))})
+    return result
+
+
+def build_model(logger: logging.Logger = None):
+    """Construct the model selected by model_config.model_name."""
+    match model_config.model_name:
+        case "SFTGNN":
+            model = SFTGNN(num_layers=model_config.num_layers, in_dim=data_config.getAtomDim())
+        case "SFTGNNMultimodal":
+            backbone = SFTGNN(num_layers=model_config.num_layers, in_dim=data_config.getAtomDim())
+            model = SFTGNNMultimodal(
+                sftgnn=backbone,
+                crystal_dim=getattr(model_config, 'node_feature', 128),
+                latent_dim=getattr(model_config, 'latent_dim', 128),
+                text_in_dim=getattr(model_config, 'text_emb_dim', 768),
+                text_hidden_dim=getattr(model_config, 'text_hidden_dim', 256),
+                text_out_dim=getattr(model_config, 'text_out_dim', 64),
+                property_fusion=getattr(model_config, 'property_fusion', 'crystal_only'),
+            )
+        case "TextResidualSHFMat":
+            backbone = SFTGNN(num_layers=model_config.num_layers, in_dim=data_config.getAtomDim())
+            model = TextResidualSHFMat(
+                sftgnn=backbone,
+                graph_dim=getattr(model_config, 'node_feature', 128),
+                text_in_dim=getattr(model_config, 'text_emb_dim', 768),
+                text_hidden_dim=getattr(model_config, 'text_hidden_dim', 128),
+                residual_hidden_dim=getattr(model_config, 'text_residual_hidden_dim', 128),
+                alpha_init=getattr(model_config, 'text_residual_alpha_init', 0.03),
+                alpha_max=getattr(model_config, 'text_residual_alpha_max', 0.2),
+                dropout=getattr(model_config, 'text_residual_dropout', 0.1),
+            )
+        case name if name.startswith("GPSR"):
+            num_layers = model_config.num_layers
+            inject_after = resolve_injection_block(
+                getattr(model_config, 'gpsr_injection_after_block', 0)
+                or getattr(model_config, 'gpsr_injection_position', 'middle'),
+                num_layers,
+            )
+            model_config.gpsr_injection_after_block = inject_after
+            backbone = SFTGNN(num_layers=num_layers, in_dim=data_config.getAtomDim())
+            model = GPSRSFTGNN(
+                sftgnn=backbone,
+                node_dim=getattr(model_config, 'node_feature', 128),
+                text_dim=getattr(model_config, 'text_emb_dim', 768),
+                use_node_gate=getattr(model_config, 'gpsr_use_node_gate', True),
+                alpha_init=getattr(model_config, 'gpsr_alpha_init', 1e-3),
+                injection_after_block=inject_after,
+                dropout=getattr(model_config, 'gpsr_dropout', 0.0),
+                max_residual_ratio=getattr(model_config, 'gpsr_max_residual_ratio', float("inf")),
+                use_sample_gate=getattr(model_config, 'gpsr_use_sample_gate', False),
+                sample_gate_bias=getattr(model_config, 'gpsr_sample_gate_bias', 3.0),
+                name=model_config.model_name,
+            )
+            if logger is not None:
+                logger.info(
+                    f"GPSR setup: injection_after_block = {inject_after} "
+                    f"(of {num_layers} SFTConv blocks); node_dim = {getattr(model_config, 'node_feature', 128)}; "
+                    f"text_dim = {getattr(model_config, 'text_emb_dim', 768)}; "
+                    f"use_node_gate = {getattr(model_config, 'gpsr_use_node_gate', True)}; "
+                    f"alpha_init = {getattr(model_config, 'gpsr_alpha_init', 1e-3)}; "
+                    f"max_residual_ratio = {getattr(model_config, 'gpsr_max_residual_ratio', float('inf'))}"
+                    f"; use_sample_gate = {getattr(model_config, 'gpsr_use_sample_gate', False)}"
+                    f"; sample_gate_bias = {getattr(model_config, 'gpsr_sample_gate_bias', 3.0)}"
+                )
+        case _:
+            raise ValueError(f'Invalid model name: {model_config.model_name}')
+    return model
+
+
+def _extract_llm_type() -> str:
+    """
+    从 text_emb_path 的 .pt 文件名中提取大预言模型类型。
+    例如：
+        .../MatBert_embeddings.pt   -> MatBert
+        .../RoBERTa_embeddings.pt   -> RoBERTa
+        .../T5_embeddings.pt        -> T5
+        .../SciBERT_embeddings.pt   -> SciBERT
+    如果未指定 text_emb_path 或无法解析，返回空字符串。
+    """
+    emb_path = getattr(data_config, 'text_emb_path', '') or getattr(model_config, 'text_emb_path', '') or ''
+    if not emb_path:
+        return ''
+    pt_filename = osp.basename(emb_path)                  # 例如 "RoBERTa_embeddings.pt"
+    name_no_ext = osp.splitext(pt_filename)[0]             # 例如 "RoBERTa_embeddings"
+    # 去除常见后缀 "_embeddings" / "_Embeddings" 得到模型类型
+    for suffix in ('_embeddings', '_Embeddings', '_emb', '_Emb'):
+        if name_no_ext.endswith(suffix):
+            return name_no_ext[:-len(suffix)]
+    # 如果不符合约定格式，直接用去掉扩展名的文件名
+    return name_no_ext
+
+
+def create_run_dir() -> str:
+    """
+    为本次运行创建唯一的输出目录。
+    多模态时：Pic-log/{model}_{target}_{llm_type}_{YYYYMMDD_HHMMSS}/
+    非多模态：Pic-log/{model}_{target}_{YYYYMMDD_HHMMSS}/
+    """
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    llm_type = _extract_llm_type()
+    if llm_type:
+        run_name = f'{model_config.model_name}_{data_config.getTargetName()}_{llm_type}_{timestamp}'
+    else:
+        run_name = f'{model_config.model_name}_{data_config.getTargetName()}_{timestamp}'
+    run_dir = osp.join('Pic-log', run_name)
+    os.makedirs(run_dir, exist_ok=True)
+    return run_dir
+
+
+def getLogger(run_dir: str = None) -> logging.Logger:
+    """
+        Set up logger
+    :return:
+    """
+    logger = logging.getLogger(data_config.getTargetName())
+    logger.setLevel(logging.INFO)
+    # 清除旧 handlers，避免多次调用时重复
+    logger.handlers.clear()
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(formatter)
+    logger.addHandler(console_handler)
+    # 总日志（保持兼容）
+    log_root = r'./Pic-log'
+    if not osp.exists(log_root):
+        os.makedirs(log_root)
+    log_file = osp.join(log_root, f'{model_config.model_name}_{data_config.getTargetName()}.log')
+    file_handler = logging.FileHandler(filename=log_file, mode='a')
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
+    # 本次运行的日志
+    if run_dir:
+        run_log_file = osp.join(run_dir, 'run.log')
+        run_file_handler = logging.FileHandler(filename=run_log_file, mode='a')
+        run_file_handler.setFormatter(formatter)
+        logger.addHandler(run_file_handler)
+    return logger
+
+
+@total_ordering
+class ModelPara:
+    """
+        Save the model parameters, as well as the epoch and evaluation metrics at that time.
+        The .pth binary actually holds that object
+    """
+
+    def __init__(self, model_para, score: float, epoch: int):
+        self.model_para = model_para
+        self.score = score
+        self.epoch = epoch
+
+    def __lt__(self, other):
+        return self.score < other.score
+
+    def __eq__(self, other):
+        return self.score == other.score
+
+    def __repr__(self):
+        return f'model epoch: {self.epoch:0>3}, Valid MAE: {self.score:.8f}'
+
+
+class TopKModelSaver:
+    def __init__(self, model_para, k: int, early_stop: bool = False, patience: int = 15):
+        """
+            The best k models are saved during training
+        :param model_para: model.state_dict()
+        :param k:  The number of the best models saved
+        :param early_stop: Whether to use an early stop mechanism
+        :param patience: When the early stop mechanism is enabled, if the model evaluation indicators do not have better parameters after consecutive iterations, the early stop will be triggered and the training will be stopped
+        """
+        if k <= 0:
+            raise ValueError("k must be greater than 0")
+        self.k = k
+        self.top_k = [ModelPara(deepcopy(model_para), float('inf'), 0) for _ in range(k)]
+        self.early_stop = early_stop
+        self.patience = patience
+        self.counter = 0
+
+    def step(self, model, score: float, epoch: int):
+        """
+        called once per epoch
+        :param score: current validation metrics
+        :param model: current model
+        :param epoch: current epoch number for file naming
+        """
+        # update k optimal models
+        temp_para = ModelPara(deepcopy(model.state_dict()), score, epoch)
+        if temp_para < self.top_k[-1]:
+            self.top_k.append(temp_para)
+            self.top_k.sort()
+            self.top_k.pop()
+        else:
+            self.counter += 1
+
+    @property
+    def stop(self) -> bool:
+        if self.early_stop and self.counter >= self.patience:
+            return True
+        else:
+            return False
+
+    def state_dict(self) -> dict:
+        return self.__dict__
+
+    def load_state_dict(self, state_dict: dict):
+        for key, value in state_dict.items():
+            setattr(self, key, value)
+
+    def info(self) -> str:
+        s = f'The best {self.k}:\n'
+        for i in self.top_k:
+            s += str(i) + '\n'
+        return s.removesuffix('\n')
+
+
+class TrainConfigManager:
+    """
+        If the hyperparameter settings for each task are different during training, you can use this type to make special modifications,
+        __enter__ adjust the hyperparameters, __exit__ restore the adjusted hyperparameters to their default values
+    """
+
+    def __init__(self, target: Union[JarvisTarget, MPTarget, None]):
+        if target in [*JarvisTarget, *MPTarget, None]:
+            self.target = target
+        else:
+            raise ValueError(f"target needs to be an enum value of JarvisTarget or MPTarget, or None. target:{target}")
+
+    def __enter__(self):
+        if self.target in (JarvisTarget.Bandgap_MBJ, MPTarget.BulkModuli, MPTarget.ShearModuli):
+            model_config.num_epoch = 100
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if self.target in (JarvisTarget.Bandgap_MBJ, MPTarget.BulkModuli, MPTarget.ShearModuli):
+            model_config.num_epoch = 500
+
+
+def train(model, logger, train_loader, valid_loader, mean, std, model_saver: TopKModelSaver, run_dir: str = None):
+    begin_epoch = model_config.begin_epoch
+    num_epoch = model_config.num_epoch
+
+    train_dataset_len = len(train_loader)
+    valid_dataset_len = len(valid_loader)
+
+    loss = nn.L1Loss().cuda()
+    optimizer = torch.optim.AdamW(params=model.parameters(), lr=model_config.lr, weight_decay=model_config.weight_decay)
+    scheduler = torch.optim.lr_scheduler.OneCycleLR(optimizer, max_lr=model_config.max_lr, epochs=num_epoch,
+                                                    steps_per_epoch=len(train_loader), pct_start=0.3)
+
+    if begin_epoch != 0:
+        logger.info(f'Continue training from epoch:{begin_epoch}')
+        para_file_name = f'{model_config.model_name}_{data_config.getTargetName()}_epoch{begin_epoch}_para.pth'
+        model.load_state_dict(torch.load(osp.join('parameter', para_file_name)))
+        checkpoint = torch.load(osp.join('parameter', 'checkpoint.pt'))
+        model_saver.load_state_dict(checkpoint['model_saver'])
+        optimizer.load_state_dict(checkpoint['optimizer'])
+        scheduler.load_state_dict(checkpoint['scheduler'])
+
+    logger.info("Training...")
+
+    loss_train_trace = []
+    loss_valid_trace = []
+    train_metrics_rows = []  # 收集每个 epoch 的 train_loss, valid_loss, train_mae, valid_mae
+    gpsr_per_epoch = []      # GPSR: 每个 epoch 的 alpha/gate/delta/rho 统计
+    tensorboard_path = osp.join(run_dir, 'tensorboard') if run_dir else './Pic-log/tensorboard'
+    if not osp.exists(tensorboard_path):
+        os.makedirs(tensorboard_path)
+    writer = SummaryWriter(tensorboard_path)
+    start_time = time.time()
+    for epoch in range(begin_epoch, num_epoch):
+        train_mae = 0
+        loss_sum = 0
+        property_loss_sum = 0
+        residual_loss_sum = 0
+        model.train()
+        with tqdm(train_loader, leave=False, desc=f'epoch{epoch}:train') as pbar:
+            for batch in pbar:
+                batch = batch.cuda()
+                out = model(batch)
+                if isinstance(out, dict):
+                    property_pred = out['property_pred']
+                    property_loss = loss(property_pred, batch.y)
+                    result_loss = property_loss
+                    if model_config.model_name == 'TextResidualSHFMat':
+                        lambda_delta = getattr(model_config, 'text_residual_lambda_delta', 0.0)
+                        if lambda_delta:
+                            scaled_delta = out['alpha'] * out['delta_text']
+                            result_loss = result_loss + lambda_delta * torch.mean(scaled_delta ** 2)
+                    if model_config.model_name == 'SFTGNNMultimodal' and getattr(model_config, 'use_contrastive', False) and 'embeddings' in out:
+                        emb_text = out['embeddings']['text']
+                        emb_crystal = out['embeddings']['crystal']
+                        result_loss = result_loss + getattr(model_config, 'contrastive_loss_weight', 0.1) * infonce_loss(
+                            emb_text, emb_crystal, getattr(model_config, 'contrastive_temperature', 0.07)
+                        )
+                else:
+                    property_pred = out
+                    property_loss = loss(property_pred, batch.y)
+                    result_loss = property_loss
+                residual_loss = torch.zeros((), device=property_pred.device)
+                lambda_res = getattr(model_config, 'gpsr_lambda_res', 0.0)
+                if is_gpsr_model() and lambda_res > 0:
+                    rho = out['gpsr_rho']
+                    target = getattr(model_config, 'gpsr_rho_target', 0.10)
+                    residual_loss = torch.relu(rho - target).square().mean()
+                    result_loss = result_loss + lambda_res * residual_loss
+                property_loss_sum += property_loss.detach()
+                residual_loss_sum += residual_loss.detach()
+                loss_sum += result_loss.detach()
+                train_mae += torch.absolute(property_pred - batch.y).mean()
+                optimizer.zero_grad()
+                result_loss.backward()
+                optimizer.step()
+                scheduler.step()
+
+        train_mae = (train_mae.item() / train_dataset_len) * std
+        train_property_loss = property_loss_sum.item() / len(train_loader)
+        train_residual_loss = residual_loss_sum.item() / len(train_loader)
+        train_total_loss = loss_sum.item() / len(train_loader)
+        loss_train_trace.append(train_total_loss)
+
+        valid_mae = 0
+        loss_sum = 0
+        model.eval()
+        gpsr_accum = {}
+        gpsr_sample_accum = {}
+        gpsr_node_moments = {}
+        with torch.no_grad():
+            with tqdm(valid_loader, leave=False, desc=f'epoch{epoch}:valid') as pbar:
+                for batch in pbar:
+                    batch = batch.cuda()
+                    out = model(batch)
+                    property_pred = out['property_pred'] if isinstance(out, dict) else out
+                    result_loss = loss(property_pred, batch.y)
+                    loss_sum += result_loss
+                    valid_mae += torch.absolute(property_pred - batch.y).mean()
+                    if isinstance(out, dict) and 'gpsr_stats' in out:
+                        for k, v in out['gpsr_stats'].items():
+                            gpsr_accum.setdefault(k, []).append(float(v))
+                        _extend_gpsr_samples(model, gpsr_sample_accum)
+                        _extend_gpsr_node_moments(model, gpsr_node_moments)
+
+        valid_mae = (valid_mae.item() / valid_dataset_len) * std
+        loss_valid_trace.append(loss_sum.item() / len(valid_loader))
+        train_loss = loss_train_trace[-1]
+        valid_loss = loss_valid_trace[-1]
+        gpsr_epoch = {}
+        if gpsr_accum:
+            gpsr_epoch = {k: sum(v) / len(v) for k, v in gpsr_accum.items() if k != 'num_nodes' and k != 'num_graphs'}
+            gpsr_epoch['num_nodes'] = int(sum(gpsr_accum['num_nodes']) / len(gpsr_accum['num_nodes']))
+            gpsr_epoch['num_graphs'] = int(sum(gpsr_accum['num_graphs']))
+            gpsr_epoch.update(_summarize_gpsr_samples(gpsr_sample_accum))
+            gpsr_epoch.update(_summarize_gpsr_node_moments(gpsr_node_moments))
+        row = {
+            'epoch': epoch,
+            'train_loss': train_loss,
+            'train_property_loss': train_property_loss,
+            'train_residual_loss': train_residual_loss,
+            'train_total_loss': train_total_loss,
+            'valid_loss': valid_loss,
+            'train_mae': train_mae,
+            'valid_mae': valid_mae,
+        }
+        if gpsr_epoch:
+            row.update({f'gpsr_{k}': v for k, v in gpsr_epoch.items()})
+        train_metrics_rows.append(row)
+        gpsr_per_epoch.append({'epoch': epoch, 'valid_mae': valid_mae, **gpsr_epoch})
+        writer.add_scalar('MAE/train', train_mae, epoch)
+        writer.add_scalar('MAE/valid', valid_mae, epoch)
+        if gpsr_epoch:
+            writer.add_scalar('GPSR/rho', gpsr_epoch['rho'], epoch)
+            writer.add_scalar('GPSR/mean_abs_delta', gpsr_epoch['mean_abs_delta'], epoch)
+            writer.add_scalar('GPSR/mean_gate', gpsr_epoch['mean_gate'], epoch)
+            writer.add_scalar('GPSR/alpha_abs_mean', gpsr_epoch['alpha_abs_mean'], epoch)
+            writer.add_scalar('GPSR/rho_raw_mean', gpsr_epoch['mean_rho_raw'], epoch)
+            writer.add_scalar('GPSR/rho_final_mean', gpsr_epoch['mean_rho_final'], epoch)
+            writer.add_scalar('GPSR/clipped_sample_ratio', gpsr_epoch['clipped_sample_ratio'], epoch)
+            if 'mean_r' in gpsr_epoch:
+                writer.add_scalar('GPSR/sample_gate_mean', gpsr_epoch['mean_r'], epoch)
+                writer.add_scalar('GPSR/sample_gate_std', gpsr_epoch['std_r'], epoch)
+        log_str = (
+            f'epoch:{epoch:0>3}; train:mae:{train_mae:.8f};'
+            f'valid:mae:{valid_mae:.8f};'
+        )
+        logger.info(log_str)
+        if getattr(model_config, 'gpsr_lambda_res', 0.0) > 0:
+            logger.info(
+                f"soft_loss_epoch:{epoch:0>3}; property={train_property_loss:.8e}; "
+                f"residual={train_residual_loss:.8e}; total={train_total_loss:.8e}; "
+                f"lambda={model_config.gpsr_lambda_res:g}"
+            )
+        if gpsr_epoch:
+            logger.info(
+                'gpsr_epoch:{epoch:0>3}; raw(mean/median/max)={mean_rho_raw:.6f}/{median_rho_raw:.6f}/{max_rho_raw:.6f}; '
+                'final(mean/median/max)={mean_rho_final:.6f}/{median_rho_final:.6f}/{max_rho_final:.6f}; '
+                'clipped={clipped_sample_ratio:.6f}; mean_scale={mean_scale:.6f}; '
+                '|delta_raw|={mean_abs_delta_raw:.6e}; |delta_final|={mean_abs_delta_final:.6e}; '
+                '|H|={mean_abs_H:.6e}; gate={mean_gate:.6f}; alpha_absmean={alpha_abs_mean:.6e}'.format(
+                    epoch=epoch, **gpsr_epoch)
+            )
+            if 'mean_r' in gpsr_epoch:
+                logger.info(
+                    'sample_gate_epoch:{epoch:0>3}; mean={mean_r:.6f}; median={median_r:.6f}; '
+                    'std={std_r:.6f}; p10={p10_r:.6f}; p90={p90_r:.6f}; '
+                    'lt050={ratio_r_lt_050:.6f}; gt075={ratio_r_gt_075:.6f}'.format(
+                        epoch=epoch, **gpsr_epoch)
+                )
+        elif is_gpsr_model():
+            logger.info('gpsr_epoch:{epoch:0>3}; {alpha}'.format(epoch=epoch, alpha=model.injector.alpha_repr()))
+        model_saver.step(model, valid_mae, epoch)
+        if model_saver.stop and num_epoch - epoch < 50:
+            logger.info("Early stopping!")
+            break
+
+        try:
+            if (epoch + 1) % 50 == 0:
+                if not osp.exists('parameter'):
+                    os.mkdir('parameter')
+                para_file_name = f'{model_config.model_name}_{data_config.getTargetName()}_epoch{epoch + 1}_para.pth'
+                torch.save(model.state_dict(), osp.join('parameter', para_file_name))
+                checkpoint = {
+                    'model_saver': model_saver.state_dict(),
+                    'optimizer': optimizer.state_dict(),
+                    'scheduler': scheduler.state_dict(),
+                }
+                torch.save(checkpoint, osp.join('parameter', 'checkpoint.pt'))
+
+        except Exception:
+            logger.error('Checkpoint save failed!')
+        # end each epoch
+
+    writer.close()
+    end_time = time.time()
+    logger.info(f'Train time:{(end_time - start_time):.3f}s')
+    logger.info('\n' + model_saver.info())
+    if is_gpsr_model() and gpsr_per_epoch:
+        best_epoch = int(model_saver.top_k[0].epoch)
+        best_row = None
+        for r in gpsr_per_epoch:
+            if r['epoch'] == best_epoch:
+                best_row = r
+        if best_row is not None:
+            logger.info(
+                'GpsrBestEpoch(validation-selected); epoch={epoch}; valid_mae={valid_mae:.8f}; '
+                'raw(mean/median/max)={mean_rho_raw:.6f}/{median_rho_raw:.6f}/{max_rho_raw:.6f}; '
+                'final(mean/median/max)={mean_rho_final:.6f}/{median_rho_final:.6f}/{max_rho_final:.6f}; '
+                'clipped={clipped_sample_ratio:.6f}; |delta_raw|={mean_abs_delta_raw:.6e}; '
+                '|delta_final|={mean_abs_delta_final:.6e}; |H|={mean_abs_H:.6e}; '
+                'gate={mean_gate:.6f}; alpha_absmean={alpha_abs_mean:.6e}'.format(**best_row)
+            )
+        with open(osp.join(run_dir, 'gpsr_epoch_stats.json'), 'w', encoding='utf-8') as handle:
+            json.dump({'best_epoch': best_epoch, 'epochs': gpsr_per_epoch}, handle, indent=2)
+    # 保存训练曲线到 CSV
+    if train_metrics_rows:
+        csv_dir = run_dir if run_dir else osp.join('Pic-log', 'train_curves')
+        os.makedirs(csv_dir, exist_ok=True)
+        csv_name = f'{model_config.model_name}_{data_config.getTargetName()}_train_metrics.csv'
+        csv_path = osp.join(csv_dir, csv_name)
+        df = pd.DataFrame(train_metrics_rows)
+        df.to_csv(csv_path, index=False, encoding='utf-8')
+        logger.info(f"Train metrics (train_loss, valid_loss, train_mae, valid_mae) saved to {csv_path}")
+    return model_saver
+
+
+def test(model, logger, test_loader, mean, std, model_saver: Optional[TopKModelSaver] = None, run_dir: str = None):
+    test_mae_list = []
+    all_results = []  # [(targets, predictions, emb_crystal, emb_text, graph_predictions, delta_texts, alphas), ...]
+    model.eval()
+    para_file_name = f'{model_config.model_name}_{data_config.getTargetName()}_para.pth'
+    para_file_path = osp.join('parameter', para_file_name)
+    logger.info("Testing...")
+    collect_embeddings = model_config.model_name in ('SFTGNNMultimodal', 'TextResidualSHFMat')
+    best_gpsr_samples = {}
+    best_gpsr_summary = {}
+    with torch.no_grad():
+        if model_saver:
+            # The test set is evaluated exactly once from the checkpoint with
+            # minimum validation MAE. Later validation-ranked candidates are
+            # never screened on test data.
+            model_paras = model_saver.top_k[:1]
+        else:
+            logger.info("Test with a pre-trained model")
+            model_paras = []
+            if osp.exists(para_file_path):
+                pretrain_para = torch.load(para_file_path)
+                model_paras.append(pretrain_para)
+            else:
+                raise RuntimeError(
+                    f"Tested with a pre-trained model, but no relevant files were found {para_file_path}")
+
+        for model_para in model_paras:
+            targets = []
+            predictions = []
+            graph_predictions = []
+            delta_texts = []
+            alphas = []
+            emb_crystal_list = []
+            emb_text_list = []
+            gpsr_test_samples = {}
+            gpsr_test_scalar = {}
+            gpsr_test_node_moments = {}
+            gpsr_test_node_arrays = {}
+            gpsr_test_ids = []
+            state = model_para if isinstance(model_para, dict) else getattr(model_para, 'model_para', model_para)
+            model.load_state_dict(state)
+            start_time = time.time()
+            with tqdm(test_loader, leave=False, desc=f'test') as pbar:
+                for batch in pbar:
+                    batch = batch.cuda()
+                    out = model(batch)
+                    pred = out['property_pred'] if isinstance(out, dict) else out
+                    pred = pred.squeeze()
+                    origin_target = (batch.y.cpu().numpy().flatten() * std + mean).tolist()
+                    origin_pred = (pred.cpu().numpy().flatten() * std + mean).tolist()
+                    targets.extend(origin_target)
+                    predictions.extend(origin_pred)
+                    if isinstance(out, dict) and 'pred_graph' in out:
+                        graph_pred = out['pred_graph'].squeeze()
+                        origin_graph_pred = (graph_pred.cpu().numpy().flatten() * std + mean).tolist()
+                        graph_predictions.extend(origin_graph_pred)
+                    if isinstance(out, dict) and 'delta_text' in out:
+                        delta = out['delta_text'].squeeze().cpu().numpy().flatten().tolist()
+                        delta_texts.extend(delta)
+                    if isinstance(out, dict) and 'alpha' in out:
+                        alpha_value = float(out['alpha'].detach().cpu().item())
+                        alphas.extend([alpha_value] * len(origin_pred))
+                    if isinstance(out, dict) and 'gpsr_stats' in out:
+                        for k, v in out["gpsr_stats"].items():
+                            gpsr_test_scalar.setdefault(k, []).append(float(v))
+                        _extend_gpsr_samples(model, gpsr_test_samples)
+                        _extend_gpsr_node_moments(model, gpsr_test_node_moments)
+                        _extend_gpsr_node_arrays(model, gpsr_test_node_arrays)
+                        gpsr_test_scalar.setdefault("mean_property_loss", []).append(
+                            float(torch.abs(out["property_pred"] - batch.y).mean().item()))
+                        target = getattr(model_config, "gpsr_rho_target", 0.10)
+                        gpsr_test_scalar.setdefault("mean_residual_loss", []).append(
+                            float(torch.relu(out["gpsr_rho"] - target).square().mean().item()))
+                        cid = getattr(batch, "cid", None)
+                        if cid is None:
+                            gpsr_test_ids.extend([str(len(gpsr_test_ids) + i) for i in range(int(batch.num_graphs))])
+                        else:
+                            gpsr_test_ids.extend([str(x) for x in cid])
+                    if collect_embeddings and isinstance(out, dict) and 'embeddings' in out:
+                        emb_crystal_list.append(out['embeddings']['crystal'].cpu().numpy())
+                        emb_text_list.append(out['embeddings']['text'].cpu().numpy())
+            end_time = time.time()
+            test_mae = np.abs(np.array(targets) - np.array(predictions)).mean()
+            test_mae_list.append(test_mae)
+            if gpsr_test_samples:
+                best_gpsr_samples = {"sample_id": gpsr_test_ids, **gpsr_test_samples}
+                best_gpsr_summary = {
+                    k: float(np.mean(v)) for k, v in gpsr_test_scalar.items()
+                    if k not in ("num_nodes", "num_graphs")
+                }
+                best_gpsr_summary["num_nodes"] = int(sum(gpsr_test_scalar.get("num_nodes", [])))
+                best_gpsr_summary["num_graphs"] = int(sum(gpsr_test_scalar.get("num_graphs", [])))
+                best_gpsr_summary.update(_summarize_gpsr_samples(gpsr_test_samples))
+                best_gpsr_summary.update(_summarize_gpsr_node_moments(gpsr_test_node_moments))
+                best_gpsr_summary.update(_summarize_gpsr_node_arrays(gpsr_test_node_arrays))
+            emb_crystal = np.vstack(emb_crystal_list) if emb_crystal_list else None
+            emb_text = np.vstack(emb_text_list) if emb_text_list else None
+            all_results.append((targets, predictions, emb_crystal, emb_text, graph_predictions, delta_texts, alphas))
+            log_str = (
+                f"Test time:{(end_time - start_time):.3f}s, "
+                + (str(model_para) if model_saver else "Pre-trained models")
+                + f', Test MAE:{test_mae:.8f};'
+            )
+            logger.info(log_str)
+
+    logger.info('\n' + data_config.info())
+    logger.info('\n' + model_config.info())
+    if model_saver:
+        logger.info(model_config.message)
+        best_mae_index = 0
+        best_mae_value = test_mae_list[0]
+        logger.info(f"Validation-selected Test MAE:{best_mae_value}\n")
+        try:
+            if not (osp.exists('parameter')):
+                os.mkdir('parameter')
+            selected = model_saver.top_k[0]
+            torch.save(selected, para_file_path)
+            top1_name = (
+                f'{model_config.model_name}_{data_config.getTargetName()}'
+                f'_top1_epoch{int(selected.epoch):03d}'
+                f'_valid{float(selected.score):.6f}'
+                f'_test{float(best_mae_value):.6f}_para.pth'
+            )
+            torch.save(selected, osp.join('parameter', top1_name))
+        except Exception:
+            logger.error('The best model save failed!')
+        best_targets, best_predictions = all_results[best_mae_index][0], all_results[best_mae_index][1]
+        best_emb_crystal = all_results[best_mae_index][2]
+        best_emb_text = all_results[best_mae_index][3]
+        best_graph_predictions = all_results[best_mae_index][4]
+        best_delta_texts = all_results[best_mae_index][5]
+        best_alphas = all_results[best_mae_index][6]
+    else:
+        best_targets, best_predictions = all_results[0][0], all_results[0][1]
+        best_emb_crystal = all_results[0][2]
+        best_emb_text = all_results[0][3]
+        best_graph_predictions = all_results[0][4]
+        best_delta_texts = all_results[0][5]
+        best_alphas = all_results[0][6]
+
+    if best_gpsr_samples and run_dir:
+        pd.DataFrame(best_gpsr_samples).to_csv(
+            osp.join(run_dir, "gpsr_test_sample_stats.csv"), index=False, encoding="utf-8"
+        )
+        with open(osp.join(run_dir, "gpsr_test_stats.json"), "w", encoding="utf-8") as handle:
+            json.dump(best_gpsr_summary, handle, indent=2)
+        logger.info(
+            "GPSR test diagnostics: raw(mean/median/max)="
+            f"{best_gpsr_summary['mean_rho_raw']:.6f}/"
+            f"{best_gpsr_summary['median_rho_raw']:.6f}/"
+            f"{best_gpsr_summary['max_rho_raw']:.6f}; final(mean/median/max)="
+            f"{best_gpsr_summary['mean_rho_final']:.6f}/"
+            f"{best_gpsr_summary['median_rho_final']:.6f}/"
+            f"{best_gpsr_summary['max_rho_final']:.6f}; "
+            f"clipped={best_gpsr_summary['clipped_sample_ratio']:.6f}"
+        )
+
+    # 保存测试集预测和真值到 CSV（含残差，可直接用于残差直方图/箱线图）
+    csv_dir = run_dir if run_dir else osp.join('Pic-log', 'test_results')
+    if not osp.exists(csv_dir):
+        os.makedirs(csv_dir)
+    y_true_arr = np.array(best_targets)
+    y_pred_arr = np.array(best_predictions)
+    residual_arr = y_pred_arr - y_true_arr
+    abs_error_arr = np.abs(residual_arr)
+    ss_tot = ((y_true_arr - y_true_arr.mean()) ** 2).sum()
+    csv_name = f'{model_config.model_name}_{data_config.getTargetName()}_test_pred_true.csv'
+    csv_path = osp.join(csv_dir, csv_name)
+    df_data = {
+        'index': range(len(best_targets)),
+        'y_true': best_targets,
+        'y_pred': best_predictions,
+        'residual': residual_arr,
+        'abs_error': abs_error_arr,
+    }
+    graph_mae = graph_rmse = graph_r2 = float('nan')
+    if best_graph_predictions:
+        y_graph_arr = np.array(best_graph_predictions)
+        graph_residual_arr = y_graph_arr - y_true_arr
+        graph_abs_error_arr = np.abs(graph_residual_arr)
+        graph_mae = graph_abs_error_arr.mean()
+        graph_rmse = np.sqrt((graph_residual_arr ** 2).mean())
+        graph_r2 = 1 - (graph_residual_arr ** 2).sum() / ss_tot if ss_tot != 0 else float('nan')
+        df_data.update({
+            'y_graph': y_graph_arr,
+            'graph_residual': graph_residual_arr,
+            'graph_abs_error': graph_abs_error_arr,
+            'text_residual': y_pred_arr - y_graph_arr,
+        })
+    if best_delta_texts:
+        df_data['delta_text_norm'] = np.array(best_delta_texts)
+    if best_alphas:
+        df_data['alpha'] = np.array(best_alphas)
+    df = pd.DataFrame(df_data)
+    df.to_csv(csv_path, index=False, encoding='utf-8')
+    logger.info(f"Test predictions and ground truth saved to {csv_path}")
+
+    # 计算并保存测试集汇总指标：MAE、RMSE、R²
+    test_mae_final = abs_error_arr.mean()
+    test_rmse = np.sqrt((residual_arr ** 2).mean())
+    ss_res = (residual_arr ** 2).sum()
+    test_r2 = 1 - ss_res / ss_tot if ss_tot != 0 else float('nan')
+    logger.info(f"Test MAE: {test_mae_final:.8f}, RMSE: {test_rmse:.8f}, R²: {test_r2:.8f}")
+    if best_graph_predictions:
+        logger.info(f"Graph-only Test MAE: {graph_mae:.8f}, RMSE: {graph_rmse:.8f}, R²: {graph_r2:.8f}")
+
+    metrics_name = f'{model_config.model_name}_{data_config.getTargetName()}_test_metrics.csv'
+    metrics_dir = run_dir if run_dir else csv_dir
+    metrics_path = osp.join(metrics_dir, metrics_name)
+    df_metrics = pd.DataFrame([{
+        'model': model_config.model_name,
+        'target': data_config.getTargetName(),
+        'MAE': test_mae_final,
+        'RMSE': test_rmse,
+        'R2': test_r2,
+        'graph_MAE': graph_mae,
+        'graph_RMSE': graph_rmse,
+        'graph_R2': graph_r2,
+        'alpha': float(np.mean(best_alphas)) if best_alphas else float('nan'),
+        'num_samples': len(best_targets),
+    }])
+    df_metrics.to_csv(metrics_path, index=False, encoding='utf-8')
+    logger.info(f"Test metrics (MAE, RMSE, R²) saved to {metrics_path}")
+
+    # 多模态时保存 crystal/text/multimodal embedding 供 t-SNE 使用
+    if collect_embeddings and best_emb_crystal is not None and best_emb_text is not None:
+        emb_dir = osp.join(run_dir, 'embeddings') if run_dir else osp.join('Pic-log', 'test_results', 'embeddings')
+        if not osp.exists(emb_dir):
+            os.makedirs(emb_dir)
+        emb_prefix = f'{model_config.model_name}_{data_config.getTargetName()}_test'
+        emb_multimodal = np.concatenate([best_emb_crystal, best_emb_text], axis=1)
+        np.savez(
+            osp.join(emb_dir, f'{emb_prefix}_embeddings.npz'),
+            crystal_embedding=best_emb_crystal,
+            text_embedding=best_emb_text,
+            multimodal_embedding=emb_multimodal,
+        )
+        logger.info(f"Embeddings (crystal, text, multimodal) saved to {emb_dir}/{emb_prefix}_embeddings.npz for t-SNE")
+
+
+def _element_reference_table(device):
+    """CGCNN 原子特征表 + 元素符号，用于把 node feature 还原成元素（诊断打印用）。"""
+    from jarvis.core.specie import get_node_attributes
+
+    with open(osp.join('data', 'elements.json'), 'rt') as handle:
+        element_dict = json.load(handle)
+    features = torch.zeros((1 + 94, 92), dtype=torch.float32)
+    symbols = ['X'] * (1 + 94)
+    for z, symbol in element_dict.items():
+        features[int(z)] = torch.tensor(get_node_attributes(symbol, 'cgcnn'), dtype=torch.float32)
+        symbols[int(z)] = symbol
+    return features.to(device), symbols
+
+
+def gpsr_node_diagnostic(model, valid_loader, logger, run_dir: str, num_batches: int = 2, num_atoms: int = 8):
+    """
+    GPSR 诊断：确认 gate / residual 真的与 atom 有关，而不是所有原子相同。
+
+    打印一个验证集中若干晶体的前若干原子的 element / node index / mean_gate / mean_abs_delta。
+    """
+    model.eval()
+    device = next(model.parameters()).device
+    features, symbols = _element_reference_table(device)
+    records = []
+    with torch.no_grad():
+        for b_idx, batch in enumerate(valid_loader):
+            if b_idx >= num_batches:
+                break
+            batch = batch.cuda()
+            model(batch)
+            gate = model.injector.last_gate
+            delta = model.injector.last_delta
+            node_feat = model.injector.last_node_feat
+            batch_index = model.injector.last_batch_index
+            if delta is None:
+                continue
+            node_gate_mean = gate.mean(-1) if gate is not None else torch.ones(delta.size(0), device=device)
+            node_delta_abs = delta.abs().mean(-1)
+            # 元素还原用图输入特征（92 维 CGCNN one-hot），而不是 128 维隐藏表示
+            dist = torch.cdist(batch.x.float(), features)
+            z = dist.argmin(-1)
+            n_unique_gate_rows = int(torch.unique(gate, dim=0).size(0)) if gate is not None else 1
+
+            logger.info(
+                f'GPSR node diagnostic | batch={b_idx} | graphs={int(batch_index.max()) + 1} | '
+                f'nodes={int(node_feat.size(0))} | node_dim={int(delta.size(-1))} | '
+                f'unique_gate_rows={n_unique_gate_rows}/{int(delta.size(0))}'
+            )
+            for g in range(min(int(batch_index.max()) + 1, 2)):
+                mask = batch_index == g
+                idx = torch.nonzero(mask, as_tuple=False).flatten()
+                if idx.numel() == 0:
+                    continue
+                take = idx[:num_atoms]
+                cid = getattr(batch, 'cid', None)
+                cid_val = cid[g] if cid is not None and len(cid) > g else '?'
+                logger.info(f'  crystal g={g} cid={cid_val} atoms={int(mask.sum())}')
+                for local_j, node_i in enumerate(take.tolist()):
+                    zz = int(z[node_i].item())
+                    records.append({
+                        'batch': b_idx,
+                        'graph': g,
+                        'cid': str(cid_val),
+                        'local_atom': local_j,
+                        'node_index': node_i,
+                        'atomic_number': zz,
+                        'element': symbols[zz],
+                        'mean_gate': float(node_gate_mean[node_i].item()),
+                        'mean_abs_delta': float(node_delta_abs[node_i].item()),
+                    })
+                    logger.info(
+                        f'    atom {local_j:>2} (node {node_i:>5}, z={zz:>2} {symbols[zz]:>2}): '
+                        f'mean_gate={node_gate_mean[node_i].item():.6f} '
+                        f'mean_abs_delta={node_delta_abs[node_i].item():.6e}'
+                    )
+                if gate is not None and int(mask.sum()) > 1:
+                    gm = node_gate_mean[mask]
+                    logger.info(
+                        f'    across-atom gate: mean={gm.mean().item():.6f} std={gm.std().item():.6e} '
+                        f'min={gm.min().item():.6f} max={gm.max().item():.6f}'
+                    )
+            if gate is not None:
+                is_node_specific = n_unique_gate_rows > 1
+                logger.info(
+                    f'GPSR node-specificity check: unique_gate_rows={n_unique_gate_rows} '
+                    f'-> {"PASS (gate varies across atoms)" if is_node_specific else "FAIL (all atoms share the same gate)"}'
+                )
+    if records:
+        df_diag = pd.DataFrame(records)
+        diag_path = osp.join(run_dir, 'gpsr_node_diagnostic.csv')
+        df_diag.to_csv(diag_path, index=False, encoding='utf-8')
+        logger.info(f'GPSR node diagnostic table saved to {diag_path}')
+
+
+def train_and_test():
+    random.seed(model_config.random_seed)
+    np.random.seed(model_config.random_seed)
+    torch.manual_seed(model_config.random_seed)
+    torch.cuda.manual_seed(model_config.random_seed)
+    torch.cuda.manual_seed_all(model_config.random_seed)
+    torch.backends.cudnn.benchmark = False
+    torch.backends.cudnn.deterministic = True
+
+    is_multimodal = model_config.model_name in ('SFTGNNMultimodal', 'TextResidualSHFMat') or is_gpsr_model()
+    if is_multimodal:
+        data_config.use_multimodal = True
+        t = getattr(model_config, 'text_emb_path', '')
+        if t:
+            data_config.text_emb_path = t
+
+    model = build_model(logging.getLogger('bootstrap'))
+    model.cuda()
+    run_dir = create_run_dir()
+    logger = getLogger(run_dir)
+    logger.info(f"Run output directory: {run_dir}")
+    if is_gpsr_model():
+        logger.info(
+            f"GPSR setup: injection_after_block = {model_config.gpsr_injection_after_block} "
+            f"(of {model_config.num_layers} SFTConv blocks); node_dim = {model_config.node_feature}; "
+            f"text_dim = {model_config.text_emb_dim}; use_node_gate = {model_config.gpsr_use_node_gate}; "
+            f"alpha_init = {model_config.gpsr_alpha_init}; "
+            f"max_residual_ratio = {model_config.gpsr_max_residual_ratio}"
+        )
+    train_loader, valid_loader, test_loader, mean, std = get_dataloader()
+    model_saver = TopKModelSaver(model.state_dict(), k=5)
+
+    train(model, logger, train_loader, valid_loader, mean, std, model_saver, run_dir)
+    if is_gpsr_model():
+        gpsr_node_diagnostic(model, valid_loader, logger, run_dir)
+    test(model, logger, test_loader, mean, std, model_saver, run_dir)
+
+
+def test_with_pretrained_model():
+    is_multimodal = model_config.model_name in ('SFTGNNMultimodal', 'TextResidualSHFMat') or is_gpsr_model()
+    if is_multimodal:
+        data_config.use_multimodal = True
+        t = getattr(model_config, 'text_emb_path', '')
+        if t:
+            data_config.text_emb_path = t
+
+    model = build_model()
+    model.cuda()
+    run_dir = create_run_dir()
+    logger = getLogger(run_dir)
+    logger.info(f"Run output directory: {run_dir}")
+    train_loader, valid_loader, test_loader, mean, std = get_dataloader()
+    test(model, logger, test_loader, mean, std, model_saver=None, run_dir=run_dir)
+
+
+if __name__ == '__main__':
+    # If you don't want to set up training configurations using command-line parameters, you can set up custom configurations here. However, this will work for all training.
+    # If you want to use different training configurations for each task, you can use TrainConfigManager
+    # data_config.batch_size = 32
+    # data_config.atom_features = AtomFeatureType.CGCNN
+    # model_config.message = "SFTGNN Standard Model"
+    # model_config.lr = 1e-3
+    # model_config.max_lr = 1e-3
+    # model_config.begin_epoch = 0
+    # model_config.num_epoch = 500
+
+    # You can add the tasks you want to train within targets
+    # targets = [*JarvisTarget, *MPTarget]  #All tasks for training both datasets
+    # targets = [*JarvisTarget] #All tasks to train the Jarvis dataset
+    # targets = [*MPTarget] #All tasks to train the MP dataset
+    targets = [MPTarget.BulkModuli]
+    for t in targets:
+        data_config.target = t
+        with TrainConfigManager(t):
+            train_and_test()
+            # If you just want to test with a pre-trained model, you can replace it with a function like this
+            # test_with_pretrained_model()
